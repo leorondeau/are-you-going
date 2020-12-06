@@ -1,4 +1,4 @@
-# are-you-going-going
+# are-you-going
 
 Initial idea, will revise after one on one.
 
