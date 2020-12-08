@@ -5,19 +5,19 @@ export const UserContext = React.createContext()
 export const UserProvider = (props) => {
     const [users , setUsers] = useState([])
 
-    const getUsers = () => {
+    const getUser = () => {
         return fetch("http://localhost:8088/users")
         .then(res => res.json())
         .then(setUsers)
     }
 
-    const addUser = User => {
+    const addUser = user => {
         return fetch("http://localhost:8088/users", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json"
             },
-            body: JSON.stringify(User)
+            body: JSON.stringify(user)
             })
             .then(getUsers)
     }
@@ -32,7 +32,7 @@ export const UserProvider = (props) => {
 
     return (
         <UserContext.Provider value = {{
-            Users , addUser , getUsers , releaseUser
+            users , addUser , getUsers , deleteUser
         }}>
             {props.children}
         </UserContext.Provider>
