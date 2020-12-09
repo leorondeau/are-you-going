@@ -11,13 +11,13 @@ export const UserProvider = (props) => {
         .then(setUsers)
     }
 
-    const addUser = User => {
+    const addUser = user => {
         return fetch("http://localhost:8088/users", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json"
             },
-            body: JSON.stringify(User)
+            body: JSON.stringify(user)
             })
             .then(getUsers)
     }
@@ -32,7 +32,7 @@ export const UserProvider = (props) => {
 
     return (
         <UserContext.Provider value = {{
-            Users , addUser , getUsers , releaseUser
+            users , addUser , getUser , deleteUser
         }}>
             {props.children}
         </UserContext.Provider>
