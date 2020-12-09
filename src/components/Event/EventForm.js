@@ -1,5 +1,9 @@
 import React, { useContext, useState, useEffect } from "react"
 import { EventContext } from "./EventProvider"
+import DatePicker from 'react-date-picker'
+// import 'react-date-picker/dist/react-date-picker.css'
+import 'bootstrap/dist/css/bootstrap.min.css'
+
 
 // import { UserContext } from "../user/UserProvider"
 
@@ -7,22 +11,24 @@ export const EventForm = (props) => {
     // Use the required context providers for data
     // const { users, getUsers } = useContext(UserContext)
     const { addEvent, events, updateEvent, getEvents } = useContext(EventContext)
-    
+    // const [value, onChange] = useState(new Date())
+
     // Component state
     const [event, setEvent] = useState({})
 
     // Is there a a URL parameter??
     const editMode = props.match.params.hasOwnProperty("eventId")
-    
+
     // Has to be defined in the component
-    const handleControlledInputChange = (event) => {
+    const handleControlledInputChange = (e) => {
         /*
         When changing a state object or array, always create a new one
         and change state instead of modifying current one
         */
-       // Adding key value pairs to the object through each from input
+        // Adding key value pairs to the object through each from input
+        //    Without this only the last key value pair entered will send
         const newEvent = Object.assign({}, event)
-        newEvent[event.target.name] = event.target.value
+        newEvent[e.target.name] = e.target.value
         setEvent(newEvent)
     }
 
@@ -59,8 +65,9 @@ export const EventForm = (props) => {
         const userId = parseInt(localStorage.getItem("ayg__id"))
         const name = event.name
         const location = event.location
-   
-        if (location === "" ) {
+
+
+        if (location === "") {
             window.alert("Please select a location")
         } else {
             if (editMode) {
@@ -69,7 +76,7 @@ export const EventForm = (props) => {
                     name,
                     location,
                     // date: event.date,
-                    // details: event.details,
+                    details: event.details,
                     // time: event.time,
                     userId
                 })
@@ -79,7 +86,7 @@ export const EventForm = (props) => {
                     name,
                     location,
                     // date: event.date,
-                    // details: event.details,
+                    details: event.details,
                     // time: event.time,
                     userId
                 })
@@ -90,37 +97,64 @@ export const EventForm = (props) => {
 
     return (
         <form className="">
+            {/* If editmode true Update Event else Submit Event */}
             <h2 className="eventForm__title">{editMode ? "Update Event" : "Submit Event"}</h2>
             <fieldset>
                 <div className="form-group">
-                    <label htmlFor="name">Event name: </label>
+                    <label htmlFor="name"></label>
                     <input type="text" name="name" required autoFocus className="form-control"
                         proptype="varchar"
                         placeholder="Event name"
                         value={event.name}
                         onChange={handleControlledInputChange}
                     />
-                    {console.log("eventName" , event.name)}
+                    {console.log("eventName", event.name)}
                 </div>
             </fieldset>
             <fieldset>
                 <div className="form-group">
-                    <label htmlFor="location">Event location: </label>
+                    <label htmlFor="location"></label>
                     <input type="text" name="location" required autoFocus className="form-control"
                         proptype="varchar"
                         placeholder="Event location"
                         value={event.location}
                         onChange={handleControlledInputChange}
-                        />
-                        {console.log("eventLocation" , event.location)}
+                    />
                 </div>
             </fieldset>
+            <fieldset>
+                <div className="form-group">
+                    <label htmlFor="details"></label>
+                    <input type="text" name="details" required autoFocus className="form-control"
+                        proptype="varchar"
+                        placeholder="Event details"
+                        value={event.details}
+                        onChange={handleControlledInputChange}
+                    />
+                </div>
+            </fieldset>
+
+
+            {/* <fieldset>
+                <div className="form-group">
+                    <label for="start">Start date:</label>
+
+                    <input type="date" id="start" name="trip-start"
+                        value=""
+                        min="" max=""
+
+
+                        onChange={handleControlledInputChange}
+                    />
+                </div>
+            </fieldset> */}
             <button type="submit"
                 onClick={evt => {
                     evt.preventDefault()
                     constructNewEvent()
                 }}
                 className="btn btn-primary">
+                {/* If editmode true Save Updates else Save Event */}
                 {editMode ? "Save Updates" : "Save Event"}
             </button>
         </form>

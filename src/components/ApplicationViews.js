@@ -9,7 +9,7 @@ export const ApplicationViews = (props) => {
     return (
         <>
             <EventProvider>
-                <Route path="/events" render={
+                <Route exact path="/events" render={
                     props => <EventForm {...props} />
                 } />
             </EventProvider>
