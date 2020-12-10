@@ -1,4 +1,4 @@
-import React, { useState , useEffect } from "react"
+import React, { useState  } from "react"
 
 export const EventContext = React.createContext()
 
@@ -8,8 +8,9 @@ export const EventProvider = (props) => {
 
     const getEvents = () => {
         return fetch("http://localhost:8088/events")
-            .then(res => res.json())
-            .then(setEvents)
+        .then(res => res.json())
+        .then(setEvents)
+        
     }
 
     // Use expand when source has foreign key
@@ -17,7 +18,7 @@ export const EventProvider = (props) => {
     // If uncertain embed will give empty array if no fk
     // One to many relationship, embed
     const getEventById = (id) => {
-        return fetch (`http://localhost:8088/events/${ id }`)
+        return fetch (`http://localhost:8088/events/${ id }?_expand=user`)
             .then(res => res.json())
     }
 
