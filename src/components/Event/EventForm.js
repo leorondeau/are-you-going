@@ -1,8 +1,8 @@
 import React, { useContext, useState, useEffect, useRef } from "react"
 import { EventContext } from "./EventProvider"
-
 // import 'react-date-picker/dist/react-date-picker.css'
-import 'bootstrap/dist/css/bootstrap.min.css'
+// import 'react-date-picker/dist/react-date-picker.css'
+// import 'bootstrap/dist/css/bootstrap.min.css'
 import DatePicker from "react-date-picker"
 
 
@@ -14,32 +14,21 @@ export const EventForm = (props) => {
     const { addEvent, events, updateEvent, getEvents } = useContext(EventContext)
     // const [value, onChange] = useState(new Date())
 
-    // Component state
+
     const [event, setEvent] = useState({})
 
-    // Is there a a URL parameter??
+ 
     const editMode = props.match.params.hasOwnProperty("eventId")
 
-    // Has to be defined in the component
+
     const handleControlledInputChange = (e) => {
-        /*
-        When changing a state object or array, always create a new one
-        and change state instead of modifying current one
-        */
+    
         // Adding key value pairs to the object through each from input
         //    Without this only the last key value pair entered will send
         const newEvent = Object.assign({}, event)
         newEvent[e.target.name] = e.target.value
         setEvent(newEvent)
     }
-
-    /*
-        If there is a URL parameter, then the user has chosen to
-        edit an event.
-            1. Get the value of the URL parameter.
-            2. Use that `id` to find the event.
-            3. Update component state variable.
-    */
 
     // This function fills the form with associated event to be edited based on the id.
     const getEventInEditMode = () => {
