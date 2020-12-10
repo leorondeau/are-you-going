@@ -1,8 +1,9 @@
-import React, { useContext, useState, useEffect } from "react"
+import React, { useContext, useState, useEffect, useRef } from "react"
 import { EventContext } from "./EventProvider"
-import DatePicker from 'react-date-picker'
+
 // import 'react-date-picker/dist/react-date-picker.css'
 import 'bootstrap/dist/css/bootstrap.min.css'
+import DatePicker from "react-date-picker"
 
 
 // import { UserContext } from "../user/UserProvider"
@@ -59,13 +60,15 @@ export const EventForm = (props) => {
     useEffect(() => {
         getEventInEditMode()
     }, [events])
-
-
+    
+  
+    
     const constructNewEvent = () => {
+        
         const userId = parseInt(localStorage.getItem("ayg__id"))
         const name = event.name
         const location = event.location
-
+        
 
         if (location === "") {
             window.alert("Please select a location")
@@ -75,7 +78,7 @@ export const EventForm = (props) => {
                     id: event.id,
                     name,
                     location,
-                    // date: event.date,
+                    startDate,
                     details: event.details,
                     // time: event.time,
                     userId
@@ -85,7 +88,7 @@ export const EventForm = (props) => {
                 addEvent({
                     name,
                     location,
-                    // date: event.date,
+                    startDate,
                     details: event.details,
                     // time: event.time,
                     userId
@@ -94,7 +97,7 @@ export const EventForm = (props) => {
             }
         }
     }
-
+    const [startDate, setStartDate] = useState(null);
     return (
         <form className="">
             {/* If editmode true Update Event else Submit Event */}
@@ -108,7 +111,7 @@ export const EventForm = (props) => {
                         value={event.name}
                         onChange={handleControlledInputChange}
                     />
-                    {console.log("eventName", event.name)}
+                    {/* {console.log("eventName", event.name)} */}
                 </div>
             </fieldset>
             <fieldset>
@@ -133,21 +136,14 @@ export const EventForm = (props) => {
                     />
                 </div>
             </fieldset>
-
-
-            {/* <fieldset>
+            {/* Date.parse(date.current.value) Turn into a date object */}
+            <fieldset>
                 <div className="form-group">
-                    <label for="start">Start date:</label>
-
-                    <input type="date" id="start" name="trip-start"
-                        value=""
-                        min="" max=""
-
-
-                        onChange={handleControlledInputChange}
+                    <DatePicker selected={startDate} 
+                    onChange={date => setStartDate(date)} 
                     />
                 </div>
-            </fieldset> */}
+            </fieldset>
             <button type="submit"
                 onClick={evt => {
                     evt.preventDefault()
