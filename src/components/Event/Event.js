@@ -1,22 +1,17 @@
+import React from 'react'
+import { Link } from 'react-router-dom'
 
-
-export const Event = ({ event , user }) => {
-    <section className="event">
-        <h2 className="event__name">
-            <Link to={`/event/${event.id}`}>
-                {event.name}
-            </Link>
-        </h2>
-        <h1>{event.location}</h1>
-        <div>
-            <p>{event.date}</p>
-            
-            {/* <p>{event.time}</p> */}
-            <p>{user.name}</p>
-        </div>
-
-
-    </section>
-
-
-}
+export const Event = ({ event }) => (
+    <div>
+        <section className="event">
+            <h3 className="event__name">
+                <Link to={`/events/${event.id}`}>
+                    {event.name}
+                </Link>
+            </h3>
+            <div className="event__location">{event.location}</div>
+            <div className="event__date">{event.startDate}</div>
+            <div className="event__details">{event.details}</div>
+        </section>
+    </div>
+)
