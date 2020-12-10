@@ -45,14 +45,14 @@ export const Login = props => {
             </dialog>
             <section>
                 <form className="form--login" onSubmit={handleLogin}>
-                    <h1>Application Name</h1>
+                    <h1>Are you going?</h1>
                     <h2>Please sign in</h2>
                     <fieldset>
                         <label htmlFor="inputEmail"> Email address </label>
                         <input ref={email} type="email"
                             id="email"
                             className="form-control"
-                            placeholder="Email address"
+                            placeholder=""
                             required autoFocus />
                     </fieldset>
                     <fieldset>
@@ -60,7 +60,7 @@ export const Login = props => {
                         <input ref={password} type="password"
                             id="password"
                             className="form-control"
-                            placeholder="Password"
+                            placeholder=""
                             required />
                     </fieldset>
                     <fieldset>
