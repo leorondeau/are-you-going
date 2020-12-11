@@ -12,8 +12,8 @@ import { UserProvider } from "./user/UserProvider"
 export const ApplicationViews = (props) => {
     return (
         <>
-            <UserProvider>
-                <EventProvider>
+            <EventProvider>
+                <UserProvider>
                     <Route exact path="/events" render={
                         props => <EventForm {...props} />
                     } />
@@ -23,8 +23,8 @@ export const ApplicationViews = (props) => {
                     {/* <Route path="/events/:eventId(\d+)" render={
                         props => <EventHomeDetail {...props}/>
                     }/> */}
-                </EventProvider>
-            </UserProvider>
+                </UserProvider>
+            </EventProvider>
         </>
     )
 }
