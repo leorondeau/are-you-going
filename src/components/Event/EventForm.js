@@ -57,7 +57,7 @@ export const EventForm = (props) => {
         const userId = parseInt(localStorage.getItem("ayg__id"))
         const name = event.name
         const location = event.location
-
+        const time = event.time
 
         if (location === "") {
             window.alert("Please select a location")
@@ -69,7 +69,7 @@ export const EventForm = (props) => {
                     location,
                     startDate,
                     details: event.details,
-                    time: event.time,
+                    time,
                     userId
                 })
                     .then(() => props.history.push("/"))
@@ -79,7 +79,7 @@ export const EventForm = (props) => {
                     location,
                     startDate,
                     details: event.details,
-                    time: event.time,
+                    time,
                     userId
                 })
                     .then(() => props.history.push("/"))
