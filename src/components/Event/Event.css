@@ -10,3 +10,9 @@
       padding: 1em;
       border: 1px solid goldenrod;
   }
+
+  .btn-info {
+    color: #FFF;
+    background: rgba(90, 153, 54, 0.911);
+    
+  }
