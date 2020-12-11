@@ -3,6 +3,7 @@ import { EventContext } from './EventProvider'
 import { UserContext } from '../user/UserProvider'
 
 
+
 export const EventHomeDetail = (props) => {
     const { events , getEvents } = useContext(EventContext)
     const { users, getUsers } = useContext(UserContext)
