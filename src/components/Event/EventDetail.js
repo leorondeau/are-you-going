@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useContext } from 'react'
 import { EventContext } from './EventProvider'
 import { UserContext } from '../user/UserProvider'
+import { Link } from 'react-router-dom'
 
 
 
@@ -13,7 +14,7 @@ export const EventDetail = (props) => {
     // console.log("props", props)
     const eventDetailId = parseInt(props.match.params.eventId)
     
-
+    console.log("props in eventDetail" , props.match.params.eventId)
     useEffect(() => {
         getEvents()
             .then(getUsers)
@@ -28,7 +29,7 @@ export const EventDetail = (props) => {
         setEventOwner(thisEventOwner)
     }, [events, users])
 
-
+// console.log("props" , props.match.params.eventId)
 
 
     return (
@@ -40,7 +41,11 @@ export const EventDetail = (props) => {
                     <div className="event__date">{selectedEvent.startDate}</div>
                     <div className="event__details">{selectedEvent.details}</div>
                     <div className="event__creator"> by: {eventOwner.name}</div>
+                    <Link to= {`/events/${eventDetailId}/users`}>
+                        These people said yes
+                    </Link>
                 </section>
+                
             </article>
         </>
     )
