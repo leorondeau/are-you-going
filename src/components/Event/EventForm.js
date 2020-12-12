@@ -1,4 +1,4 @@
-import React, { useContext, useState, useEffect, useRef } from "react"
+import React, { useContext, useState, useEffect } from "react"
 import { EventContext } from "./EventProvider"
 // import 'react-date-picker/dist/react-date-picker.css'
 // import 'react-date-picker/dist/react-date-picker.css'
@@ -93,10 +93,10 @@ export const EventForm = (props) => {
             <h2 className="eventForm__title">{editMode ? "Update Event" : "Submit Event"}</h2>
             <fieldset>
                 <div className="form-group">
-                    <label htmlFor="name"></label>
+                    <label htmlFor="name">Event Name</label>
                     <input type="text" name="name" required autoFocus className="form-control"
                         proptype="varchar"
-                        placeholder="Event name"
+                        placeholder=""
                         value={event.name}
                         onChange={handleControlledInputChange}
                     />
@@ -105,10 +105,10 @@ export const EventForm = (props) => {
             </fieldset>
             <fieldset>
                 <div className="form-group">
-                    <label htmlFor="location"></label>
+                    <label htmlFor="location">Location</label>
                     <input type="text" name="location" required autoFocus className="form-control"
                         proptype="varchar"
-                        placeholder="Event location"
+                        placeholder=""
                         value={event.location}
                         onChange={handleControlledInputChange}
                     />
@@ -116,10 +116,10 @@ export const EventForm = (props) => {
             </fieldset>
             <fieldset>
                 <div className="form-group">
-                    <label htmlFor="details"></label>
+                    <label htmlFor="details">Details</label>
                     <input type="text" name="details" required autoFocus className="form-control"
                         proptype="varchar"
-                        placeholder="Event details"
+                        placeholder=""
                         value={event.details}
                         onChange={handleControlledInputChange}
                     />

@@ -5,7 +5,7 @@ import { EventForm } from "./event/EventForm"
 import { EventList } from "./event/EventList"
 import { UserProvider } from "./user/UserProvider"
 import { UsersEventProvider } from "./user/UsersEventsProvider"
-// import { EventHomeDetail } from './event/EventHomeDetail'
+import { EventDetail } from './event/EventDetail'
 
 
 
@@ -23,9 +23,9 @@ export const ApplicationViews = (props) => {
                     <Route exact path="/" render={
                         props => <EventList {...props} />
                     } />
-                    {/* <Route path="/events/:eventId(\d+)" render={
-                        props => <EventHomeDetail {...props}/>
-                    }/> */}
+                    <Route path="/events/:eventId(\d+)" render={
+                        props => <EventDetail {...props}/>
+                    }/>
                     </UsersEventProvider>
                 </UserProvider>
             </EventProvider>

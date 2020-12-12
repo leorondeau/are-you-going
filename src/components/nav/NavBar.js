@@ -7,6 +7,9 @@ import Dropdown from 'react-bootstrap/Dropdown'
 export const NavBar = (props) => {
     return (
         <>
+       <h3>
+            <Link className="navbar__link" to="/">Are You Going?</Link>
+            </h3>
             <Dropdown>
                 <Dropdown.Toggle variant="" id="dropdown-basic">
                     Menu
