@@ -18,7 +18,6 @@ export const Event = ({ event, user }) => {
                 </h3>
                 <div className="event__location">{event.location}</div>
                 <div className="event__date">{event.startDate}</div>
-                <div className="event__details">{event.details}</div>
                 <div className="event__creator">by: {user.name}</div>
                 <button type="button" onClick={
                     () => addUsersEvents({

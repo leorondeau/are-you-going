@@ -8,6 +8,8 @@ import './Event.css'
 export const EventList = (props) => {
     const { events, getEvents } = useContext(EventContext)
     const { users, getUsers } = useContext(UserContext)
+
+    const []
     
     // The order of these useEffect calls is crucial
     useEffect(() => {
