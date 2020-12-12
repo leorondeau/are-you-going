@@ -7,7 +7,7 @@ import { UserEventContext } from '../user/UsersEventsProvider'
 export const Event = ({ event, user }) => {
     const userId = parseInt(localStorage.getItem("ayg__id"))
     
-    const { addUsersEvents } = useContext(UserEventContext)
+    const { addUsersEvents , deleteUsersEVent } = useContext(UserEventContext)
     return (
         <div>
             <section className="event">

@@ -9,17 +9,16 @@ export const EventList = (props) => {
     const { events, getEvents } = useContext(EventContext)
     const { users, getUsers } = useContext(UserContext)
 
-    const []
+    
     
     // The order of these useEffect calls is crucial
     useEffect(() => {
         getUsers()
+        .then(getEvents)
     
     }, [])
     // console.log("props" , props)
-    useEffect(() => {
-        getEvents()
-    }, [])
+    
 
     // console.log("users", users)
     // console.log("events" , events)
