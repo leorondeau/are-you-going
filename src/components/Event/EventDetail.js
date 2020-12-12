@@ -4,49 +4,45 @@ import { UserContext } from '../user/UserProvider'
 
 
 
-export const EventHomeDetail = (props) => {
-    const { events , getEvents } = useContext(EventContext)
+export const EventDetail = (props) => {
+    const { events, getEvents, getEventById } = useContext(EventContext)
     const { users, getUsers } = useContext(UserContext)
+    
+    const [selectedEvent, setSelectedEvent] = useState({})
+    const [eventOwner, setEventOwner] = useState({})
+    // console.log("props", props)
+    const eventDetailId = parseInt(props.match.params.eventId)
+    
 
-    // const [user, setUser] = useState({})
-    const [event, setEvent] = useState({})
-    
-    const userId = parseInt(localStorage.getItem("ayg__id"))
-    console.log("userId" , userId)
-    const eventOwner = events.map(e => {
-        const creator = users.find(u => e.userId === u.id)
-        return creator
-    })
-    console.log("eventOwner" , eventOwner)
-    
-    useEffect(() => { 
-        getUsers()
-        
-    }, [])
-    console.log("users" , users)
     useEffect(() => {
         getEvents()
-        
+            .then(getUsers)
     }, [])
-    // console.log("events" , events)
-    
-    
-    useEffect(() => {
-        const eventObj = events.map(e => e.userId === userId) 
-        setEvent(eventObj)
-    }, [])
-    // console.log("event" , eventObj)
-    // console.log("eventName" , event.name)
-    
-    return (
-        
-        <section className="event">
-            <h3 className="event__name">{event.name}</h3>
-            <h2 className="event__location">{event.location}</h2>
-            <div className="event__date">{event.startDate}</div>
-            <div className="event__details">{event.details}</div>
-            <div className="event__creator"> by: {eventOwner.name }</div>
-        </section>
+// Because above array is empty only run once.
 
+    // Dependency array. This will render after getEvents
+    useEffect(() => {
+        const thisEvent = events.find(e => e.id === eventDetailId) || {}
+        setSelectedEvent(thisEvent)
+        const thisEventOwner = users.find(u => u.id === selectedEvent.userId) || {}
+        setEventOwner(thisEventOwner)
+    }, [events, users])
+
+
+
+
+    return (
+        <>
+            <article>
+                <section className="event">
+                    <h3 className="event__name">{selectedEvent.name}</h3>
+                    <h2 className="event__location">{selectedEvent.location}</h2>
+                    <div className="event__date">{selectedEvent.startDate}</div>
+                    <div className="event__details">{selectedEvent.details}</div>
+                    <div className="event__creator"> by: {eventOwner.name}</div>
+                </section>
+            </article>
+        </>
     )
+
 }
