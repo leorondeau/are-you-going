@@ -25,8 +25,8 @@ export const UsersEventProvider = (props) => {
             .then(getUsersEvents)
     }
 
-    const deleteUsersEvent = userid => {
-        return fetch(`http://localhost:8088/usersEvents/${userid}`, {
+    const deleteUsersEvent = id => {
+        return fetch(`http://localhost:8088/usersEvents/${id}`, {
             method: "DELETE",
         })
         .then(getUsersEvents)
