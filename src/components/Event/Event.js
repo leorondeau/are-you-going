@@ -1,4 +1,4 @@
-import React , { useContext } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
 import { UserEventContext } from '../user/UsersEventsProvider'
 
@@ -6,8 +6,16 @@ import { UserEventContext } from '../user/UsersEventsProvider'
 
 export const Event = ({ event, user }) => {
     const userId = parseInt(localStorage.getItem("ayg__id"))
-    
-    const { addUsersEvents , deleteUsersEVent } = useContext(UserEventContext)
+
+    const { usersEvents, addUsersEvents, deleteUsersEvent, getUsersEvents } = useContext(UserEventContext)
+    const [usersEvent, setUsersEvents] = useState({})
+
+    useEffect(() => {
+        getUsersEvents()
+    }, [])
+
+
+    // console.log("selectedUserEvent" , selectedUserEvent)
     return (
         <div>
             <section className="event">
@@ -20,14 +28,24 @@ export const Event = ({ event, user }) => {
                 <div className="event__date">{event.startDate}</div>
                 <div className="event__creator">by: {user.name}</div>
                 <button type="button" onClick={
-                    () => addUsersEvents({
-                        eventId: event.id,
-                        userId
-                    })
+                    () => {
 
-                   
+                        const selectedUserEvent = usersEvents.find(ue => ue.eventId === event.id)
+
+                        if (selectedUserEvent && userId === selectedUserEvent.userId) {
+
+                            deleteUsersEvent(selectedUserEvent.id)
+                        }
+                        else {
+                            addUsersEvents({
+                                eventId: event.id,
+                                userId,
+                                
+                            })
+                        }
+                    }
                 }>Yes</button>
             </section>
         </div>
-        )
-        }
+    )
+}
