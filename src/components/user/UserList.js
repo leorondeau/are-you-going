@@ -25,15 +25,10 @@ export const UserList = (props) => {
     }, [])
 
     const thisEvent = usersEvents.filter(ue => ue.eventId === eventDetailId)
-    console.log("thisEvent", thisEvent)
+    
     const usersGoing = thisEvent.map(te => users.find(u => te.userId === u.id))
-    console.log("usersGoing", usersGoing)
+    
 
-    //     // console.log("events" , events)
-    //     // console.log("users" , users)
-    //     // console.log("usersEvents" , usersEvents)
-    //     // console.log("props in UserList" , props.match.params.eventId)
-    // console.log("User" , User)
     return (
         <>
             <div className="users">
