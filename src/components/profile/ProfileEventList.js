@@ -18,10 +18,10 @@ export const ProfileEventList = (props) => {
     useEffect(() => {
         getUsersEvents()
             .then(getEvents)
-        console.log("usersEvents", usersEvents)
+        // console.log("usersEvents", usersEvents)
 
     }, [])
-    const activeUserEvents = usersEvents.map(ue => ue.userId === activeUserId)
+    const activeUserEvents = usersEvents.filter(ue => ue.userId === activeUserId)
     console.log("activeUserEvents", activeUserEvents)
 
     return (
@@ -30,7 +30,7 @@ export const ProfileEventList = (props) => {
                 <article className="eventList">
                     {
 
-                        <div>Is this On</div>
+                        <div></div>
                     }
 
                 </article>
