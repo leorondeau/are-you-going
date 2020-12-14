@@ -4,18 +4,20 @@ import { UserEventContext } from '../user/UsersEventsProvider'
 
 
 
-export const Event = ({ event, user }) => {
+export const Event = ({ event, user ,props }) => {
     const userId = parseInt(localStorage.getItem("ayg__id"))
 
     const { usersEvents, addUsersEvents, deleteUsersEvent, getUsersEvents } = useContext(UserEventContext)
     const [usersEvent, setUsersEvents] = useState({})
+    
+    
 
     useEffect(() => {
         getUsersEvents()
     }, [])
 
-
-    // console.log("selectedUserEvent" , selectedUserEvent)
+    // const going = selectedUserEvent && userId === selectedUserEvent.userId
+    // console.log("seletedUserEvent" , selectedUserEvent)
     return (
         <div>
             <section className="event">
@@ -31,20 +33,22 @@ export const Event = ({ event, user }) => {
                     () => {
 
                         const selectedUserEvent = usersEvents.find(ue => ue.eventId === event.id)
-
+                        
                         if (selectedUserEvent && userId === selectedUserEvent.userId) {
-
                             deleteUsersEvent(selectedUserEvent.id)
+
                         }
                         else {
                             addUsersEvents({
                                 eventId: event.id,
                                 userId,
-                                
+
                             })
                         }
+                        
                     }
-                }>Yes</button>
+                    
+                }>yes</button>
             </section>
         </div>
     )

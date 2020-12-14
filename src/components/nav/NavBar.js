@@ -5,6 +5,7 @@ import Dropdown from 'react-bootstrap/Dropdown'
 
 
 export const NavBar = (props) => {
+    const userId = parseInt(localStorage.getItem("ayg__id"))
     return (
         <>
        <h3>
@@ -20,7 +21,7 @@ export const NavBar = (props) => {
                         <Link className="navbar__link" to="/">Home</Link>
                     </Dropdown.Item>
                     <Dropdown.Item>
-                        <Link className="navbar__link" to="/users">Profile</Link>
+                        <Link className="navbar__link" to="/profile">Profile</Link>
                     </Dropdown.Item>
                     <Dropdown.Item>
                         <Link className="navbar__link" to="/events">New Event</Link>
