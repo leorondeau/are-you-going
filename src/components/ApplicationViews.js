@@ -6,8 +6,8 @@ import { EventList } from "./event/EventList"
 import { EventDetail } from './event/EventDetail'
 import { UserProvider } from "./user/UserProvider"
 import { UsersEventProvider } from "./user/UsersEventsProvider"
-import { UserList } from './user/UserList'
-
+import { UserEventList } from './user/UserEventList'
+import { Profile } from './profile/Profile'
 
 
 
@@ -35,7 +35,18 @@ export const ApplicationViews = (props) => {
                     <EventProvider>
 
                         <Route path="/events/:eventId(\d+)/users" render={
-                            props => <UserList {...props} />
+                            props => <UserEventList {...props} />
+                        } />
+
+                    </EventProvider>
+                </UsersEventProvider>
+            </UserProvider>
+            <UserProvider>
+                <UsersEventProvider>
+                    <EventProvider>
+
+                        <Route exact path="/profile" render={
+                            props => <Profile {...props} />
                         } />
 
                     </EventProvider>

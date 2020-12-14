@@ -14,7 +14,7 @@ export const EventDetail = (props) => {
     // console.log("props", props)
     const eventDetailId = parseInt(props.match.params.eventId)
     
-    console.log("props in eventDetail" , props.match.params.eventId)
+    // console.log("props in eventDetail" , props.match.params.eventId)
     useEffect(() => {
         getEvents()
             .then(getUsers)

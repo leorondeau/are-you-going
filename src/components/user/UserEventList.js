@@ -4,11 +4,12 @@ import { UserContext } from './UserProvider'
 import { EventContext } from '../event/EventProvider'
 import { User } from './User'
 
-export const UserList = (props) => {
+export const UserEventList = (props) => {
     const { usersEvents, getUsersEvents } = useContext(UserEventContext)
     const { users, getUsers } = useContext(UserContext)
-    const { events, getEvents, getEventById } = useContext(EventContext)
+    const { events, getEvents, } = useContext(EventContext)
 
+    console.log("PROPS" , props)
     // const [selectedEvent, setSelectedEvent] = useState({})
     const eventDetailId = parseInt(props.match.params.eventId)
     // console.log("selectedEvent" , selectedEvent)
@@ -37,7 +38,6 @@ export const UserList = (props) => {
                         usersGoing.map(ug => (<User key={ug.id} user={ug} />))
                         
                     }
-
                 </section>
             </div>
         </>
