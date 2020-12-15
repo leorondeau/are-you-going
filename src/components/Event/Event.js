@@ -4,7 +4,7 @@ import { UserEventContext } from '../user/UsersEventsProvider'
 
 
 
-export const Event = ({ event, user ,props }) => {
+export const Event = ({ event, user  }) => {
     const userId = parseInt(localStorage.getItem("ayg__id"))
 
     const { usersEvents, addUsersEvents, deleteUsersEvent, getUsersEvents } = useContext(UserEventContext)
@@ -48,7 +48,7 @@ export const Event = ({ event, user ,props }) => {
                         
                     }
                     
-                }>yes</button>
+                }>I'm in</button>
             </section>
         </div>
     )

@@ -1,12 +1,15 @@
 import React from 'react'
-import { ProfileEventList } from './ProfileEventList'
-import { ProfileList } from './ProfileList'
+import { ActiveGoEventList } from './ActiveGoEventList'
+import { ActiveUserList } from './ActiveUserList'
+import { ActiveOwnList } from './ActiveOwnList'
+
 
 export const Profile = () => {
 return (
     <>
-        < ProfileEventList />
-        < ProfileList />
+        < ActiveGoEventList />
+        < ActiveUserList />
+        < ActiveOwnList />
     </>
 )
 }
