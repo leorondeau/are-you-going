@@ -27,6 +27,9 @@ export const ApplicationViews = (props) => {
                         <Route exact path="/events/:eventId(\d+)" render={
                             props => <EventDetail {...props} />
                         } />
+                        <Route path="/events/edit/:eventId(\d+)" render={
+                            props => <EventForm {...props} />
+                        } />
                     </UsersEventProvider>
                 </UserProvider>
             </EventProvider>

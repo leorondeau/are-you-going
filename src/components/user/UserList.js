@@ -1,12 +1,15 @@
 import React, { useEffect, useContext, useState } from 'react'
-import { User } from '../user/User'
-import { UserContext } from '../user/UserProvider'
+import { User } from './User'
+import { UserContext } from './UserProvider'
 
 
 
-export const ActiveUserList = () => {
+export const UserList = (props) => {
     const { users, getUsers } = useContext(UserContext)
-    const activeUserId = parseInt(localStorage.getItem("ayg__id"))
+    const user = parseInt(props.match.params.userId)
+
+    console.log("props.match.params" , user)
+
 
     const [profileUser, setProfileUser] = useState({})
 
@@ -16,7 +19,7 @@ export const ActiveUserList = () => {
     }, [])
 
     useEffect(() => {
-        const userProfile = users.find(u => activeUserId === u.id) || {}
+        const userProfile = users.find(u => user === u.id) || {}
         setProfileUser(userProfile)
 
     }, [users])
@@ -27,7 +30,7 @@ export const ActiveUserList = () => {
         <>
             <div className="profile">
                 <section className="profileList">
-
+                    
                     <h2>{profileUser.name}</h2>
                     
                 </section>

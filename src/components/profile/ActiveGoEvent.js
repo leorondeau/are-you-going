@@ -1,5 +1,4 @@
 import React ,{ useContext , useState , useEffect} from 'react'
-import { EventContext } from '../event/EventProvider'
 import { UserEventContext } from '../user/UsersEventsProvider'
 
 
@@ -7,7 +6,7 @@ export const ActiveGoEvent = ({ event }) => {
     // {console.log("USER" , user.name)}
     const userId = parseInt(localStorage.getItem("ayg__id"))
 
-    
+
     const { usersEvents, deleteUsersEvent, getUsersEvents } = useContext(UserEventContext)
     const [ userEvent, setUserEvents ] = useState({})
     
