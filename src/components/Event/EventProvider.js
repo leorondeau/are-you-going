@@ -40,12 +40,12 @@ export const EventProvider = (props) => {
         .then(getEvents)
     }
 
-    const deleteUsersEvent = eventid => {
-        return fetch (`http://localhost:8088/events/${eventid}`, {
-            method: "DELETE"
-        })
-        .then(getEvents)
-    }
+    // const deleteUsersEvent = eventid => {
+    //     return fetch (`http://localhost:8088/events/${eventid}`, {
+    //         method: "DELETE"
+    //     })
+    //     .then(getEvents)
+    // }
 
     // Whenever altering an existing entity the fetch url must have the id
     const updateEvent = event => {
@@ -61,7 +61,7 @@ export const EventProvider = (props) => {
 
     return (
         <EventContext.Provider value={{
-            events , addEvent , getEvents , getEventById , searchTerms , setSearchTerms , deleteOwnerEvent, deleteUsersEvent ,updateEvent
+            events , addEvent , getEvents , getEventById , searchTerms , setSearchTerms , deleteOwnerEvent ,updateEvent
         }}>
             {props.children}
         </EventContext.Provider>

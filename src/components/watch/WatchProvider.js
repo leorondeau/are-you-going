@@ -15,27 +15,27 @@ export const WatchProvider = (props) => {
     
     
     const addWatched = watch => {
-        return fetch("http://localhost:8088/usersEvents", {
+        return fetch("http://localhost:8088/watch", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json"
             },
-            body: JSON.stringify(usersEvent)
+            body: JSON.stringify(watch)
             })
-            .then(getUsersEvents)
+            .then(getWatch)
     }
 
-    const deleteUsersEvent = id => {
-        return fetch(`http://localhost:8088/usersEvents/${id}`, {
+    const deleteWatched = id => {
+        return fetch(`http://localhost:8088/watch/${id}`, {
             method: "DELETE",
         })
-        .then(getUsersEvents)
+        .then(getWatch)
 
     }
 
     return (
         <UserEventContext.Provider value = {{
-            usersEvents , addUsersEvents , getUsersEvents , deleteUsersEvent 
+            watch , getWatch , addWatched , deleteWatched 
         }}>
             {props.children}
         </UserEventContext.Provider>

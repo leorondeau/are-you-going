@@ -1,12 +1,12 @@
 import React, { useEffect, useContext, useState } from 'react'
 import { EventContext } from '../event/EventProvider'
 import { UserEventContext } from '../user/UsersEventsProvider'
-import { ProfileGoEvent } from './ProfileGoEvent'
+import { ActiveGoEvent } from './ActiveGoEvent'
 
 
 
 
-export const ProfileEventList = (props) => {
+export const ActiveGoEventList = (props) => {
 
     const activeUserId = parseInt(localStorage.getItem("ayg__id"))
 
@@ -18,8 +18,8 @@ export const ProfileEventList = (props) => {
 
     useEffect(() => {
 
-        getUsersEvents()
-            .then(getEvents)
+        getEvents()
+            .then(getUsersEvents)
 
     }, [])
 
@@ -41,7 +41,7 @@ export const ProfileEventList = (props) => {
                 <article className="eventList">
                     <h2>Going List</h2>
                     {
-                        eventName.map(en => <ProfileGoEvent key={en.id} event={en} />)
+                        eventName.map(en => <ActiveGoEvent key={en.id} event={en} />)
                     }
                 </article>
             </div>

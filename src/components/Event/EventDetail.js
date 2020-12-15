@@ -33,7 +33,9 @@ export const EventDetail = (props) => {
 
 
     return (
+        
         <>
+            
             <article>
                 <section className="event">
                     <h3 className="event__name">{selectedEvent.name}</h3>
