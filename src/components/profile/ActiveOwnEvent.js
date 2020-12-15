@@ -24,10 +24,7 @@ export const ActiveOwnEvent = ({ event }) => {
                 
                 <button type="button" onClick={
                     () => {
-
-
                             deleteOwnerEvent(event)  
-    
                         }
                     
                 }>Remove</button>

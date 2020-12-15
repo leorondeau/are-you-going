@@ -17,7 +17,7 @@ export const EventForm = (props) => {
 
     const [event, setEvent] = useState({})
 
-
+    console.log("event" , event)
     const editMode = props.match.params.hasOwnProperty("eventId")
 
 
@@ -34,7 +34,7 @@ export const EventForm = (props) => {
     const getEventInEditMode = () => {
         if (editMode) {
             const eventId = parseInt(props.match.params.eventId)
-            const selectedEvent = event.find(e => e.id === eventId) || {}
+            const selectedEvent = events.find(e => e.id === eventId) || {}
             setEvent(selectedEvent)
         }
     }
@@ -57,7 +57,7 @@ export const EventForm = (props) => {
         const userId = parseInt(localStorage.getItem("ayg__id"))
         const name = event.name
         const location = event.location
-        const time = event.time
+        const startDate = event.startDate
 
         if (location === "") {
             window.alert("Please select a location")
@@ -68,8 +68,7 @@ export const EventForm = (props) => {
                     name,
                     location,
                     startDate,
-                    details: event.details,
-                    time,
+                    details: event.details,                
                     userId
                 })
                     .then(() => props.history.push("/"))
@@ -78,8 +77,7 @@ export const EventForm = (props) => {
                     name,
                     location,
                     startDate,
-                    details: event.details,
-                    time,
+                    details: event.details,                    
                     userId
                 })
                     .then(() => props.history.push("/"))
@@ -128,21 +126,15 @@ export const EventForm = (props) => {
             {/* Date.parse(date.current.value) Turn into a date object */}
             <fieldset>
                 <div className="form-group">
-                    <DatePicker selected={startDate}
+                    <input type="datetime-local" name="startDate"
+                    onChange={handleControlledInputChange} value={event.startDate}>
+
+                    </input>
+                    {/* <DatePicker selected={startDate}
                         onChange={date => setStartDate(date)}
-                    />
+                    /> */}
                 </div>
             </fieldset>
-            <div>
-                <label for="appt"></label>
-
-                <input type="time" id="appt" name="appt"
-                    
-                    value={event.time}
-                    onChange={handleControlledInputChange}>
-                        
-                </input>
-            </div>
             <button type="submit"
                 onClick={evt => {
                     evt.preventDefault()

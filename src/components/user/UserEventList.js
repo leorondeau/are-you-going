@@ -9,11 +9,10 @@ export const UserEventList = (props) => {
     const { users, getUsers } = useContext(UserContext)
     const { events, getEvents, } = useContext(EventContext)
 
-    console.log("PROPS" , props)
+    
     // const [selectedEvent, setSelectedEvent] = useState({})
     const eventDetailId = parseInt(props.match.params.eventId)
-    // console.log("selectedEvent" , selectedEvent)
-    // console.log("eventDetailId" , eventDetailId)
+   
 
     useEffect(() => {
         getUsers()

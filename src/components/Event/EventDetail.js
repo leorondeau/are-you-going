@@ -6,7 +6,9 @@ import { Link } from 'react-router-dom'
 
 
 export const EventDetail = (props) => {
-    const { events, getEvents, getEventById } = useContext(EventContext)
+    const activeUserId = parseInt(localStorage.getItem("ayg__id"))
+
+    const { events, getEvents, getEventById , updateEvent } = useContext(EventContext)
     const { users, getUsers } = useContext(UserContext)
     
     const [selectedEvent, setSelectedEvent] = useState({})
@@ -14,7 +16,7 @@ export const EventDetail = (props) => {
     // console.log("props", props)
     const eventDetailId = parseInt(props.match.params.eventId)
     
-    // console.log("props in eventDetail" , props.match.params.eventId)
+    
     useEffect(() => {
         getEvents()
             .then(getUsers)
@@ -31,7 +33,8 @@ export const EventDetail = (props) => {
 
 // console.log("props" , props.match.params.eventId)
 
-
+    if (activeUserId === selectedEvent.userId ) {
+    
     return (
         
         <>
@@ -47,9 +50,38 @@ export const EventDetail = (props) => {
                         These people said yes
                     </Link>
                 </section>
-                
+                <button onClick={
+                () => {
+                updateEvent(props.match.params.eventId)
+                .then(() => {
+                props.history.push(`/events/edit/${selectedEvent.id}`)
+            })
+        }
+        }>Edit</button>
             </article>
         </>
-    )
+    ) 
+} else {
+    return (
+        
+    <>
+        
+        <article>
+            <section className="event">
+                <h3 className="event__name">{selectedEvent.name}</h3>
+                <h2 className="event__location">{selectedEvent.location}</h2>
+                <div className="event__date">{selectedEvent.startDate}</div>
+                <div className="event__details">{selectedEvent.details}</div>
+                <div className="event__creator"> by: {eventOwner.name}</div>
+                <Link to= {`/events/${eventDetailId}/users`}>
+                    These people said yes
+                </Link>
+            </section>
+            
+        </article>
+    </>
+) 
 
+}
+    
 }
