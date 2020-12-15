@@ -8,7 +8,7 @@ import { UserProvider } from "./user/UserProvider"
 import { UsersEventProvider } from "./user/UsersEventsProvider"
 import { UserEventList } from './user/UserEventList'
 import { Profile } from './profile/Profile'
-
+import { UserProfile} from './user/UserProfile'
 
 
 export const ApplicationViews = (props) => {
@@ -45,9 +45,13 @@ export const ApplicationViews = (props) => {
                 <UsersEventProvider>
                     <EventProvider>
 
-                        <Route exact path="/profile" render={
+                        <Route exact path="/profile/:userId(\d+)" render={
                             props => <Profile {...props} />
                         } />
+                        
+                        <Route exact path="/profile/user/:userId(\d+)" render={
+                            props => <UserProfile {...props} />
+                        }/>
 
                     </EventProvider>
                 </UsersEventProvider>

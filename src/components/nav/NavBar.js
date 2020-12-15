@@ -8,8 +8,8 @@ export const NavBar = (props) => {
     const userId = parseInt(localStorage.getItem("ayg__id"))
     return (
         <>
-       <h3>
-            <Link className="navbar__link" to="/">Are You Going?</Link>
+            <h3>
+                <Link className="navbar__link" to="/">Are You Going?</Link>
             </h3>
             <Dropdown>
                 <Dropdown.Toggle variant="" id="dropdown-basic">
@@ -21,7 +21,7 @@ export const NavBar = (props) => {
                         <Link className="navbar__link" to="/">Home</Link>
                     </Dropdown.Item>
                     <Dropdown.Item>
-                        <Link className="navbar__link" to="/profile">Profile</Link>
+                        <Link className="navbar__link" to={`/profile/${userId}`}>Profile</Link>
                     </Dropdown.Item>
                     <Dropdown.Item>
                         <Link className="navbar__link" to="/events">New Event</Link>

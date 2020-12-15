@@ -4,7 +4,7 @@ import { UserContext } from '../user/UserProvider'
 
 
 
-export const ProfileList = (props) => {
+export const ProfileList = () => {
     const { users, getUsers } = useContext(UserContext)
     const activeUserId = parseInt(localStorage.getItem("ayg__id"))
     
@@ -21,7 +21,7 @@ export const ProfileList = (props) => {
 
     }, [users])
     
-    console.log("profileUser" , profileUser)
+    // console.log("profileUser" , profileUser)
 
     return (
         <>

@@ -3,8 +3,11 @@ import { ProfileEventList } from './ProfileEventList'
 import { ProfileList } from './ProfileList'
 
 export const Profile = () => {
-
-    // return ProfileList()
-    return ProfileEventList()
-
+return (
+    <>
+        < ProfileEventList />
+        < ProfileList />
+    </>
+)
 }
+
