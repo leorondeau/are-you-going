@@ -3,6 +3,13 @@ import { Link } from 'react-router-dom'
 import { UserEventContext } from '../user/UsersEventsProvider'
 
 
+/* 
+
+Event renders the individual Event card on main. It has a button that allows users to 
+add themeselves to an event and remove. It is invoked in EventList.js
+
+*/
+
 
 export const Event = ({ event, user  }) => {
     const userId = parseInt(localStorage.getItem("ayg__id"))
@@ -16,8 +23,7 @@ export const Event = ({ event, user  }) => {
         getUsersEvents()
     }, [])
 
-    // const going = selectedUserEvent && userId === selectedUserEvent.userId
-    // console.log("seletedUserEvent" , selectedUserEvent)
+ 
     return (
         <div>
             <section className="event">

@@ -10,10 +10,10 @@ export const WatchProvider = (props) => {
         return fetch("http://localhost:8088/watchlist")
         .then(res => res.json())
         // .then(res => console.log("res" ,res.json())) 
-        .then(setWatched)
+        .then(setWatch)
     }
     
-    
+
     const addWatched = watch => {
         return fetch("http://localhost:8088/watch", {
             method: "POST",
@@ -34,10 +34,10 @@ export const WatchProvider = (props) => {
     }
 
     return (
-        <UserEventContext.Provider value = {{
-            watch , getWatch , addWatched , deleteWatched 
+        <WatchListContext.Provider value = {{
+            watch , getWatch , addWatched , deleteWatched , setWatch
         }}>
             {props.children}
-        </UserEventContext.Provider>
+        </WatchListContext.Provider>
     )
 }

@@ -9,6 +9,8 @@ import { ActiveGoEvent } from './ActiveGoEvent'
 export const ActiveGoEventList = (props) => {
 
     const activeUserId = parseInt(localStorage.getItem("ayg__id"))
+    
+    // Object destructuring
 
     const { events, getEvents } = useContext(EventContext)
     const { usersEvents, getUsersEvents } = useContext(UserEventContext)

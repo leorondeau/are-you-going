@@ -4,6 +4,10 @@ import { Event } from './Event'
 import { UserContext } from '../user/UserProvider'
 import './Event.css'
 
+/* 
+Lists all events on main page by mapping events and invoking Event() passing
+each one through. 
+*/
 
 export const EventList = (props) => {
     const { events, getEvents } = useContext(EventContext)
@@ -30,8 +34,9 @@ export const EventList = (props) => {
                     {
                         
                         events.map(e => {
+                            /* Finds event creator obj for each card */
                             const owner= users.find(u => e.userId === u.id)
-                            // console.log("owner" , owner)
+                            
                             
                             return (
                                 <Event key={e.id} event={e} user={owner} />

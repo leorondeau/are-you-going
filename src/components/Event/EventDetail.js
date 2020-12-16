@@ -4,11 +4,17 @@ import { UserContext } from '../user/UserProvider'
 import { Link } from 'react-router-dom'
 
 
+/* 
+
+EventDetail is called in application views when Event name Link is clicked on main
+page and renders an event card with details added and guestlist link
+
+*/
 
 export const EventDetail = (props) => {
     const activeUserId = parseInt(localStorage.getItem("ayg__id"))
 
-    const { events, getEvents, getEventById , updateEvent } = useContext(EventContext)
+    const { events, getEvents, updateEvent } = useContext(EventContext)
     const { users, getUsers } = useContext(UserContext)
     
     const [selectedEvent, setSelectedEvent] = useState({})
@@ -21,18 +27,25 @@ export const EventDetail = (props) => {
         getEvents()
             .then(getUsers)
     }, [])
-// Because above array is empty only run once.
 
-    // Dependency array. This will render after getEvents
-    useEffect(() => {
-        const thisEvent = events.find(e => e.id === eventDetailId) || {}
-        setSelectedEvent(thisEvent)
-        const thisEventOwner = users.find(u => u.id === selectedEvent.userId) || {}
-        setEventOwner(thisEventOwner)
-    }, [events, users])
+    // Because above array is empty only run once.
 
-// console.log("props" , props.match.params.eventId)
+useEffect(() => {
+    const thisEvent = events.find(e => e.id === eventDetailId) || {}
+    setSelectedEvent(thisEvent)
+    const thisEventOwner = users.find(u => u.id === selectedEvent.userId) || {}
+    setEventOwner(thisEventOwner)
+}, [events, users])
+/* 
+When events or users array is updated useEffect will run the block. 
+Dependency array 
+*/
 
+
+/* 
+If this conditional true (active user has selected) then EventDetail will render
+the edit button that runs updateEvent when clicked.
+*/
     if (activeUserId === selectedEvent.userId ) {
     
     return (
@@ -47,15 +60,15 @@ export const EventDetail = (props) => {
                     <div className="event__details">{selectedEvent.details}</div>
                     <div className="event__creator"> by: {eventOwner.name}</div>
                     <Link to= {`/events/${eventDetailId}/users`}>
-                        These people said yes
+                        Event Goers
                     </Link>
                 </section>
                 <button onClick={
                 () => {
-                updateEvent(props.match.params.eventId)
-                .then(() => {
+                // updateEvent(props.match.params.eventId)
+                // .then(() => {
                 props.history.push(`/events/edit/${selectedEvent.id}`)
-            })
+            // })
         }
         }>Edit</button>
             </article>
@@ -74,7 +87,7 @@ export const EventDetail = (props) => {
                 <div className="event__details">{selectedEvent.details}</div>
                 <div className="event__creator"> by: {eventOwner.name}</div>
                 <Link to= {`/events/${eventDetailId}/users`}>
-                    These people said yes
+                    Event Goers
                 </Link>
             </section>
             

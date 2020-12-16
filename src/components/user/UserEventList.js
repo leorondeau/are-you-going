@@ -9,8 +9,9 @@ export const UserEventList = (props) => {
     const { users, getUsers } = useContext(UserContext)
     const { events, getEvents, } = useContext(EventContext)
 
-
-    // const [selectedEvent, setSelectedEvent] = useState({})
+    /* 
+    This lists the Events guest list. Should be nameed EventsUserList?
+    */
     const eventDetailId = parseInt(props.match.params.eventId)
 
 
@@ -21,7 +22,7 @@ export const UserEventList = (props) => {
     }, [])
 
     useEffect(() => {
-        //    console.log("thisEvent" , thisEvent)
+        
     }, [])
 
     const thisEvent = usersEvents.filter(ue => ue.eventId === eventDetailId)
@@ -30,7 +31,7 @@ export const UserEventList = (props) => {
 
 
     if (usersGoing.length === 0) {
-        return <div className = "users">Start this party!</div>
+        return <div className="users">Start this party!</div>
     }
     else {
 
@@ -41,7 +42,6 @@ export const UserEventList = (props) => {
                         <h3></h3>
                         {
                             usersGoing.map(ug => (<User key={ug.id} user={ug} />))
-
                         }
                     </section>
                 </div>

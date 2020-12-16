@@ -5,7 +5,7 @@ import { ActiveOwnEvent } from './ActiveOwnEvent'
 
 
 
-export const ActiveOwnList = (props) => {
+export const ActiveOwnList = () => {
 
     const userId = parseInt(localStorage.getItem("ayg__id"))
 

@@ -1,12 +1,7 @@
 import React, { useContext, useState, useEffect } from "react"
 import { EventContext } from "./EventProvider"
-// import 'react-date-picker/dist/react-date-picker.css'
-// import 'react-date-picker/dist/react-date-picker.css'
-// import 'bootstrap/dist/css/bootstrap.min.css'
-import DatePicker from "react-date-picker"
 
 
-// import { UserContext } from "../user/UserProvider"
 
 export const EventForm = (props) => {
     // Use the required context providers for data
@@ -15,12 +10,16 @@ export const EventForm = (props) => {
     // const [value, onChange] = useState(new Date())
 
 
-    const [event, setEvent] = useState({})
+    const [event, setEvent] = useState({name: "" , location: "" ,details: "", startDate: ""})
 
-    console.log("event" , event)
+    /* 
+    .hasOwnProperty returns a boolean and is looking for eventId which
+    is part of the Route path in Application Views
+    */
     const editMode = props.match.params.hasOwnProperty("eventId")
-
-
+    
+    
+    
     const handleControlledInputChange = (e) => {
 
         // Adding key value pairs to the object through each from input
@@ -39,7 +38,7 @@ export const EventForm = (props) => {
         }
     }
 
-    // Get events from API when component initializes
+    // Get events from db when component initializes
     useEffect(() => {
         getEvents()
         // getUsers()
@@ -126,13 +125,11 @@ export const EventForm = (props) => {
             {/* Date.parse(date.current.value) Turn into a date object */}
             <fieldset>
                 <div className="form-group">
-                    <input type="datetime-local" name="startDate"
+                    <input type="datetime-local" name="startDate" proptype="date"
                     onChange={handleControlledInputChange} value={event.startDate}>
 
                     </input>
-                    {/* <DatePicker selected={startDate}
-                        onChange={date => setStartDate(date)}
-                    /> */}
+                   
                 </div>
             </fieldset>
             <button type="submit"

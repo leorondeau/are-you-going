@@ -40,12 +40,6 @@ export const EventProvider = (props) => {
         .then(getEvents)
     }
 
-    // const deleteUsersEvent = eventid => {
-    //     return fetch (`http://localhost:8088/events/${eventid}`, {
-    //         method: "DELETE"
-    //     })
-    //     .then(getEvents)
-    // }
 
     // Whenever altering an existing entity the fetch url must have the id
     const updateEvent = event => {

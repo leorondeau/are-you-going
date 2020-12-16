@@ -1,12 +1,11 @@
-import React, { useContext, useEffect, useState } from 'react'
+import React, { useContext } from 'react'
 import { Link } from 'react-router-dom'
-import { UserEventContext } from '../user/UsersEventsProvider'
 import { EventContext }from '../event/EventProvider'
 
 
 export const ActiveOwnEvent = ({ event }) => {
 
-    const { usersEvents , deleteUsersEvent } = useContext(UserEventContext)
+    
     const { deleteOwnerEvent } = useContext(EventContext)
 
     
