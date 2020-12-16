@@ -1,5 +1,6 @@
 import React, { useContext, useState, useEffect } from 'react'
 import { UserEventContext } from './UsersEventsProvider'
+import {Link } from 'react-router-dom'
 
 
 export const UserGoEvent = ({ event }) => {
@@ -22,7 +23,11 @@ export const UserGoEvent = ({ event }) => {
     return (
 
         <section className="event">
-            <ul className="event__name">Event: {event.name}</ul>
+            <ul className="event__name">
+                <Link to={`/events/${event.id}`}>
+                    {event.name}
+                </Link>
+            </ul>
         </section>
     )
 }

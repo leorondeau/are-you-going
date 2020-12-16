@@ -8,7 +8,8 @@ import { UserGoEvent } from './UserGoEvent'
 
 export const UserGoEventList = (props) => {
 
-    console.log("props" , props)
+    const user = parseInt(props.match.params.userId)
+    console.log("user" , user)
 
     const { events, getEvents } = useContext(EventContext)
     const { usersEvents, getUsersEvents } = useContext(UserEventContext)
@@ -24,16 +25,16 @@ export const UserGoEventList = (props) => {
     }, [])
 
 
-    // useEffect(() => {
-    //     const activeUserEvents = usersEvents.filter(ue => ue.userId === activeUserId) || {}
-    //     setSelectedEvent(activeUserEvents)
+    useEffect(() => {
+        const usersGoEvents = usersEvents.filter(ue => ue.userId === user) || {}
+        setSelectedEvent(usersGoEvents)
 
-    //     const eventNames = activeUserEvents.map(aue => {
-    //         return events.find(eve => aue.eventId === eve.id)
-    //     }) || {}
-    //     setEventName(eventNames)
+        const eventNames = usersGoEvents.map(uge => {
+            return events.find(eve => uge.eventId === eve.id)
+        }) || {}
+        setEventName(eventNames)
 
-    // }, [events , usersEvents ])
+    }, [events , usersEvents ])
 
     return (
         <>
@@ -41,7 +42,7 @@ export const UserGoEventList = (props) => {
                 <article className="eventList">
                     <h2>Attend List</h2>
                     {
-                        eventName.map(en => <UserGoEvent key={en.id} event={en} />)
+                        eventName.map(en => <ul><UserGoEvent key={en.id} event={en} /></ul>)
                     }
                 </article>
             </div>

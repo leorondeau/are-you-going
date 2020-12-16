@@ -9,10 +9,10 @@ export const UserEventList = (props) => {
     const { users, getUsers } = useContext(UserContext)
     const { events, getEvents, } = useContext(EventContext)
 
-    
+
     // const [selectedEvent, setSelectedEvent] = useState({})
     const eventDetailId = parseInt(props.match.params.eventId)
-   
+
 
     useEffect(() => {
         getUsers()
@@ -25,21 +25,28 @@ export const UserEventList = (props) => {
     }, [])
 
     const thisEvent = usersEvents.filter(ue => ue.eventId === eventDetailId)
-    
+
     const usersGoing = thisEvent.map(te => users.find(u => te.userId === u.id))
-    
 
-    return (
-        <>
-            <div className="users">
-                <section className="eventList">
-                    {
-                        usersGoing.map(ug => (<User key={ug.id} user={ug} />))
-                        
-                    }
-                </section>
-            </div>
-        </>
-    )
+
+    if (usersGoing.length === 0) {
+        return <div className = "users">Start this party!</div>
+    }
+    else {
+
+        return (
+            <>
+                <div className="users">
+                    <section className="eventList">
+                        <h3></h3>
+                        {
+                            usersGoing.map(ug => (<User key={ug.id} user={ug} />))
+
+                        }
+                    </section>
+                </div>
+            </>
+        )
+    }
+
 }
-
