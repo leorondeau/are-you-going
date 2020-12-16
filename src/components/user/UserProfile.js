@@ -7,7 +7,7 @@ import { UserList } from './UserList'
 export const UserProfile = (props) => {
 return (
     <>
-        < UserGoEventList />
+        < UserGoEventList {...props} />
         < UserList {...props}/>
         
     </>
