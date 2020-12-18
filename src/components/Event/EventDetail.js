@@ -47,10 +47,11 @@ export const EventDetail = (props) => {
     the edit button that runs updateEvent when clicked.
     */
 
-//    newDate.toLocaleString('en-US')
-//    const date = selectedEvent.startDate
-//    const newDate = new Date (date)
-//    newDate.toLocaleString('en-US')
+
+   const date = selectedEvent.startDate
+   const newDate = new Date (date)
+   newDate.toLocaleString('en-US')
+   console.log("object " , newDate.toLocaleString('en-US'))
     if (activeUserId === selectedEvent.userId) {
 
         return (
@@ -61,7 +62,7 @@ export const EventDetail = (props) => {
                     <section className="event">
                         <h3 className="event__name">{selectedEvent.name}</h3>
                         <h2 className="event__location">{selectedEvent.location}</h2>
-                        <div className="event__date">{selectedEvent.startDate}</div>
+                        <div className="event__date">{newDate.toLocaleString('en-US')}</div>
                         <div className="event__details">{selectedEvent.details}</div>
                         <div className="event__creator"> by: {eventOwner.name}</div>
                         <Link to={`/events/${eventDetailId}/users`}>
@@ -87,7 +88,7 @@ export const EventDetail = (props) => {
                     <section className="event">
                         <h3 className="event__name">{selectedEvent.name}</h3>
                         <h2 className="event__location">{selectedEvent.location}</h2>
-                        <div className="event__date">{selectedEvent.startDate}</div>
+                        <div className="event__date">{newDate.toLocaleString('en-US')}</div>
                         <div className="event__details">{selectedEvent.details}</div>
                         <div className="event__creator"> by: {eventOwner.name}</div>
                         <Link to={`/events/${eventDetailId}/users`}>

@@ -7,7 +7,7 @@ export const EventProvider = (props) => {
     const [searchTerms, setSearchTerms] = useState("")
 
     const getEvents = () => {
-        console.log("x")
+        
         return fetch("http://localhost:8088/events")
             .then(res => res.json())
             .then(res =>
