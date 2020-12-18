@@ -11,16 +11,16 @@ export const ActiveOwnList = () => {
 
     const { usersEvents, getUsersEvents } = useContext(UserEventContext)
     const { events, getEvents, } = useContext(EventContext)
-    
+
 
     const [event, setEvent] = useState([])
-    
-    
+
+
 
     useEffect(() => {
         getEvents()
             .then(getUsersEvents)
-            
+
     }, [])
 
     // The order of these useEffect calls is crucial
@@ -28,22 +28,23 @@ export const ActiveOwnList = () => {
         const ownEvents = events.filter(e => e.userId === userId) || []
         setEvent(ownEvents)
 
-    }, [events , usersEvents])
- 
+    }, [events, usersEvents])
+
 
     /* 
     Map through events and filter all events.userId that matches active usersId.
     That will return all events associated with that user.
     */
+
     return (
         <>
             <div className="events">
-                <ul className="eventList">
-                    <h3>Own Events</h3>
+                <article className="eventList">
+                    <h2>Created</h2>
                     {
-                        event.map(oe => (<ActiveOwnEvent key={oe.id} event={oe}/>))
+                        event.map(oe => (<ActiveOwnEvent key={oe.id} event={oe} />))
                     }
-                </ul>
+                </article>
             </div>
         </>
     )

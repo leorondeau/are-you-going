@@ -22,6 +22,9 @@ export const EventList = (props) => {
     
     }, [])
 
+    useEffect(() => {
+
+    }, [events])
 
     return (
         <>

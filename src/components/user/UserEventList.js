@@ -38,19 +38,34 @@ export const UserEventList = (props) => {
     Get all activeusers watch list then map over usersgoing to find overlap. 
     
     */
+    if (usersGoing.length === 0) {
 
 
-    return (
-        <>
-            <div className="users">
-                <section className="eventList">
-                    <h3></h3>
-                    {
-                        usersGoing.map(ug => (<User key={ug.id} user={ug} />))
-                    }
-                </section>
-            </div>
-        </>
-    )
+
+        return (
+            <>
+                <div className="users">
+                    <section className="eventList">
+                        <h3>Start the party!</h3>
+
+                    </section>
+                </div>
+            </>
+        )
+
+    } else {
+
+        return (
+            <>
+                <div className="users">
+                    <section className="eventList">
+                        <h3></h3>
+                        {
+                            usersGoing.map(ug => (<User key={ug.id} user={ug} />))
+                        }
+                    </section>
+                </div>
+            </>
+        )
+    }
 }
-
