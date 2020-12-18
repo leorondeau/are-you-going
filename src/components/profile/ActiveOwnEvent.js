@@ -7,7 +7,10 @@ export const ActiveOwnEvent = ({ event }) => {
 
     
     const { deleteOwnerEvent } = useContext(EventContext)
-
+    
+    const date = event.startDate
+    
+    const newDate = new Date (date)
     
     return (
         <>
@@ -19,7 +22,7 @@ export const ActiveOwnEvent = ({ event }) => {
                     </Link>
                 </ul>
                 
-                <div className="event__date">{event.startDate}</div>
+                <div className="event__date">{newDate.toLocaleDateString('en-US')}</div>
                 
                 <button type="button" onClick={
                     () => {

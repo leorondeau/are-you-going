@@ -15,6 +15,7 @@ export const ActiveOwnList = () => {
 
     const [event, setEvent] = useState([])
     
+    
 
     useEffect(() => {
         getEvents()

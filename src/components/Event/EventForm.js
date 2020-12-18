@@ -10,16 +10,16 @@ export const EventForm = (props) => {
     // const [value, onChange] = useState(new Date())
 
 
-    const [event, setEvent] = useState({name: "" , location: "" ,details: "", startDate: ""})
+    const [event, setEvent] = useState({ name: "", location: "", details: "", startDate: "" })
 
     /* 
     .hasOwnProperty returns a boolean and is looking for eventId which
     is part of the Route path in Application Views
     */
     const editMode = props.match.params.hasOwnProperty("eventId")
-    
-    
-    
+
+
+
     const handleControlledInputChange = (e) => {
 
         // Adding key value pairs to the object through each from input
@@ -56,7 +56,14 @@ export const EventForm = (props) => {
         const userId = parseInt(localStorage.getItem("ayg__id"))
         const name = event.name
         const location = event.location
+        // const newDate = Date.parse(event.startDate)
+        // Date.parse converts to milliseconds
         const startDate = event.startDate
+        console.log(event.startDate)
+        // inputDate 
+        
+        // console.log("newdate" , newDate)
+        // console.log("newdatetest" , newDate)
 
         if (location === "") {
             window.alert("Please select a location")
@@ -67,7 +74,7 @@ export const EventForm = (props) => {
                     name,
                     location,
                     startDate,
-                    details: event.details,                
+                    details: event.details,
                     userId
                 })
                     .then(() => props.history.push("/"))
@@ -76,7 +83,7 @@ export const EventForm = (props) => {
                     name,
                     location,
                     startDate,
-                    details: event.details,                    
+                    details: event.details,
                     userId
                 })
                     .then(() => props.history.push("/"))
@@ -126,10 +133,10 @@ export const EventForm = (props) => {
             <fieldset>
                 <div className="form-group">
                     <input type="datetime-local" name="startDate" proptype="date"
-                    onChange={handleControlledInputChange} value={event.startDate}>
+                        onChange={handleControlledInputChange} value={event.startDate}>
 
                     </input>
-                   
+
                 </div>
             </fieldset>
             <button type="submit"

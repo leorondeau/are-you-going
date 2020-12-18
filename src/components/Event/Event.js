@@ -1,7 +1,8 @@
 import React, { useContext, useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
 import { UserEventContext } from '../user/UsersEventsProvider'
-
+import { WatchListContext } from '../watch/WatchProvider'
+import { UserContext} from '../user/UserProvider'
 
 /* 
 
@@ -10,20 +11,32 @@ add themeselves to an event and remove. It is invoked in EventList.js
 
 */
 
-
 export const Event = ({ event, user  }) => {
     const userId = parseInt(localStorage.getItem("ayg__id"))
 
     const { usersEvents, addUsersEvents, deleteUsersEvent, getUsersEvents } = useContext(UserEventContext)
+    const { watch, getWatch } = useContext(WatchListContext)
+    const { users, getUsers } = useContext(UserContext)
     const [usersEvent, setUsersEvents] = useState({})
     
     
+    // const date = event.startDate
+    
+    // const newDate = new Date (date)
 
     useEffect(() => {
         getUsersEvents()
+        .then(getUsers)
+        // .then(getWatch)
     }, [])
 
- 
+        // const usersWatched = watch.filter(w => w.userId === activeUserId)
+    // if (usersGoing.length === 0) 
+
+    // else if (usersWatched.length >= 4) {
+    // else if (usersWatched.map(uw => uw.watch === false)) {
+// const usersWatched = usersGoing.map(ug => watch.find(w => ug.id === w.watchedUserId))
+// newDate.toLocaleString('en-US')
     return (
         <div>
             <section className="event">

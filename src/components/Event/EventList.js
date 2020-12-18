@@ -21,11 +21,7 @@ export const EventList = (props) => {
         .then(getEvents)
     
     }, [])
-    // console.log("props" , props)
-    
 
-    // console.log("users", users)
-    // console.log("events" , events)
 
     return (
         <>

@@ -2,14 +2,17 @@
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
+    width: 100%;
   }
   
   .event {
-      flex-basis: 28%;
-      margin: 1em;
-      padding: 1em;
+      flex-basis: 81%;
+      margin: 0;
+      padding: 0;
       border: 1px solid goldenrod;
       border-radius: 5px;
+      width: 100%;
+      justify-content: space-evenly;
   }
 
   .btn-info {

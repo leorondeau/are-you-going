@@ -15,7 +15,7 @@ export const WatchProvider = (props) => {
     
 
     const addWatched = watch => {
-        return fetch("http://localhost:8088/watch", {
+        return fetch("http://localhost:8088/watchlist", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json"
