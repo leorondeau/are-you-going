@@ -9,6 +9,7 @@ import { UsersEventProvider } from "./user/UsersEventsProvider"
 import { UserEventList } from './user/UserEventList'
 import { Profile } from './profile/Profile'
 import { UserProfile} from './user/UserProfile'
+import { WatchListContext, WatchProvider } from "./watch/WatchProvider"
 
 
 export const ApplicationViews = (props) => {
@@ -17,7 +18,9 @@ export const ApplicationViews = (props) => {
             <EventProvider>
                 <UserProvider>
                     <UsersEventProvider>
+                        <WatchProvider>
 
+                        
                         <Route exact path="/events" render={
                             props => <EventForm {...props} />
                         } />
@@ -30,23 +33,30 @@ export const ApplicationViews = (props) => {
                         <Route path="/events/edit/:eventId(\d+)" render={
                             props => <EventForm {...props} />
                         } />
+                        
+                        </WatchProvider>
                     </UsersEventProvider>
                 </UserProvider>
             </EventProvider>
             <UserProvider>
                 <UsersEventProvider>
                     <EventProvider>
+                        <WatchProvider>
+
 
                         <Route path="/events/:eventId(\d+)/users" render={
                             props => <UserEventList {...props} />
                         } />
 
+                        </WatchProvider>
                     </EventProvider>
                 </UsersEventProvider>
             </UserProvider>
             <UserProvider>
                 <UsersEventProvider>
                     <EventProvider>
+                        <WatchProvider>
+
 
                         <Route exact path="/profile/:userId(\d+)" render={
                             props => <Profile {...props} />
@@ -56,6 +66,7 @@ export const ApplicationViews = (props) => {
                             props => <UserProfile {...props} />
                         }/>
 
+                        </WatchProvider>
                     </EventProvider>
                 </UsersEventProvider>
             </UserProvider>

@@ -1,14 +1,16 @@
-import React, { useContext, useEffect, useState } from 'react'
+import React, { useContext } from 'react'
 import { Link } from 'react-router-dom'
-import { UserEventContext } from '../user/UsersEventsProvider'
 import { EventContext }from '../event/EventProvider'
 
 
 export const ActiveOwnEvent = ({ event }) => {
 
-    const { usersEvents , deleteUsersEvent } = useContext(UserEventContext)
+    
     const { deleteOwnerEvent } = useContext(EventContext)
-
+    
+    const date = event.startDate
+    
+    const newDate = new Date (date)
     
     return (
         <>
@@ -20,7 +22,7 @@ export const ActiveOwnEvent = ({ event }) => {
                     </Link>
                 </ul>
                 
-                <div className="event__date">{event.startDate}</div>
+                <div className="event__date">{newDate.toLocaleDateString('en-US')}</div>
                 
                 <button type="button" onClick={
                     () => {

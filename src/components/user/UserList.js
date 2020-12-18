@@ -1,5 +1,4 @@
 import React, { useEffect, useContext, useState } from 'react'
-import { User } from './User'
 import { UserContext } from './UserProvider'
 
 
@@ -8,7 +7,7 @@ export const UserList = (props) => {
     const { users, getUsers } = useContext(UserContext)
     const user = parseInt(props.match.params.userId)
 
-    console.log("props.match.params" , user)
+    
 
 
     const [profileUser, setProfileUser] = useState({})
@@ -24,7 +23,6 @@ export const UserList = (props) => {
 
     }, [users])
 
-    // console.log("profileUser" , profileUser)
 
     return (
         <>

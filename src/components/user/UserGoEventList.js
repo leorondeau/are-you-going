@@ -9,7 +9,7 @@ import { UserGoEvent } from './UserGoEvent'
 export const UserGoEventList = (props) => {
 
     const user = parseInt(props.match.params.userId)
-    console.log("user" , user)
+    
 
     const { events, getEvents } = useContext(EventContext)
     const { usersEvents, getUsersEvents } = useContext(UserEventContext)
@@ -42,7 +42,8 @@ export const UserGoEventList = (props) => {
                 <article className="eventList">
                     <h2>Attend List</h2>
                     {
-                        eventName.map(en => <ul><UserGoEvent key={en.id} event={en} /></ul>)
+                        eventName.map(en => <ul><UserGoEvent key={en.id} event={en}  /></ul> )
+                        
                     }
                 </article>
             </div>

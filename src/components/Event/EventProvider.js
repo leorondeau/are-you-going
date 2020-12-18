@@ -1,16 +1,20 @@
-import React, { useState  } from "react"
+import React, { useState } from "react"
 
 export const EventContext = React.createContext()
 
 export const EventProvider = (props) => {
-    const [events , setEvents] = useState([])
-    const [ searchTerms , setSearchTerms ] = useState("") 
+    const [events, setEvents] = useState([])
+    const [searchTerms, setSearchTerms] = useState("")
 
     const getEvents = () => {
+        console.log("x")
         return fetch("http://localhost:8088/events")
-        .then(res => res.json())
-        .then(setEvents)
-        
+            .then(res => res.json())
+            .then(res =>
+                res.sort((a, b) => Date.parse(a.startDate) - Date.parse(b.startDate))
+            )
+            .then(setEvents)
+
     }
 
     // Use expand when source has foreign key
@@ -18,53 +22,47 @@ export const EventProvider = (props) => {
     // If uncertain embed will give empty array if no fk
     // One to many relationship, embed
     const getEventById = (id) => {
-        return fetch (`http://localhost:8088/events/${ id }?_expand=user`)
+        return fetch(`http://localhost:8088/events/${id}?_expand=user`)
             .then(res => res.json())
     }
 
 
     const addEvent = event => {
-        return fetch("http://localhost:8088/events" , {
+        return fetch("http://localhost:8088/events", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json"
             },
             body: JSON.stringify(event)
         })
-        .then(getEvents)
-    }  
+            .then(getEvents)
+    }
     const deleteOwnerEvent = event => {
-        return fetch (`http://localhost:8088/events/${event.id}`, {
+        return fetch(`http://localhost:8088/events/${event.id}`, {
             method: "DELETE"
         })
-        .then(getEvents)
+            .then(getEvents)
     }
 
-    // const deleteUsersEvent = eventid => {
-    //     return fetch (`http://localhost:8088/events/${eventid}`, {
-    //         method: "DELETE"
-    //     })
-    //     .then(getEvents)
-    // }
 
     // Whenever altering an existing entity the fetch url must have the id
     const updateEvent = event => {
-        return fetch (`http://localhost:8088/events/${event.id}`, {
+        return fetch(`http://localhost:8088/events/${event.id}`, {
             method: "PUT",
             headers: {
                 "Content-Type": "application/json"
             },
             body: JSON.stringify(event)
         })
-        .then(getEvents)
+            .then(getEvents)
     }
 
     return (
         <EventContext.Provider value={{
-            events , addEvent , getEvents , getEventById , searchTerms , setSearchTerms , deleteOwnerEvent ,updateEvent
+            events, addEvent, getEvents, getEventById, searchTerms, setSearchTerms, deleteOwnerEvent, updateEvent
         }}>
             {props.children}
         </EventContext.Provider>
     )
 
-    }
+}

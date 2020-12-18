@@ -1,24 +1,9 @@
-import React, { useContext, useState, useEffect } from 'react'
-import { UserEventContext } from './UsersEventsProvider'
+import React from 'react'
 import {Link } from 'react-router-dom'
 
 
 export const UserGoEvent = ({ event }) => {
-    // {console.log("USER" , user.name)}
 
-    const { usersEvents, getUsersEvents } = useContext(UserEventContext)
-    const [userEvent, setUserEvents] = useState({})
-
-
-
-
-    useEffect(() => {
-        getUsersEvents()
-    }, [])
-
-    // useEffect(() => {
-
-    // }, [])
 
     return (
 

@@ -1,4 +1,4 @@
-import React ,{ useContext , useState , useEffect} from 'react'
+import React, { useContext, useState, useEffect } from 'react'
 import { UserEventContext } from '../user/UsersEventsProvider'
 
 
@@ -8,18 +8,14 @@ export const ActiveGoEvent = ({ event }) => {
 
 
     const { usersEvents, deleteUsersEvent, getUsersEvents } = useContext(UserEventContext)
-    const [ userEvent, setUserEvents ] = useState({})
-    
 
-    
+
 
     useEffect(() => {
         getUsersEvents()
     }, [])
 
-    // useEffect(() => {
 
-    // }, [])
 
     return (
 
