@@ -11,7 +11,7 @@ export const EventProvider = (props) => {
         return fetch("http://localhost:8088/events")
             .then(res => res.json())
             .then(res =>
-                res.sort((a, b) => a.startDate - b.startDate)
+                res.sort((a, b) => Date.parse(a.startDate) - Date.parse(b.startDate))
             )
             .then(setEvents)
 
