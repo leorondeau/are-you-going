@@ -31,8 +31,7 @@ export const ActiveGoEventList = (props) => {
         setSelectedEvent(activeUserEvents)
 
         const eventNames = activeUserEvents.map(aue => {
-            return events.find(eve => aue.eventId === eve.id)
-        }) || {}
+            return events.find(eve => aue.eventId === eve.id)}) || {}
         setEventName(eventNames)
 
     }, [events , usersEvents ])

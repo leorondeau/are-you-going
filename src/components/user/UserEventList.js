@@ -46,7 +46,7 @@ export const UserEventList = (props) => {
             <>
                 <div className="users">
                     <section className="eventList">
-                        <h3>Start the party!</h3>
+                        <h3>There's frickin' pandemic!</h3>
 
                     </section>
                 </div>
