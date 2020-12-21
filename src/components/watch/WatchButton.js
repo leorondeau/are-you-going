@@ -1,40 +1,96 @@
-import React , { useContext } from 'react'
-import { WatchListContext} from './WatchProvider'
+import React, { useEffect, useContext, useState } from 'react'
+import { WatchListContext } from './WatchProvider'
 
 
 
 export const WatchButton = (props) => {
-    const { addWatched } = useContext(WatchListContext)
-    const userId = parseInt(localStorage.getItem("ayg__id"))
+    const { watch, addWatched, deleteWatched, getWatch } = useContext(WatchListContext)
 
-    const watchedUserId = parseInt(props.match.params.userId)
+
+    const activeUserId = parseInt(localStorage.getItem("ayg__id"))
+    const profileUserId = parseInt(props.match.params.userId)
+
+    const [watchedObj, setWatchedObj] = useState({})
+    const [selectedWatched, setSelectedWatched] = useState([])
+
+    useEffect(() => {
+        getWatch()
+
+    }, [])
+    // console.log("watch", watch)
+
+    useEffect(() => {
+        const watchListEvents = watch.filter(w => w.userId === activeUserId) || []
+        setSelectedWatched(watchListEvents)
+        // console.log("watchListEvents", watchListEvents)
+        const watchedUser = watchListEvents.find(wle => wle.watchedUserId === profileUserId) || {}
+        setWatchedObj(watchedUser)
+    }, [watch])
     
-    console.log("watchedUserId" , watchedUserId)
+    // console.log("selectedWatch", selectedWatched)
+    // console.log("watchedObj" , watchedObj)
+
+    const watchStatus = (e) => {
+        
+        // cool avoid neutral
+        const userWatchStatus = e.target.value
+
+        if (activeUserId === watchedObj.userId && watchedObj.watchedUserId === profileUserId && userWatchStatus === "cool") {
+            addWatched(
+                {
+                    userId: activeUserId,
+                    watchedUserId: profileUserId,
+                    watch: true
+                }
+            )
+        }
+        if (activeUserId === watchedObj.userId && watchedObj.watchedUserId === profileUserId && userWatchStatus === "avoid") {
+            addWatched(
+                {
+                    userId: activeUserId,
+                    watchedUserId: profileUserId,
+                    watch: false
+                }
+            )
+        }
+        if (activeUserId === watchedObj.userId && watchedObj.watchedUserId === profileUserId && userWatchStatus === "neutral") {
+            deleteWatched(watchedObj.id)
+            // console.log("delete" , deleteWatched(watchedObj.id))
+        }
+    }
+
+
 
     return (
 
         <>
-            <button onClick={
-                () => {
-                    addWatched({
-                        userId,
-                        watchedUserId,
-                        watch: true
-                    })
+            <label>
+                <input type="radio"
+                    name="watch"
+                    value="cool"
 
-                }
-            }>Yah</button>
+                    onChange={watchStatus}>
+                </input>
+                cool
+            </label>
+            <label>
+                <input type="radio"
+                    name="watch"
+                    value="avoid"
 
-            <button onClick={
-                () => {
-                    addWatched({
-                        userId,
-                        watchedUserId,
-                        watch: false
-                    })
+                    onChange={watchStatus}>
+                </input>
+                avoid
+            </label>
+            <label>
 
-                }
-            }>Nah</button>
+                <input type="radio"
+                    name="watch"
+                    value="neutral"
+                    onChange={watchStatus}>
+                </input>
+                neutral
+            </label>
         </>
     )
 }
