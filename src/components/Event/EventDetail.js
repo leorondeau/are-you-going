@@ -51,7 +51,7 @@ export const EventDetail = (props) => {
    const date = selectedEvent.startDate
    const newDate = new Date (date)
    newDate.toLocaleString('en-US')
-   console.log("object " , newDate.toLocaleString('en-US'))
+//    console.log("object " , newDate.toLocaleString('en-US'))
     if (activeUserId === selectedEvent.userId) {
 
         return (

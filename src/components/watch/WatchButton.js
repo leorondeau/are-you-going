@@ -14,7 +14,6 @@ export const WatchButton = (props) => {
     return (
 
         <>
-
             <button onClick={
                 () => {
                     addWatched({
@@ -22,7 +21,6 @@ export const WatchButton = (props) => {
                         watchedUserId,
                         watch: true
                     })
-
 
                 }
             }>Yah</button>

@@ -59,7 +59,7 @@ export const EventForm = (props) => {
         // const newDate = Date.parse(event.startDate)
         // Date.parse converts to milliseconds
         const startDate = event.startDate
-        console.log(event.startDate)
+        // console.log(event.startDate)
         // inputDate 
         
         // console.log("newdate" , newDate)

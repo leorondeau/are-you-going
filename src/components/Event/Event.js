@@ -11,32 +11,38 @@ add themeselves to an event and remove. It is invoked in EventList.js
 
 */
 
-export const Event = ({ event, user  }) => {
+export const Event = ({ event, user }) => {
     const userId = parseInt(localStorage.getItem("ayg__id"))
 
     const { usersEvents, addUsersEvents, deleteUsersEvent, getUsersEvents } = useContext(UserEventContext)
     // const { watch, getWatch } = useContext(WatchListContext)
     // const { users, getUsers } = useContext(UserContext)
-    const [usersEvent, setUsersEvents] = useState({})
-    
-    
-    const date = event.startDate
-    
-    const newDate = new Date (date)
+    const [usersEvent, setUsersEvents] = useState([])
+    const [selectedUserEvent , setSelectedUserEvent] = useState({})
 
+    const date = event.startDate
+    const newDate = new Date(date)
+    // console.log(usersEvent)
     useEffect(() => {
         getUsersEvents()
         // .then(getUsers)
         // .then(getWatch)
     }, [])
 
-        // const usersWatched = watch.filter(w => w.userId === activeUserId)
+    useEffect(() => {
+        const filteredUserEvents = usersEvents.filter(ue => ue.eventId === event.id) || []
+        setUsersEvents(filteredUserEvents)
+        const foundUserEvent = filteredUserEvents.find(fe => fe.userId === userId) || {}
+        setSelectedUserEvent(foundUserEvent)
+    }, [usersEvents])
+    // const usersWatched = watch.filter(w => w.userId === activeUserId)
     // if (usersGoing.length === 0) 
 
     // else if (usersWatched.length >= 4) {
     // else if (usersWatched.map(uw => uw.watch === false)) {
-// const usersWatched = usersGoing.map(ug => watch.find(w => ug.id === w.watchedUserId))
-// newDate.toLocaleString('en-US')
+    // const usersWatched = usersGoing.map(ug => watch.find(w => ug.id === w.watchedUserId))
+    // newDate.toLocaleString('en-US')
+    // console.log("usersEvents" , usersEvents)
     return (
         <div>
             <section className="event">
@@ -51,9 +57,11 @@ export const Event = ({ event, user  }) => {
                 <button type="button" onClick={
                     () => {
 
-                        const selectedUserEvent = usersEvents.find(ue => ue.eventId === event.id)
-                        
-                        if (selectedUserEvent && userId === selectedUserEvent.userId) {
+
+                        console.log("selectedUserEvent", selectedUserEvent)
+                        // console.log("userId" , userId)
+                        // console.log("selectedUserEvent" , selectedUserEvent.userId)
+                        if (selectedUserEvent.userId && userId === selectedUserEvent.userId) {
                             deleteUsersEvent(selectedUserEvent.id)
 
                         }
@@ -64,9 +72,9 @@ export const Event = ({ event, user  }) => {
 
                             })
                         }
-                        
+
                     }
-                    
+
                 }>I'm in</button>
             </section>
         </div>

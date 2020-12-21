@@ -18,7 +18,7 @@ export const ActiveGoEvent = ({ event }) => {
         getUsersEvents()
     }, [])
 
-
+    // console.log("usersEvents" , usersEvents)
 
     return (
 
@@ -32,7 +32,8 @@ export const ActiveGoEvent = ({ event }) => {
             <div className="event__date">{newDate.toLocaleDateString('en-US')}</div>
             <button type="button" onClick={
                 () => {
-                    const selectedUserEvent = usersEvents.find(ue => ue.eventId === event.id)
+                    const filteredUserEvents = usersEvents.filter(ue => ue.eventId === event.id)
+                    const selectedUserEvent = filteredUserEvents.find(fe => fe.userId === userId)
                     deleteUsersEvent(selectedUserEvent.id)
                 }
 
