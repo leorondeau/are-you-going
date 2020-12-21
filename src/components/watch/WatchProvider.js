@@ -26,7 +26,7 @@ export const WatchProvider = (props) => {
     }
 
     const deleteWatched = id => {
-        return fetch(`http://localhost:8088/watch/${id}`, {
+        return fetch(`http://localhost:8088/watchlist/${id}`, {
             method: "DELETE",
         })
         .then(getWatch)
