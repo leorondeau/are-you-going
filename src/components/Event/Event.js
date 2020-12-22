@@ -36,7 +36,7 @@ export const Event = ({ event, user }) => {
         setSelectedUserEvent(foundUserEvent)
     }, [usersEvents])
     // const usersWatched = watch.filter(w => w.userId === activeUserId)
-    // if (usersGoing.length === 0) 
+    
 
     // else if (usersWatched.length >= 4) {
     // else if (usersWatched.map(uw => uw.watch === false)) {
@@ -55,26 +55,17 @@ export const Event = ({ event, user }) => {
                 <div className="event__date">{newDate.toLocaleString('en-US')}</div>
                 <div className="event__creator">by: {user.name}</div>
                 <button type="button" onClick={
-                    () => {
-
-
-                        console.log("selectedUserEvent", selectedUserEvent)
-                        // console.log("userId" , userId)
-                        // console.log("selectedUserEvent" , selectedUserEvent.userId)
+                    () => {                     
                         if (selectedUserEvent.userId && userId === selectedUserEvent.userId) {
                             deleteUsersEvent(selectedUserEvent.id)
-
                         }
                         else {
                             addUsersEvents({
                                 eventId: event.id,
                                 userId,
-
                             })
                         }
-
                     }
-
                 }>I'm in</button>
             </section>
         </div>
