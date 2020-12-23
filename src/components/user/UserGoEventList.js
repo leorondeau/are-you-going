@@ -9,7 +9,7 @@ import { UserGoEvent } from './UserGoEvent'
 export const UserGoEventList = (props) => {
 
     const user = parseInt(props.match.params.userId)
-    
+
 
     const { events, getEvents } = useContext(EventContext)
     const { usersEvents, getUsersEvents } = useContext(UserEventContext)
@@ -30,20 +30,24 @@ export const UserGoEventList = (props) => {
         setSelectedEvent(usersGoEvents)
 
         const eventNames = usersGoEvents.map(uge => {
-            return events.find(eve => uge.eventId === eve.id)}) || {}
+            return events.find(eve => uge.eventId === eve.id)
+        }) || {}
         setEventName(eventNames)
 
-    }, [events , usersEvents ])
+    }, [events, usersEvents])
 
     return (
         <>
             <div className="events">
                 <article className="eventList">
                     <h2>Attend List</h2>
-                    {
-                        eventName.map(en => <ul><UserGoEvent key={en.id} event={en}  /></ul> )
-                        
-                    }
+                    <ul>
+
+                        {
+                            eventName.map(en => <UserGoEvent key={en.id} event={en} />)
+
+                        }
+                    </ul>
                 </article>
             </div>
         </>

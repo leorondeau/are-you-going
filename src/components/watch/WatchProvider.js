@@ -25,8 +25,18 @@ export const WatchProvider = (props) => {
             .then(getWatch)
     }
 
+    const updateWatched = watch => {
+        return fetch(`http://localhost:8088/watchlist/${watch.id}`, {
+            method: "PUT",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify(watch)
+            })
+            .then(getWatch)
+    }
     const deleteWatched = id => {
-        return fetch(`http://localhost:8088/watch/${id}`, {
+        return fetch(`http://localhost:8088/watchlist/${id}`, {
             method: "DELETE",
         })
         .then(getWatch)
@@ -35,7 +45,7 @@ export const WatchProvider = (props) => {
 
     return (
         <WatchListContext.Provider value = {{
-            watch , getWatch , addWatched , deleteWatched , setWatch
+            watch , getWatch , addWatched , deleteWatched , setWatch , updateWatched
         }}>
             {props.children}
         </WatchListContext.Provider>
