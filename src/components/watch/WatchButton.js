@@ -99,29 +99,6 @@ export const WatchButton = (props) => {
         if (e.target.value === "neutral") {
          deleteWatched(watchedObj.id)
         }
-
-        // if (activeUserId !== watchedObj.userId && profileUserId !== watchedObj.watchedUserId && userWatchStatus === "cool") {
-        //     addWatched(
-        //         {
-        //             userId: activeUserId,
-        //             watchedUserId: profileUserId,
-        //             watch: true
-        //         }
-        //     )
-        // }
-        // if (activeUserId !== watchedObj.userId && profileUserId !== watchedObj.watchedUserId && userWatchStatus === "avoid") {
-        //     addWatched(
-        //         {
-        //             userId: activeUserId,
-        //             watchedUserId: profileUserId,
-        //             watch: false
-        //         }
-        //     )
-        // }
-        // if (userWatchStatus === "neutral") {
-        //     deleteWatched(watchedObj.id)
-
-        // }
     }
 
     return (
