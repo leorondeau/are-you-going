@@ -1,6 +1,6 @@
 import React, { useEffect, useContext, useState } from 'react'
 import { WatchListContext } from './WatchProvider'
-
+import "./Watch.css"
 
 
 export const WatchButton = (props) => {
@@ -43,7 +43,7 @@ export const WatchButton = (props) => {
             setSelectedOption("neutral")
         }
 
-    }, [watchedObj , watch])
+    }, [watchedObj, watch])
 
 
     /* e properties are inherited from onChange prop in button */
@@ -97,41 +97,43 @@ export const WatchButton = (props) => {
         }
 
         if (e.target.value === "neutral") {
-         deleteWatched(watchedObj.id)
+            deleteWatched(watchedObj.id)
         }
     }
 
     return (
         <>
-            <h4>Emotional response to user</h4>
-            <label>
-                <input type="radio"
-                    name="watch"
-                    value="cool"
-                    checked={selectedOption === "cool"}
-                    onChange={watchStatus}>
-                </input>
+            <h5 className="radio__header">Status</h5>
+            <div className="radio__group">
+                <label className="radio__cool">
+                    <input type="radio"
+                        name="watch"
+                        value="cool"
+                        checked={selectedOption === "cool"}
+                        onChange={watchStatus}>
+                    </input>
                 cool
             </label>
-            <label>
-                <input type="radio"
-                    name="watch"
-                    value="avoid"
-                    checked={selectedOption === "avoid"}
-                    onChange={watchStatus}>
-                </input>
+                <label className="radio__avoid">
+                    <input className="avoid__input" type="radio"
+                        name="watch"
+                        value="avoid"
+                        checked={selectedOption === "avoid"}
+                        onChange={watchStatus}>
+                    </input>
                 avoid
             </label>
-            <label>
+                <label className="radio__neutral">
 
-                <input type="radio"
-                    name="watch"
-                    value="neutral"
-                    checked={selectedOption === "neutral"}
-                    onChange={watchStatus}>
-                </input>
+                    <input type="radio"
+                        name="watch"
+                        value="neutral"
+                        checked={selectedOption === "neutral"}
+                        onChange={watchStatus}>
+                    </input>
                 neutral
             </label>
+            </div>
         </>
     )
 }

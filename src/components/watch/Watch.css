@@ -1,0 +1,32 @@
+.active-menu {
+    background-color: black;
+}
+
+/* .radio__group {
+  margin: .55rem;
+  
+} */
+
+.radio__cool {
+    color: #18cae6;
+    padding: .55rem;
+}
+
+.radio__avoid {
+    color: #fa0404;
+    padding: .55rem;
+}
+
+.radio__neutral {
+    color: #08ff15;
+    padding: .55rem;
+}
+
+/* .avoid__input {
+    padding: 1rem;
+} */
+
+.radio__header {
+    margin: .55rem;
+    
+}

@@ -1,23 +1,56 @@
-.events {
-   
-   
-    width: 100%;
-    
-  }
-  
-  /* .event {
-      flex-basis: 81%;
-      margin: 1px , 0px , .25px , 0px;
-      padding: 2px , 0px, 1px, 3px;
-      border: solid .25px ;     
-      width: 100%;
-      justify-content: space-evenly;
-  } */
+.event__name {
+  color: #18cae6;
+  margin-bottom: 0;
+}
 
-  .btn-info {
-    color: rgb(155, 55, 55);
-    background: rgba(119, 228, 57, 0.911);
-    
-  }
+.card {
+  border-radius: 8px;
+  margin: 0.55rem;
+  border: 1px solid #18cae6;
+  background-color: black;
+  color: #18cae6;
+}
 
-  
+.event-button {
+  border: 1px solid #18cae6;
+  background-color: black;
+  color: #18cae6;
+  /* justify-content: space-evenly; */
+}
+
+.form-body {
+  border: 1px solid #18cae6;
+  background-color: black;
+  color: #18cae6;
+}
+
+.eventForm {
+  margin: 0 0 0.3rem 0.5rem;
+  color: #18cae6;
+}
+
+.active-button {
+  border: 1px solid #18cae6;
+  background-color: black;
+  color: #18cae6;
+}
+
+.form-button {
+  border: 1px solid #18cae6;
+  background-color: black;
+  color: #18cae6;
+  margin: 0.55rem;
+}
+
+.eventFormGroup {
+  margin: 0 0.5rem 0.5rem 0.5rem;
+}
+
+.dateForm {
+  margin: 1rem 6rem 0.5rem 0.5rem;
+}
+
+.event__creator__name {
+  color: #18cae6;  
+}
+

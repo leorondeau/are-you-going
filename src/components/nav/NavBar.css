@@ -1,5 +1,23 @@
-.main-nav {
+.navbar-group {
     display: flex;
-    justify-content: space-between;
-    max-width: 100%;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: space-evenly;
+}
+
+.navbar {
+    
+    background-color: black;
+    color: #18CAE6
+}
+
+.nav-links {
+    color: #18CAE6; 
+    
+}
+
+.nav-toggle {
+    border: 5px solid #18CAE6;
+    background-color: black;
+    border-radius: 20px;
 }

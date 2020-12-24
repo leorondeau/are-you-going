@@ -1,5 +1,8 @@
 import React, { useContext, useState, useEffect } from "react"
 import { EventContext } from "./EventProvider"
+import  Form  from "react-bootstrap/Form"
+import FormGroup from 'react-bootstrap/FormGroup'
+import Button from 'react-bootstrap/Button'
 
 
 
@@ -92,54 +95,54 @@ export const EventForm = (props) => {
     }
     const [startDate, setStartDate] = useState(null);
     return (
-        <form className="">
+        <Form className="" bsPrefix="form-body">
             {/* If editmode true Update Event else Submit Event */}
-            <h2 className="eventForm__title">{editMode ? "Update Event" : "Submit Event"}</h2>
-            <fieldset>
-                <div className="form-group">
-                    <label htmlFor="name">Event Name</label>
-                    <input type="text" name="name" required autoFocus className="form-control"
+            {/* <h3 className="eventForm__title eventForm">{editMode ? "Update Event" : "Submit Event"}</h3> */}
+            <Form.Group className="eventFormGroup">
+                {/* <div className="form-group"> */}
+                    <Form.Label className="eventForm" htmlFor="name">Event Name</Form.Label>
+                    <Form.Control className="eventForm" type="text" name="name" required autoFocus className="form-control" 
                         proptype="varchar"
                         placeholder=""
                         value={event.name}
                         onChange={handleControlledInputChange}
                     />
                     {/* {console.log("eventName", event.name)} */}
-                </div>
-            </fieldset>
-            <fieldset>
-                <div className="form-group">
-                    <label htmlFor="location">Location</label>
-                    <input type="text" name="location" required autoFocus className="form-control"
+                {/* </div> */}
+            </Form.Group>
+            <Form.Group className="eventFormGroup">
+                {/* <div className="form-group"> */}
+                    <Form.Label className="eventForm" htmlFor="location">Location</Form.Label>
+                    <Form.Control type="text" name="location" required autoFocus className="form-control" 
                         proptype="varchar"
                         placeholder=""
                         value={event.location}
                         onChange={handleControlledInputChange}
                     />
-                </div>
-            </fieldset>
-            <fieldset>
-                <div className="form-group">
-                    <label htmlFor="details">Details</label>
-                    <input type="text" name="details" required autoFocus className="form-control"
+                {/* </div> */}
+            </Form.Group>
+            <Form.Group className="eventFormGroup">
+                {/* <div className="form-group"> */}
+                    <Form.Label className="eventForm" htmlFor="details">Details</Form.Label>
+                    <Form.Control type="text" name="details" required autoFocus className="form-control" 
                         proptype="varchar"
                         placeholder=""
                         value={event.details}
                         onChange={handleControlledInputChange}
                     />
-                </div>
-            </fieldset>
+                {/* </div> */}
+            </Form.Group>
             {/* Date.parse(date.current.value) Turn into a date object */}
-            <fieldset>
-                <div className="form-group">
-                    <input type="datetime-local" name="startDate" proptype="date"
+            <Form.Group className="eventFormGroup dateForm">
+                {/* <div className="form-group"> */}
+                    <Form.Control type="datetime-local" name="startDate" proptype="date" 
                         onChange={handleControlledInputChange} value={event.startDate}>
 
-                    </input>
+                    </Form.Control>
 
-                </div>
-            </fieldset>
-            <button type="submit"
+                {/* </div> */}
+            </Form.Group>
+            <Button  type="submit" bsPrefix="form-button" 
                 onClick={evt => {
                     evt.preventDefault()
                     constructNewEvent()
@@ -147,7 +150,7 @@ export const EventForm = (props) => {
                 className="btn btn-primary">
                 {/* If editmode true Save Updates else Save Event */}
                 {editMode ? "Save Updates" : "Save Event"}
-            </button>
-        </form>
+            </Button>
+        </Form>
     )
 }

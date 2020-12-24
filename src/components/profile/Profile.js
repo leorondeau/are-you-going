@@ -6,15 +6,17 @@ import { WatchList } from '../watch/WatchList'
 import './Profile.css'
 
 export const Profile = () => {
-return (
-    <>
-        < ActiveUserList />
-        <div className="profile-wrapper">
-            < ActiveGoEventList />
-            < ActiveOwnList />
-        </div>
+    return (
+        <>
+            <div className="profile-header">
+                < ActiveUserList />
+                < WatchList />
+            </div>
+            <div className="profile-wrapper">
+                < ActiveOwnList />
+                < ActiveGoEventList />
+            </div>
 
-        < WatchList />
-    </>
-)
+        </>
+    )
 }

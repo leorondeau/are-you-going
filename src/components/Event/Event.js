@@ -4,7 +4,8 @@ import { UserEventContext } from '../user/UsersEventsProvider'
 import { WatchListContext } from '../watch/WatchProvider'
 import { UserContext } from '../user/UserProvider'
 import { EventContext } from './EventProvider'
-
+import Card from 'react-bootstrap/Card'
+import Button from 'react-bootstrap/Button'
 /* 
 
 Event renders the individual Event card on main. It has a button that allows users to 
@@ -19,7 +20,7 @@ export const Event = ({ event, user }) => {
     const { watch, getWatch } = useContext(WatchListContext)
     // const { event, getEvents } = useContext(WatchListContext)
     const { users, getUsers } = useContext(UserContext)
-    
+
 
     const [usersEvent, setUsersEvents] = useState([])
     const [selectedUserEvent, setSelectedUserEvent] = useState({})
@@ -33,7 +34,7 @@ export const Event = ({ event, user }) => {
         getUsersEvents()
             .then(getUsers)
             .then(getWatch)
-            // .then(getEvents)
+        // .then(getEvents)
     }, [])
 
     useEffect(() => {
@@ -59,34 +60,37 @@ export const Event = ({ event, user }) => {
 
     // console.log("usersEvents" , usersEvents)
     return (
-        <div>
-            <section className="event">
-                <h3 className="event__name">
-                    <Link to={`/events/${event.id}`}>
-                        {event.name}
-                    </Link>
-                </h3>
-                <div className="event__location">{event.location}</div>
-                <div className="event__date">{newDate.toLocaleString('en-US')}</div>
-                <div className="event__creator">by: {user.name}</div>
-                <div className="event__userInfo">
+        <Card className="card">
+            <Link className="event__name" to={`/events/${event.id}`}>
+                <Card.Header className="event__name" as="h5">
 
-                    <button type="button" onClick={
-                        () => {
-                            if (selectedUserEvent.userId && activeUserId === selectedUserEvent.userId) {
-                                deleteUsersEvent(selectedUserEvent.id)
-                            }
-                            else {
-                                addUsersEvents({
-                                    eventId: event.id,
-                                    userId: activeUserId
-                                })
-                            }
+                    {event.name}
+
+                </Card.Header>
+                <Card.Body className="event">
+                    <Card.Title className="event__location">{event.location}</Card.Title>
+                    <Card.Text className="event__date">{newDate.toLocaleString('en-US')}</Card.Text>
+                    <Card.Text className="event__creator">by: {user.name}</Card.Text>
+
+                </Card.Body>
+            </Link>
+            <div className="event__userInfo">
+                <Button type="button" className="event-button" block onClick={
+                    () => {
+                        if (selectedUserEvent.userId && activeUserId === selectedUserEvent.userId) {
+                            deleteUsersEvent(selectedUserEvent.id)
                         }
-                    }>I'm in</button>
-                    <div>{partyStatus} {avoidStatus}</div>
-                </div>
-            </section>
-        </div>
+                        else {
+                            addUsersEvents({
+                                eventId: event.id,
+                                userId: activeUserId
+                            })
+                        }
+                    }
+                }>Add</Button>
+                <Card.Text>{partyStatus} {avoidStatus}</Card.Text>
+            </div>
+        </Card>
+
     )
 }

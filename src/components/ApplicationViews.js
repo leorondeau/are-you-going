@@ -44,7 +44,7 @@ export const ApplicationViews = (props) => {
                         <WatchProvider>
 
 
-                        <Route path="/events/:eventId(\d+)/users" render={
+                        <Route exact path="/events/:eventId(\d+)" render={
                             props => <UserEventList {...props} />
                         } />
 

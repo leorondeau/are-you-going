@@ -39,15 +39,15 @@ export const UserGoEventList = (props) => {
     return (
         <>
             <div className="events">
-                <article className="eventList">
-                    <h2>Attend List</h2>
-                    <ul>
+                <article className="user__eventList">
+                    <h6 className="user__go__header">Attend</h6>
+                    <div>
 
                         {
                             eventName.map(en => <UserGoEvent key={en.id} event={en} />)
 
                         }
-                    </ul>
+                    </div>
                 </article>
             </div>
         </>

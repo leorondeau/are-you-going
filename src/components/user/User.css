@@ -4,9 +4,41 @@
   justify-content: space-between;
 }
 
-.user__name {
+/* .user__name {
   flex-basis: 28%;
   margin: 1em;
   padding: 1em;
   border: 1px solid goldenrod;
+} */
+
+.user__event__name {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  padding: .25rem .5rem 0px .5rem;
+}
+
+.usersList-dropdown {
+  margin: .55rem;
+
+}
+
+.user__eventList {
+
+  /* border: 1px solid #18cae6; */
+  background-color: black;
+  color: #18cae6;
+  
+}
+
+.user__go__header {
+  margin: 0.55rem
+}
+
+.user-go-list {
+  margin: .55rem;
+}
+
+.user-go-button {
+  margin: .6rem 0 0 0;
 }
