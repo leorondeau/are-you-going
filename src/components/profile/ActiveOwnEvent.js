@@ -1,6 +1,8 @@
 import React, { useContext } from 'react'
 import { Link } from 'react-router-dom'
 import { EventContext } from '../event/EventProvider'
+import Card from 'react-bootstrap/Card'
+import Button from 'react-bootstrap/Button'
 
 
 export const ActiveOwnEvent = ({ event }) => {
@@ -14,21 +16,23 @@ export const ActiveOwnEvent = ({ event }) => {
 
     return (
         <>
-            <section className="event">
-                <p className="event__name">
+            <Card className="event" bg="dark" text="light" bsPrefix="card">
+                <Card.Header className="event__name" as="h5">
                     <Link to={`/events/${event.id}`}>
                         {event.name}
                     </Link>
-                </p>
+                </Card.Header>
+                <Card.Body>
 
-                <div className="event__date">{newDate.toLocaleDateString('en-US')}</div>
+                    <Card.Text className="event__date">{newDate.toLocaleDateString('en-US')}</Card.Text>
 
-                <button type="button" onClick={
-                    () => {
-                        deleteOwnerEvent(event)
-                    }
-                }>Remove</button>
-            </section>
+                    <Button type="button" variant="dark" variant="outline-light" block type="button" onClick={
+                        () => {
+                            deleteOwnerEvent(event)
+                        }
+                    }>Remove</Button>
+                </Card.Body>
+            </Card>
 
         </>
     )

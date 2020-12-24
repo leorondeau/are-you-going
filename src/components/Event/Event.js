@@ -4,7 +4,8 @@ import { UserEventContext } from '../user/UsersEventsProvider'
 import { WatchListContext } from '../watch/WatchProvider'
 import { UserContext } from '../user/UserProvider'
 import { EventContext } from './EventProvider'
-
+import  Card  from 'react-bootstrap/Card'
+import  Button  from 'react-bootstrap/Button'
 /* 
 
 Event renders the individual Event card on main. It has a button that allows users to 
@@ -59,19 +60,19 @@ export const Event = ({ event, user }) => {
 
     // console.log("usersEvents" , usersEvents)
     return (
-        <div>
-            <section className="event">
-                <h3 className="event__name">
-                    <Link to={`/events/${event.id}`}>
+        <Card bg="dark" text="light">
+                <Card.Header className="event__name" as="h5">
+                    <Link className="event__name" to={`/events/${event.id}`}>
                         {event.name}
                     </Link>
-                </h3>
-                <div className="event__location">{event.location}</div>
-                <div className="event__date">{newDate.toLocaleString('en-US')}</div>
-                <div className="event__creator">by: {user.name}</div>
+                </Card.Header>
+            <Card.Body className="event">
+                <Card.Title className="event__location">{event.location}</Card.Title>
+                <Card.Text className="event__date">{newDate.toLocaleString('en-US')}</Card.Text>
+                <Card.Text className="event__creator">by: {user.name}</Card.Text>
                 <div className="event__userInfo">
 
-                    <button type="button" onClick={
+                    <Button type="button" variant="dark" variant="outline-light" block onClick={
                         () => {
                             if (selectedUserEvent.userId && activeUserId === selectedUserEvent.userId) {
                                 deleteUsersEvent(selectedUserEvent.id)
@@ -83,10 +84,10 @@ export const Event = ({ event, user }) => {
                                 })
                             }
                         }
-                    }>I'm in</button>
-                    <div>{partyStatus} {avoidStatus}</div>
+                    }>I'm in</Button>
+                    <Card.Text>{partyStatus} {avoidStatus}</Card.Text>
                 </div>
-            </section>
-        </div>
+            </Card.Body>
+        </Card>
     )
 }

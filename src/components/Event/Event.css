@@ -1,23 +1,7 @@
-.events {
-   
-   
-    width: 100%;
-    
-  }
-  
-  /* .event {
-      flex-basis: 81%;
-      margin: 1px , 0px , .25px , 0px;
-      padding: 2px , 0px, 1px, 3px;
-      border: solid .25px ;     
-      width: 100%;
-      justify-content: space-evenly;
-  } */
+.event__name {
+  color: rgb(238, 237, 236);
+}
 
-  .btn-info {
-    color: rgb(155, 55, 55);
-    background: rgba(119, 228, 57, 0.911);
-    
-  }
-
-  
+/* .form-input {
+  margin: .75rem;
+} */

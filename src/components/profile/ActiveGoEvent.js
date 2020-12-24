@@ -1,7 +1,8 @@
 import React, { useContext, useState, useEffect } from 'react'
 import { UserEventContext } from '../user/UsersEventsProvider'
 import { Link } from 'react-router-dom'
-
+import Card from 'react-bootstrap/Card'
+import Button from 'react-bootstrap/Button'
 
 export const ActiveGoEvent = ({ event }) => {
     // {console.log("USER" , user.name)}
@@ -22,23 +23,25 @@ export const ActiveGoEvent = ({ event }) => {
 
     return (
 
-        <section className="event">
-            <p className="event__name">
+        <Card className="event" bg="dark" text="light">
+            <Card.Header className="event__name" as="h5">
                 <Link to={`/events/${event.id}`}>
                     {event.name}
                 </Link>
-            </p>
+            </Card.Header>
+            <Card.Body>
 
-            <div className="event__date">{newDate.toLocaleDateString('en-US')}</div>
-            <button type="button" onClick={
-                () => {
-                    const filteredUserEvents = usersEvents.filter(ue => ue.eventId === event.id)
-                    const selectedUserEvent = filteredUserEvents.find(fe => fe.userId === userId)
-                    deleteUsersEvent(selectedUserEvent.id)
-                }
+                <Card.Text className="event__date">{newDate.toLocaleDateString('en-US')}</Card.Text>
+                <Button type="button" variant="dark" variant="outline-light" block type="button" onClick={
+                    () => {
+                        const filteredUserEvents = usersEvents.filter(ue => ue.eventId === event.id)
+                        const selectedUserEvent = filteredUserEvents.find(fe => fe.userId === userId)
+                        deleteUsersEvent(selectedUserEvent.id)
+                    }
 
-            }>I'm out</button>
+                }>I'm out</Button>
 
-        </section>
+            </Card.Body>
+        </Card>
     )
 }

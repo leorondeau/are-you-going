@@ -2,7 +2,8 @@ import React, { useContext, useEffect, useState } from 'react'
 import { WatchListContext } from './WatchProvider'
 import { Watched } from './Watched'
 import { UserContext } from '../user/UserProvider'
-
+import DropdownButton from 'react-bootstrap/DropdownButton'
+import Dropdown from 'react-bootstrap/Dropdown'
 
 
 export const WatchList = (props) => {
@@ -12,16 +13,16 @@ export const WatchList = (props) => {
 
 
     const [watched, setWatched] = useState([])
-    const [usersName , setUsersName] = useState([])
+    const [usersName, setUsersName] = useState([])
 
-    
+
     useEffect(() => {
-        
+
         getUsers()
-        .then(getWatch)
+            .then(getWatch)
     }, [])
-    
-    
+
+
     useEffect(() => {
 
         const watchedUsers = watch.filter(w => w.userId === activeUserId) || {}
@@ -31,22 +32,27 @@ export const WatchList = (props) => {
             return users.find(u => u.id === wu.watchedUserId) || {}
         })
         setUsersName(watchNames)
-        
-    }, [watch , users])
 
-    
+    }, [watch, users])
+
+
 
     return (
-        
+
         <>
-            <section>
-                <h3>Tabs</h3>
-                <h4>
-                    {
-                        usersName.map(un => <Watched key={un.id} user={un} />)
-                    }
-                </h4>
-            </section>
+            <div className="drop-watch-menu" >
+                <Dropdown>
+                    <Dropdown.Toggle variant="dark" id="dropdown-basic">Tabs</Dropdown.Toggle>
+                    <Dropdown.Menu>
+                        <Dropdown.Item>
+                            {
+                                usersName.map(un => <Watched key={un.id} user={un} />)
+                            }
+                        </Dropdown.Item>
+                    </Dropdown.Menu>
+                </Dropdown>
+            </div>
         </>
     )
+
 }

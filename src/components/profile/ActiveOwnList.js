@@ -40,7 +40,7 @@ export const ActiveOwnList = () => {
         <>
             <div className="events">
                 <article className="eventList">
-                    <h2>Created</h2>
+                    <h4>Created</h4>
                     {
                         event.map(oe => (<ActiveOwnEvent key={oe.id} event={oe} />))
                     }

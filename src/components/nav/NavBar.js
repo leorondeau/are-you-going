@@ -1,6 +1,9 @@
 import React from "react"
+import Navbar from "react-bootstrap/Navbar"
 import { Link } from "react-router-dom"
+import Nav from 'react-bootstrap/Nav'
 import "./NavBar.css"
+import { NavDropdown } from "react-bootstrap"
 
 
 
@@ -8,21 +11,28 @@ export const NavBar = () => {
     const userId = parseInt(localStorage.getItem("ayg__id"))
     return (
         <>
-        <nav className="navbar">
+            <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark" sticky="top">
+                {/* <Navbar.Brand href="home"></Navbar.Brand> */}
+                <h6>
+                    <Nav.Link className="nav-links" href="/">Are You Going?</Nav.Link>
+                </h6>
+                <Navbar.Toggle aria-controls="responsive-navbar-nav" />
 
-            <h3>
-                <Link className="nav-links" to="/">Are You Going?</Link>
-            </h3>
-            <div className="main-nav">
+                <Navbar.Collapse id="responsive-navbar-nav">
+                    <Nav className="mr-auto" bsPrefix="navbar">
 
-                <li><Link className="nav-links" to={`/profile/${userId}`}>Profile</Link></li>
+                        {/* <NavDropdown className="nav-group"> */}
 
-                <li><Link className="nav-links" to="/">Home</Link></li>
+                        <Nav.Link className="nav-links" href={`/profile/${userId}`}>Profile</Nav.Link>
 
-                <li><Link className="nav-links" to="/events">New Event</Link></li>
+                        <Nav.Link className="nav-links" href="/">Home</Nav.Link>
 
-            </div>
-        </nav>
+                        <Nav.Link className="nav-links" href="/events">New Event</Nav.Link>
+                        {/* </NavDropdown> */}
+
+                    </Nav>
+                </Navbar.Collapse>
+            </Navbar>
         </>
     )
 }
