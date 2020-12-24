@@ -2,7 +2,6 @@ import React, { useContext, useEffect, useState } from 'react'
 import { WatchListContext } from './WatchProvider'
 import { Watched } from './Watched'
 import { UserContext } from '../user/UserProvider'
-import DropdownButton from 'react-bootstrap/DropdownButton'
 import Dropdown from 'react-bootstrap/Dropdown'
 
 
@@ -42,9 +41,9 @@ export const WatchList = (props) => {
         <>
             <div className="drop-watch-menu" >
                 <Dropdown>
-                    <Dropdown.Toggle variant="dark" id="dropdown-basic">Tabs</Dropdown.Toggle>
+                    <Dropdown.Toggle className="active-button">Spy</Dropdown.Toggle>
                     <Dropdown.Menu>
-                        <Dropdown.Item>
+                        <Dropdown.Item className="active-menu">
                             {
                                 usersName.map(un => <Watched key={un.id} user={un} />)
                             }

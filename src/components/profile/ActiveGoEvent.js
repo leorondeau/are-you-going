@@ -23,16 +23,16 @@ export const ActiveGoEvent = ({ event }) => {
 
     return (
 
-        <Card className="event" bg="dark" text="light">
+        <Card className="event" className="active-card">
             <Card.Header className="event__name" as="h5">
-                <Link to={`/events/${event.id}`}>
+                <Link className="event__name" to={`/events/${event.id}`}>
                     {event.name}
                 </Link>
             </Card.Header>
             <Card.Body>
 
                 <Card.Text className="event__date">{newDate.toLocaleDateString('en-US')}</Card.Text>
-                <Button type="button" variant="dark" variant="outline-light" block type="button" onClick={
+                <Button type="button" className="active-button" block type="button" onClick={
                     () => {
                         const filteredUserEvents = usersEvents.filter(ue => ue.eventId === event.id)
                         const selectedUserEvent = filteredUserEvents.find(fe => fe.userId === userId)

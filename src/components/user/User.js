@@ -32,11 +32,11 @@ if (otherUser === activeUserId) {
     
     <>
     <section className="user">
-        <h4 className="user__name">
+        <h6 className="user__name">
             
             <Link to={`/profile/user/${user.id}`}> {user.name}</Link>
 
-        </h4>
+        </h6>
     </section>
 </>
 )

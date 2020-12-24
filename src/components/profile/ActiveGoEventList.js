@@ -40,7 +40,7 @@ export const ActiveGoEventList = (props) => {
         <>
             <div className="events">
                 <article className="eventList">
-                    <h4>Attending</h4>
+                    <h6 className="active-eventList">Attending</h6>
                     {
                         eventName.map(en => <ActiveGoEvent key={en.id} event={en} />)
                     }

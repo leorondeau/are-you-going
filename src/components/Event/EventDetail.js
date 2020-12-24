@@ -60,18 +60,18 @@ export const EventDetail = (props) => {
 
             <>
 
-                <Card bg="dark" text="light">
+                <Card className="card">
                     <Card.Header className="event__name" as="h5">{selectedEvent.name}</Card.Header>
                     <Card.Body className="event">
                         <Card.Title className="event__location">{selectedEvent.location}</Card.Title>
                         <Card.Text className="event__date">{newDate.toLocaleString('en-US')}</Card.Text>
                         <Card.Text className="event__details">{selectedEvent.details}</Card.Text>
                         <Card.Text className="event__creator"> by: {eventOwner.name}</Card.Text>
-                        <Link to={`/events/${eventDetailId}/users`}>
+                        {/* <Link to={`/events/${eventDetailId}/users`}>
                             Event Goers
-                    </Link>
+                    </Link> */}
                     </Card.Body>
-                    <Button onClick={
+                    <Button className="event-button" onClick={
                         () => {
 
                             props.history.push(`/events/edit/${selectedEvent.id}`)
@@ -86,16 +86,16 @@ export const EventDetail = (props) => {
 
             <>
 
-                <Card bg="dark" text="light">
+                <Card className="card">
                     <Card.Header className="event__name" as="h5">{selectedEvent.name}</Card.Header>
                     <Card.Body className="event">
                         <Card.Title className="event__location">{selectedEvent.location}</Card.Title>
                         <Card.Text className="event__date">{newDate.toLocaleString('en-US')}</Card.Text>
                         <Card.Text className="event__details">{selectedEvent.details}</Card.Text>
                         <Card.Text className="event__creator"> by: {eventOwner.name}</Card.Text>
-                        <Link to={`/events/${eventDetailId}/users`}>
+                        {/* <Link to={`/events/${eventDetailId}/users`}>
                             Event Goers
-                </Link>
+                </Link> */}
                     </Card.Body>
 
                 </Card>

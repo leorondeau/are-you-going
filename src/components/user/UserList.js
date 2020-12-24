@@ -29,7 +29,7 @@ export const UserList = (props) => {
             <div className="profile">
                 <section className="profileList">
                     
-                    <h2>{profileUser.name}</h2>
+                    <h4>{profileUser.name}</h4>
                     
                 </section>
             </div>

@@ -60,7 +60,7 @@ export const Event = ({ event, user }) => {
 
     // console.log("usersEvents" , usersEvents)
     return (
-        <Card bg="dark" text="light">
+        <Card className="card">
                 <Card.Header className="event__name" as="h5">
                     <Link className="event__name" to={`/events/${event.id}`}>
                         {event.name}
@@ -72,7 +72,7 @@ export const Event = ({ event, user }) => {
                 <Card.Text className="event__creator">by: {user.name}</Card.Text>
                 <div className="event__userInfo">
 
-                    <Button type="button" variant="dark" variant="outline-light" block onClick={
+                    <Button type="button" className="event-button" block onClick={
                         () => {
                             if (selectedUserEvent.userId && activeUserId === selectedUserEvent.userId) {
                                 deleteUsersEvent(selectedUserEvent.id)
@@ -84,7 +84,7 @@ export const Event = ({ event, user }) => {
                                 })
                             }
                         }
-                    }>I'm in</Button>
+                    }>Add</Button>
                     <Card.Text>{partyStatus} {avoidStatus}</Card.Text>
                 </div>
             </Card.Body>

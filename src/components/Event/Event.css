@@ -1,7 +1,49 @@
 .event__name {
-  color: rgb(238, 237, 236);
+  color: #18cae6;
 }
 
-/* .form-input {
-  margin: .75rem;
-} */
+.card {
+  border-radius: 8px;
+  margin: 0.55rem;
+  border: 1px solid #18cae6;
+  background-color: black;
+  color: #18cae6;
+}
+
+.event-button {
+  border: 1px solid #18cae6;
+  background-color: black;
+  color: #18cae6;
+}
+
+.form-body {
+  border: 1px solid #18cae6;
+  background-color: black;
+  color: #18cae6;
+}
+
+.eventForm {
+  margin: 0 0 0.3rem 0.5rem;
+  color: #18cae6;
+}
+
+.active-button {
+  border: 1px solid #18cae6;
+  background-color: black;
+  color: #18cae6;
+}
+
+.form-button {
+  border: 1px solid #18cae6;
+  background-color: black;
+  color: #18cae6;
+  margin: 0.55rem;
+}
+
+.eventFormGroup {
+  margin: 0 0.5rem 0.5rem 0.5rem;
+}
+
+.dateForm {
+  margin: 1rem 6rem 0.5rem 0.5rem;
+}

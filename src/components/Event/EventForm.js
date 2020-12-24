@@ -97,11 +97,11 @@ export const EventForm = (props) => {
     return (
         <Form className="" bsPrefix="form-body">
             {/* If editmode true Update Event else Submit Event */}
-            <h2 className="eventForm__title">{editMode ? "Update Event" : "Submit Event"}</h2>
-            <Form.Group >
+            {/* <h3 className="eventForm__title eventForm">{editMode ? "Update Event" : "Submit Event"}</h3> */}
+            <Form.Group className="eventFormGroup">
                 {/* <div className="form-group"> */}
-                    <Form.Label htmlFor="name">Event Name</Form.Label>
-                    <Form.Control type="text" name="name" required autoFocus className="form-control" bsPrefix="form-input"
+                    <Form.Label className="eventForm" htmlFor="name">Event Name</Form.Label>
+                    <Form.Control className="eventForm" type="text" name="name" required autoFocus className="form-control" 
                         proptype="varchar"
                         placeholder=""
                         value={event.name}
@@ -110,10 +110,10 @@ export const EventForm = (props) => {
                     {/* {console.log("eventName", event.name)} */}
                 {/* </div> */}
             </Form.Group>
-            <Form.Group>
+            <Form.Group className="eventFormGroup">
                 {/* <div className="form-group"> */}
-                    <Form.Label htmlFor="location">Location</Form.Label>
-                    <Form.Control type="text" name="location" required autoFocus className="form-control" bsPrefix="form-input"
+                    <Form.Label className="eventForm" htmlFor="location">Location</Form.Label>
+                    <Form.Control type="text" name="location" required autoFocus className="form-control" 
                         proptype="varchar"
                         placeholder=""
                         value={event.location}
@@ -121,10 +121,10 @@ export const EventForm = (props) => {
                     />
                 {/* </div> */}
             </Form.Group>
-            <Form.Group>
+            <Form.Group className="eventFormGroup">
                 {/* <div className="form-group"> */}
-                    <Form.Label htmlFor="details">Details</Form.Label>
-                    <Form.Control type="text" name="details" required autoFocus className="form-control" bsPrefix="form-input"
+                    <Form.Label className="eventForm" htmlFor="details">Details</Form.Label>
+                    <Form.Control type="text" name="details" required autoFocus className="form-control" 
                         proptype="varchar"
                         placeholder=""
                         value={event.details}
@@ -133,16 +133,16 @@ export const EventForm = (props) => {
                 {/* </div> */}
             </Form.Group>
             {/* Date.parse(date.current.value) Turn into a date object */}
-            <Form.Group>
-                <div className="form-group">
-                    <Form.Control type="datetime-local" name="startDate" proptype="date" bsPrefix="form-input"
+            <Form.Group className="eventFormGroup dateForm">
+                {/* <div className="form-group"> */}
+                    <Form.Control type="datetime-local" name="startDate" proptype="date" 
                         onChange={handleControlledInputChange} value={event.startDate}>
 
                     </Form.Control>
 
-                </div>
+                {/* </div> */}
             </Form.Group>
-            <Button type="submit"
+            <Button  type="submit" bsPrefix="form-button" 
                 onClick={evt => {
                     evt.preventDefault()
                     constructNewEvent()

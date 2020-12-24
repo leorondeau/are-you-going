@@ -3,6 +3,7 @@ import { UserEventContext } from "./UsersEventsProvider"
 import { UserContext } from './UserProvider'
 import { EventContext } from '../event/EventProvider'
 import { User } from './User'
+import Dropdown from 'react-bootstrap/Dropdown'
 
 
 export const UserEventList = (props) => {
@@ -57,14 +58,17 @@ export const UserEventList = (props) => {
 
         return (
             <>
-                <div className="users">
-                    <section className="eventList">
-                        <h3></h3>
-                        {
-                            usersGoing.map(ug => (<User key={ug.id} user={ug} />))
-                        }
-                    </section>
-                </div>
+                <Dropdown className="usersList-dropdown">
+                    <Dropdown.Toggle className="eventList event-button">Going</Dropdown.Toggle>
+                                
+                        <Dropdown.Menu>
+                            <Dropdown.Item >
+                                {
+                                    usersGoing.map(ug => (<User key={ug.id} user={ug} />))
+                                }
+                            </Dropdown.Item>
+                        </Dropdown.Menu>
+                </Dropdown>
             </>
         )
     }

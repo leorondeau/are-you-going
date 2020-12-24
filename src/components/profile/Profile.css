@@ -1,11 +1,3 @@
-/* .profileList {
-  display: flex;
-  justify-content: flex-end;
-  margin: 
-} */
-
-
-
  .profile {
   display: flex;
   flex-wrap: wrap;
@@ -20,6 +12,7 @@
   border-radius: 5px;
   width: 100%;
   justify-content: space-evenly;
+  color:#18CAE6
 }
 
 .profileEvents {
@@ -27,14 +20,9 @@
 }
 
 
-.btn-info {
-  color: rgb(155, 55, 55);
-  background: rgba(119, 228, 57, 0.911);
-}
-
 .profile-header {
   display: flex;
-  margin: 1rem;
+  margin: .55rem;
 }
 .profile-wrapper {
     display: flex;
@@ -42,7 +30,13 @@
 
 }
 
-.card {
-  border-radius: 8px;
-  margin: .55rem;
+.active-header {
+  color: #18CAE6;
 }
+
+.active-eventList {
+  color: #18CAE6;
+  padding: .55rem;
+}
+
+
