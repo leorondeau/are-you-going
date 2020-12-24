@@ -17,21 +17,21 @@ export const ActiveOwnEvent = ({ event }) => {
     return (
         <>
             <Card className="event" bsPrefix="card" className="active-card">
-                <Card.Header className="event__name" as="h5">
-                    <Link className="event__name" to={`/events/${event.id}`}>
+                <Link className="event__name" to={`/events/${event.id}`}>
+                    <Card.Header className="event__name" as="h5">
                         {event.name}
-                    </Link>
-                </Card.Header>
-                <Card.Body>
+                    </Card.Header>
+                    <Card.Body>
 
-                    <Card.Text className="event__date">{newDate.toLocaleDateString('en-US')}</Card.Text>
+                        <Card.Text className="event__date">{newDate.toLocaleDateString('en-US')}</Card.Text>
+                    </Card.Body>
+                </Link>
 
-                    <Button type="button" className="active-button" block type="button" onClick={
-                        () => {
-                            deleteOwnerEvent(event)
-                        }
-                    }>Remove</Button>
-                </Card.Body>
+                <Button type="button" className="active-button" block type="button" onClick={
+                    () => {
+                        deleteOwnerEvent(event)
+                    }
+                }>Remove</Button>
             </Card>
 
         </>

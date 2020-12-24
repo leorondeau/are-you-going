@@ -66,10 +66,9 @@ export const EventDetail = (props) => {
                         <Card.Title className="event__location">{selectedEvent.location}</Card.Title>
                         <Card.Text className="event__date">{newDate.toLocaleString('en-US')}</Card.Text>
                         <Card.Text className="event__details">{selectedEvent.details}</Card.Text>
+                        <Link className="event__creator__name" to={`/profile/user/${eventOwner.id}`}>
                         <Card.Text className="event__creator"> by: {eventOwner.name}</Card.Text>
-                        {/* <Link to={`/events/${eventDetailId}/users`}>
-                            Event Goers
-                    </Link> */}
+                        </Link>
                     </Card.Body>
                     <Button className="event-button" onClick={
                         () => {
@@ -92,10 +91,9 @@ export const EventDetail = (props) => {
                         <Card.Title className="event__location">{selectedEvent.location}</Card.Title>
                         <Card.Text className="event__date">{newDate.toLocaleString('en-US')}</Card.Text>
                         <Card.Text className="event__details">{selectedEvent.details}</Card.Text>
+                        <Link className="event__creator__name" to={`/profile/user/${eventOwner.id}`}>
                         <Card.Text className="event__creator"> by: {eventOwner.name}</Card.Text>
-                        {/* <Link to={`/events/${eventDetailId}/users`}>
-                            Event Goers
-                </Link> */}
+                        </Link>
                     </Card.Body>
 
                 </Card>

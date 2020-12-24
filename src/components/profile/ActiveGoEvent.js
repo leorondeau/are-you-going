@@ -24,24 +24,24 @@ export const ActiveGoEvent = ({ event }) => {
     return (
 
         <Card className="event" className="active-card">
-            <Card.Header className="event__name" as="h5">
-                <Link className="event__name" to={`/events/${event.id}`}>
+            <Link className="event__name" to={`/events/${event.id}`}>
+                <Card.Header className="event__name" as="h5">
                     {event.name}
-                </Link>
-            </Card.Header>
-            <Card.Body>
+                </Card.Header>
+                <Card.Body>
 
-                <Card.Text className="event__date">{newDate.toLocaleDateString('en-US')}</Card.Text>
-                <Button type="button" className="active-button" block type="button" onClick={
-                    () => {
-                        const filteredUserEvents = usersEvents.filter(ue => ue.eventId === event.id)
-                        const selectedUserEvent = filteredUserEvents.find(fe => fe.userId === userId)
-                        deleteUsersEvent(selectedUserEvent.id)
-                    }
+                    <Card.Text className="event__date">{newDate.toLocaleDateString('en-US')}</Card.Text>
+                </Card.Body>
+            </Link>
+            <Button type="button" className="active-button" block type="button" onClick={
+                () => {
+                    const filteredUserEvents = usersEvents.filter(ue => ue.eventId === event.id)
+                    const selectedUserEvent = filteredUserEvents.find(fe => fe.userId === userId)
+                    deleteUsersEvent(selectedUserEvent.id)
+                }
 
-                }>I'm out</Button>
+            }>I'm out</Button>
 
-            </Card.Body>
         </Card>
     )
 }

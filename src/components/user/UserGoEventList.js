@@ -39,8 +39,8 @@ export const UserGoEventList = (props) => {
     return (
         <>
             <div className="events">
-                <article className="eventList">
-                    <h2>Attend List</h2>
+                <article className="user__eventList">
+                    <h6 className="user__go__header">Attend</h6>
                     <div>
 
                         {

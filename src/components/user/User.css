@@ -22,3 +22,23 @@
   margin: .55rem;
 
 }
+
+.user__eventList {
+
+  /* border: 1px solid #18cae6; */
+  background-color: black;
+  color: #18cae6;
+  
+}
+
+.user__go__header {
+  margin: 0.55rem
+}
+
+.user-go-list {
+  margin: .55rem;
+}
+
+.user-go-button {
+  margin: .6rem 0 0 0;
+}
