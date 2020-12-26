@@ -59,7 +59,7 @@ export const UserEventList = (props) => {
         return (
             <>
                 <Dropdown className="usersList-dropdown">
-                    <Dropdown.Toggle className="eventList event-button user-go-button">Going</Dropdown.Toggle>
+                    <Dropdown.Toggle className="eventList dropdown-button user-go-button">Going</Dropdown.Toggle>
                                 
                         <Dropdown.Menu>
                             <Dropdown.Item >

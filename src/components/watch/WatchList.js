@@ -41,7 +41,7 @@ export const WatchList = (props) => {
         <>
             <div className="drop-watch-menu" >
                 <Dropdown>
-                    <Dropdown.Toggle className="active-button">Spy</Dropdown.Toggle>
+                    <Dropdown.Toggle className="dropdown-button">Spy</Dropdown.Toggle>
                     <Dropdown.Menu>
                         <Dropdown.Item className="active-menu">
                             {

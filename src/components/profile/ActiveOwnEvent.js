@@ -27,7 +27,7 @@ export const ActiveOwnEvent = ({ event }) => {
                     </Card.Body>
                 </Link>
 
-                <Button type="button" className="active-button" block type="button" onClick={
+                <Button type="button" className="event-button" block type="button" onClick={
                     () => {
                         deleteOwnerEvent(event)
                     }

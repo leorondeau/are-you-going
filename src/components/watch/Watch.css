@@ -8,7 +8,9 @@
 } */
 
 .radio__cool {
-    color: #18cae6;
+    color: #08ff15;
+    
+    
     padding: .55rem;
 }
 
@@ -18,7 +20,7 @@
 }
 
 .radio__neutral {
-    color: #08ff15;
+    color: #18cae6;
     padding: .55rem;
 }
 

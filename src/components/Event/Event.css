@@ -1,27 +1,65 @@
-.event__name {
-  color: #18cae6;
-  margin-bottom: 0;
+.avoid-card {
+  border-radius: 5px;
+  margin: 0.55rem;
+  border: 2px solid #ff0505;
+  background-color: black;
+  color: #ff0505;
 }
 
+.avoid-event-name {
+  color: #ff0505;
+  /* margin-bottom: 0; */
+}
 .card {
-  border-radius: 8px;
+  border-radius: 5px;
   margin: 0.55rem;
   border: 1px solid #18cae6;
   background-color: black;
   color: #18cae6;
 }
 
-.event-button {
-  border: 1px solid #18cae6;
+.cool-card {
+  border-radius: 5px;
+  margin: 0.55rem;
+  border: 2px solid #3fff05;
   background-color: black;
-  color: #18cae6;
-  /* justify-content: space-evenly; */
+  color: #3fff05;
 }
 
-.form-body {
+.caution-card {
+  border-radius: 5px;
+  margin: 0.55rem;
+  border: 2px solid #fbff00;
+  background-color: black;
+  color: #fbff00;
+}
+.event__creator__name {
+  color: #18cae6;
+}
+
+.dateForm {
+  margin: 1rem 6rem 0.5rem 0.5rem;
+}
+
+.dropdown-button {
   border: 1px solid #18cae6;
   background-color: black;
   color: #18cae6;
+}
+
+.event-button {
+  border-top: 1px solid #18cae6;
+  border-bottom: black;
+  border-left: black;
+  border-right: black;
+  border-radius: 0px;
+  background-color: black;
+  margin-bottom: 0.25rem;
+  color: #18cae6;
+}
+.event__name {
+  color: #18cae6;
+  /* margin-bottom: 0; */
 }
 
 .eventForm {
@@ -29,7 +67,11 @@
   color: #18cae6;
 }
 
-.active-button {
+.eventFormGroup {
+  margin: 0 0.5rem 0.5rem 0.5rem;
+}
+
+.form-body {
   border: 1px solid #18cae6;
   background-color: black;
   color: #18cae6;
@@ -41,16 +83,3 @@
   color: #18cae6;
   margin: 0.55rem;
 }
-
-.eventFormGroup {
-  margin: 0 0.5rem 0.5rem 0.5rem;
-}
-
-.dateForm {
-  margin: 1rem 6rem 0.5rem 0.5rem;
-}
-
-.event__creator__name {
-  color: #18cae6;  
-}
-
