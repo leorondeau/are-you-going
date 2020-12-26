@@ -3,7 +3,6 @@ import { Link } from 'react-router-dom'
 import { UserEventContext } from '../user/UsersEventsProvider'
 import { WatchListContext } from '../watch/WatchProvider'
 import { UserContext } from '../user/UserProvider'
-import { EventContext } from './EventProvider'
 import Card from 'react-bootstrap/Card'
 import Button from 'react-bootstrap/Button'
 /* 
@@ -18,23 +17,21 @@ export const Event = ({ event, user }) => {
 
     const { usersEvents, addUsersEvents, deleteUsersEvent, getUsersEvents } = useContext(UserEventContext)
     const { watch, getWatch } = useContext(WatchListContext)
-    // const { event, getEvents } = useContext(WatchListContext)
-    const { users, getUsers } = useContext(UserContext)
-
 
     const [usersEvent, setUsersEvents] = useState([])
     const [selectedUserEvent, setSelectedUserEvent] = useState({})
-    const [partyStatus, setPartyStatus] = useState("")
-    const [avoidStatus, setAvoidStatus] = useState("")
+    const [coolUsers, setCoolUsers] = useState([])
+    const [avoidUsers, setAvoidUsers] = useState([])
+    const [partyStatus, setPartyStatus] = useState("card")
+    // const [avoidStatus, setAvoidStatus] = useState("")
 
     const date = event.startDate
     const newDate = new Date(date)
     // console.log(usersEvent)
     useEffect(() => {
         getUsersEvents()
-            .then(getUsers)
             .then(getWatch)
-        // .then(getEvents)
+
     }, [])
 
     useEffect(() => {
@@ -44,23 +41,37 @@ export const Event = ({ event, user }) => {
         setSelectedUserEvent(foundUserEvent)
     }, [usersEvents])
 
-    // useEffect(() => {
+    useEffect(() => {
 
-    //     const usersWatched = watch.filter(w => w.userId === activeUserId) || []
-    //     const usersTrue = usersWatched.filter(w => w.watch === true )
-    //     console.log("usersTruee" , usersTrue)
-    //     if (usersTrue.length >= 3) {
-    //         setPartyStatus("GO")}
+        const usersWatched = watch.filter(w => w.userId === activeUserId) || []
+        const userEventList = usersEvents.filter(ue => ue.eventId === event.id) || []
+        const usersTrue = usersWatched.filter(uw => uw.watch)
+        const usersFalse = usersWatched.filter(uw => uw.watch === false)
 
-    //     if (usersWatched.find(uw => uw.watch === false)) {
-    //         setAvoidStatus(`Lookout`)
-    //     }
-    // }, [watch])
+        const coolWatchedAtEvent = userEventList.filter(ue => {
+            return usersTrue.find(ut => ue.userId === ut.watchedUserId)
+        }) || []
+        setCoolUsers(coolWatchedAtEvent)
+
+        const avoidWatchedAtEvent = userEventList.filter(ue => {
+            return usersFalse.find(uf => ue.userId === uf.watchedUserId)
+        }) || []
+        setAvoidUsers(avoidWatchedAtEvent)
+
+        if (coolUsers.length >= 2) {
+            setPartyStatus("cool-card")
+        }
+        if (coolUsers.length >= 2 && avoidUsers.length >= 1) {
+            setPartyStatus("caution-card")
+        } else if (avoidUsers.length >= 1) {
+            setPartyStatus("avoid-card")
+        }
+    }, [watch])
 
 
-    // console.log("usersEvents" , usersEvents)
+
     return (
-        <Card className="card">
+        <Card className={partyStatus}>
             <Link className="event__name" to={`/events/${event.id}`}>
                 <Card.Header className="event__name" as="h5">
 
@@ -88,7 +99,7 @@ export const Event = ({ event, user }) => {
                         }
                     }
                 }>Add</Button>
-                <Card.Text>{partyStatus} {avoidStatus}</Card.Text>
+                {/* <Card.Text>{partyStatus} {avoidStatus}</Card.Text> */}
             </div>
         </Card>
 
