@@ -1,4 +1,4 @@
-import React, { useEffect, useContext } from 'react'
+import React, { useEffect, useContext , useState} from 'react'
 import { EventContext } from './EventProvider'
 import { Event } from './Event'
 import { UserContext } from '../user/UserProvider'
@@ -13,7 +13,8 @@ export const EventList = (props) => {
     const { events, getEvents } = useContext(EventContext)
     const { users, getUsers } = useContext(UserContext)
 
-    
+    const [ eventOwner , setEventOwner ] = useState({})
+    const [ eachEvent , setEachEvent ] = useState({})
     
     // The order of these useEffect calls is crucial
     useEffect(() => {
@@ -23,8 +24,9 @@ export const EventList = (props) => {
     }, [])
 
     useEffect(() => {
+   
 
-    }, [events])
+    }, [users ,events])
 
     return (
         <>
