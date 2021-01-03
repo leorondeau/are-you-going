@@ -3,12 +3,13 @@ import { EventContext } from "./EventProvider"
 import  Form  from "react-bootstrap/Form"
 import FormGroup from 'react-bootstrap/FormGroup'
 import Button from 'react-bootstrap/Button'
+import { UserContext } from '../user/UserProvider'
 
 
 
 export const EventForm = (props) => {
     // Use the required context providers for data
-    // const { users, getUsers } = useContext(UserContext)
+    const { users, getUsers } = useContext(UserContext)
     const { addEvent, events, updateEvent, getEvents } = useContext(EventContext)
     // const [value, onChange] = useState(new Date())
 
@@ -44,7 +45,7 @@ export const EventForm = (props) => {
     // Get events from db when component initializes
     useEffect(() => {
         getEvents()
-        // getUsers()
+        .then(getUsers)
     }, [])
 
     // Once provider state is updated, determine the event (if edit)

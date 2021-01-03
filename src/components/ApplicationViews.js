@@ -8,7 +8,7 @@ import { UserProvider } from "./user/UserProvider"
 import { UsersEventProvider } from "./user/UsersEventsProvider"
 import { UserEventList } from './user/UserEventList'
 import { Profile } from './profile/Profile'
-import { UserProfile} from './user/UserProfile'
+import { UserProfile } from './user/UserProfile'
 import { WatchListContext, WatchProvider } from "./watch/WatchProvider"
 
 
@@ -20,20 +20,20 @@ export const ApplicationViews = (props) => {
                     <UsersEventProvider>
                         <WatchProvider>
 
-                        
-                        <Route exact path="/events" render={
-                            props => <EventForm {...props} />
-                        } />
-                        <Route exact path="/" render={
-                            props => <EventList {...props} />
-                        } />
-                        <Route exact path="/events/:eventId(\d+)" render={
-                            props => <EventDetail {...props} />
-                        } />
-                        <Route path="/events/edit/:eventId(\d+)" render={
-                            props => <EventForm {...props} />
-                        } />
-                        
+
+                            <Route exact path="/" render={
+                                props => <EventList {...props} />
+                            } />
+                            <Route exact path="/events" render={
+                                props => <EventForm {...props} />
+                            } />
+                            <Route exact path="/events/:eventId(\d+)" render={
+                                props => <EventDetail {...props} />
+                            } />
+                            <Route path="/events/edit/:eventId(\d+)" render={
+                                props => <EventForm {...props} />
+                            } />
+
                         </WatchProvider>
                     </UsersEventProvider>
                 </UserProvider>
@@ -44,9 +44,9 @@ export const ApplicationViews = (props) => {
                         <WatchProvider>
 
 
-                        <Route exact path="/events/:eventId(\d+)" render={
-                            props => <UserEventList {...props} />
-                        } />
+                            <Route exact path="/events/:eventId(\d+)" render={
+                                props => <UserEventList {...props} />
+                            } />
 
                         </WatchProvider>
                     </EventProvider>
@@ -58,13 +58,13 @@ export const ApplicationViews = (props) => {
                         <WatchProvider>
 
 
-                        <Route exact path="/profile/:userId(\d+)" render={
-                            props => <Profile {...props} />
-                        } />
-                        
-                        <Route exact path="/profile/user/:userId(\d+)" render={
-                            props => <UserProfile {...props} />
-                        }/>
+                            <Route exact path="/profile/:userId(\d+)" render={
+                                props => <Profile {...props} />
+                            } />
+
+                            <Route exact path="/profile/user/:userId(\d+)" render={
+                                props => <UserProfile {...props} />
+                            } />
 
                         </WatchProvider>
                     </EventProvider>
