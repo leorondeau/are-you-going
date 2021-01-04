@@ -62,7 +62,7 @@ export const UserEventList = (props) => {
                     <Dropdown.Toggle className="eventList dropdown-button user-go-button">Going</Dropdown.Toggle>
                                 
                         <Dropdown.Menu>
-                            <Dropdown.Item >
+                            <Dropdown.Item className="userList-item">
                                 {
                                     usersGoing.map(ug => (<User key={ug.id} user={ug} />))
                                 }

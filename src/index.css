@@ -1,5 +1,9 @@
+@import url('https://fonts.googleapis.com/css2?family=Bungee+Outline&family=Open+Sans&family=Roboto&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@900&display=swap');
+
 body {
   flex-direction: column;
   background-color: rgb(0, 0, 0);
+  font-family: 'Roboto', sans-serif;
 }
 
