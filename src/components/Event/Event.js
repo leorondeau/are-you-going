@@ -23,6 +23,7 @@ export const Event = ({ event, user }) => {
     const [coolUsers, setCoolUsers] = useState([])
     const [avoidUsers, setAvoidUsers] = useState([])
     const [partyStatus, setPartyStatus] = useState("card")
+    const [buttonStatus, setButtonStatus] = useState("Add")
     // const [avoidStatus, setAvoidStatus] = useState("")
 
     const date = event.startDate
@@ -69,14 +70,23 @@ export const Event = ({ event, user }) => {
     }, [watch])
 
 
+    useEffect(() => {
+
+        if (selectedUserEvent.userId && activeUserId === selectedUserEvent.userId) {
+            setButtonStatus("Remove")
+
+        }
+        else {
+            setButtonStatus("Add")
+        }
+
+    }, [usersEvents])
 
     return (
         <Card className={partyStatus}>
             <Link className="event__name" to={`/events/${event.id}`}>
                 <Card.Header className="event__name" as="h5">
-
                     {event.name}
-
                 </Card.Header>
                 <Card.Body className="event">
                     <Card.Title className="event__location">{event.location}</Card.Title>
@@ -90,16 +100,18 @@ export const Event = ({ event, user }) => {
                     () => {
                         if (selectedUserEvent.userId && activeUserId === selectedUserEvent.userId) {
                             deleteUsersEvent(selectedUserEvent.id)
+                            // buttonRender()
                         }
                         else {
                             addUsersEvents({
                                 eventId: event.id,
                                 userId: activeUserId
                             })
+                            // buttonRender()
                         }
                     }
-                }>Add</Button>
-                {/* <Card.Text>{partyStatus} {avoidStatus}</Card.Text> */}
+                }>{buttonStatus}</Button>
+
             </div>
         </Card>
 

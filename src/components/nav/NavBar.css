@@ -1,3 +1,12 @@
+.app-title {
+    font-family: 'Orbitron', sans-serif; 
+    margin-top: 8px;    
+    border-radius: 20px;
+    padding: 5px;
+    background-color: #e61818 ;
+
+}
+
 .navbar-group {
     display: flex;
     flex-wrap: wrap;
@@ -13,11 +22,18 @@
 
 .nav-links {
     color: #18CAE6; 
+    /* font-weight:bolder; */
     
 }
 
 .nav-toggle {
-    border: 5px solid #18CAE6;
+    border: 5px solid #e61818;
     background-color: black;
     border-radius: 20px;
+    margin-top: 0px;
+    padding: 9px 18px 9px 18px;
 }
+
+/* .nav-titles {
+    border-bottom: 1px solid #e61818;
+} */
