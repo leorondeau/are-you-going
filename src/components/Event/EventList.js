@@ -2,6 +2,7 @@ import React, { useEffect, useContext , useState} from 'react'
 import { EventContext } from './EventProvider'
 import { Event } from './Event'
 import { UserContext } from '../user/UserProvider'
+import { UserEventContext } from '../user/UsersEventsProvider'
 import './Event.css'
 
 /* 
@@ -12,6 +13,7 @@ each one through.
 export const EventList = (props) => {
     const { events, getEvents } = useContext(EventContext)
     const { users, getUsers } = useContext(UserContext)
+    const { usersEvents } = useContext(UserEventContext)
 
     const [ eventOwner , setEventOwner ] = useState({})
     const [ eachEvent , setEachEvent ] = useState({})
@@ -21,10 +23,9 @@ export const EventList = (props) => {
         getUsers()
         .then(getEvents)
     
-    }, [])
+    }, [usersEvents])
 
     useEffect(() => {
-   
 
     }, [users ,events])
 

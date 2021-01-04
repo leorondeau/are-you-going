@@ -5,6 +5,7 @@ import { WatchListContext } from '../watch/WatchProvider'
 import { UserContext } from '../user/UserProvider'
 import Card from 'react-bootstrap/Card'
 import Button from 'react-bootstrap/Button'
+import { EventContext } from './EventProvider'
 /* 
 
 Event renders the individual Event card on main. It has a button that allows users to 
@@ -17,6 +18,7 @@ export const Event = ({ event, user }) => {
 
     const { usersEvents, addUsersEvents, deleteUsersEvent, getUsersEvents } = useContext(UserEventContext)
     const { watch, getWatch } = useContext(WatchListContext)
+    const { events, getEvents } = useContext(EventContext)
 
     const [usersEvent, setUsersEvents] = useState([])
     const [selectedUserEvent, setSelectedUserEvent] = useState({})
@@ -24,11 +26,12 @@ export const Event = ({ event, user }) => {
     const [avoidUsers, setAvoidUsers] = useState([])
     const [partyStatus, setPartyStatus] = useState("card")
     const [buttonStatus, setButtonStatus] = useState("Add")
-    // const [avoidStatus, setAvoidStatus] = useState("")
+    const [tableKey, setTableKey] = useState(1);
+    
 
     const date = event.startDate
     const newDate = new Date(date)
-    // console.log(usersEvent)
+    
     useEffect(() => {
         getUsersEvents()
             .then(getWatch)
@@ -42,27 +45,28 @@ export const Event = ({ event, user }) => {
         setSelectedUserEvent(foundUserEvent)
     }, [usersEvents])
 
+    
     useEffect(() => {
-
+        
         const usersWatched = watch.filter(w => w.userId === activeUserId) || []
         const userEventList = usersEvents.filter(ue => ue.eventId === event.id) || []
         const usersTrue = usersWatched.filter(uw => uw.watch)
         const usersFalse = usersWatched.filter(uw => uw.watch === false)
-
+        
         const coolWatchedAtEvent = userEventList.filter(ue => {
             return usersTrue.find(ut => ue.userId === ut.watchedUserId)
         }) || []
         setCoolUsers(coolWatchedAtEvent)
-
+        
         const avoidWatchedAtEvent = userEventList.filter(ue => {
             return usersFalse.find(uf => ue.userId === uf.watchedUserId)
         }) || []
         setAvoidUsers(avoidWatchedAtEvent)
-
-        if (coolUsers.length >= 2) {
+        
+        if (coolUsers.length >= 1) {
             setPartyStatus("cool-card")
         }
-        if (coolUsers.length >= 2 && avoidUsers.length >= 1) {
+        if (coolUsers.length >= 1 && avoidUsers.length >= 1) {
             setPartyStatus("caution-card")
         } else if (avoidUsers.length >= 1) {
             setPartyStatus("avoid-card")
@@ -71,16 +75,21 @@ export const Event = ({ event, user }) => {
 
 
     useEffect(() => {
-
-        if (selectedUserEvent.userId && activeUserId === selectedUserEvent.userId) {
+        
+        if (activeUserId === selectedUserEvent.userId) {
+            
             setButtonStatus("Remove")
-
+            
         }
         else {
+
             setButtonStatus("Add")
         }
-
-    }, [usersEvents])
+        
+                
+    }, [usersEvents , events])
+        
+    
 
     return (
         <Card className={partyStatus}>
@@ -96,19 +105,22 @@ export const Event = ({ event, user }) => {
                 </Card.Body>
             </Link>
             <div className="event__userInfo">
-                <Button type="button" className="event-button" block onClick={
+                <Button type="button" className="event-button" key={tableKey} block onClick={
                     () => {
                         if (selectedUserEvent.userId && activeUserId === selectedUserEvent.userId) {
                             deleteUsersEvent(selectedUserEvent.id)
-                            // buttonRender()
+                            // setButtonStatus("Remove")
+                            
                         }
                         else {
                             addUsersEvents({
                                 eventId: event.id,
                                 userId: activeUserId
                             })
-                            // buttonRender()
+                            // setButtonStatus("Add")
                         }
+                        
+                        setTableKey(tableKey + 1);
                     }
                 }>{buttonStatus}</Button>
 
@@ -117,3 +129,4 @@ export const Event = ({ event, user }) => {
 
     )
 }
+
