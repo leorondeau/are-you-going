@@ -38,3 +38,7 @@ export const NavBar = () => {
         </>
     )
 }
+
+
+
+

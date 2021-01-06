@@ -42,10 +42,10 @@ export const ActiveGoEvent = ({ event }) => {
             return usersFalse.find(uf => ue.userId === uf.watchedUserId)}) || []
         setAvoidUsers(avoidWatchedAtEvent)
 
-        if (coolUsers.length >= 2) {
+        if (coolUsers.length >= 1) {
             setPartyStatus("cool-card")
         }
-        if (coolUsers.length >= 2 && avoidUsers.length >= 1){
+        if (coolUsers.length >= 1 && avoidUsers.length >= 1){
             setPartyStatus("caution-card")
         } else if (avoidUsers.length >= 1){
             setPartyStatus("avoid-card")

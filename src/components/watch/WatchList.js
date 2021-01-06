@@ -13,7 +13,7 @@ export const WatchList = (props) => {
 
     const [watched, setWatched] = useState([])
     const [usersName, setUsersName] = useState([])
-
+    // const [tableKey, setTableKey] = useState(1);
 
     useEffect(() => {
 
@@ -35,6 +35,7 @@ export const WatchList = (props) => {
     }, [watch, users])
 
 
+    
 
     return (
 
@@ -45,7 +46,8 @@ export const WatchList = (props) => {
                     <Dropdown.Menu>
                         <Dropdown.Item className="active-menu">
                             {
-                                usersName.map(un => <Watched key={un.id} user={un} />)
+                                usersName.map(un => <Watched key={un.id} user={un}  />)
+                                
                             }
                         </Dropdown.Item>
                     </Dropdown.Menu>
