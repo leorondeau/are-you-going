@@ -5,16 +5,16 @@ import { ActiveOwnList } from './ActiveOwnList'
 import { WatchList } from '../watch/WatchList'
 import './Profile.css'
 
-export const Profile = () => {
+export const Profile = (props) => {
     return (
         <>
             <div className="profile-header">
-                < ActiveUserList />
+                < ActiveUserList {...props} />
                 < WatchList />
             </div>
             <div className="profile-wrapper">
                 < ActiveOwnList />
-                < ActiveGoEventList />
+                < ActiveGoEventList {...props} />
             </div>
 
         </>
