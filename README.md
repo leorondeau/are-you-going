@@ -12,18 +12,18 @@ Bootstrap, Bootstrap-react
 Instructions for Installing AYG
 
 1. Navigate to the directory in which you want AYG to reside
-2. run git clone git@github.com:leorondeau/are-you-going.git
-3. npm install
+2. run git clone `git@github.com:leorondeau/are-you-going.git`
+3. `npm install`
 
 This will install the libraries and dependencies for AYG.
 
 Available Scripts
 In the project directory, you can run:
 
-npm start
+`npm start`
 
 npm start
-Runs the app in the development mode. Open http://localhost:3000 to view swishlist in your browser.
+Runs the app in the development mode. Open http://localhost:3000 to view AYG in your browser.
 
 Database
 You must run JSON server in another instance of your terminal so you will have access to the data that AYG is capturing. 
@@ -31,8 +31,8 @@ You must run JSON server in another instance of your terminal so you will have a
 https://github.com/leorondeau/are-you-going-api
 
 1. Navigate to the directory in which you want AYG-API to reside
-2. run git clone git@github.com:leorondeau/are-you-going-api.git
-3. run json-server -p 8088 -w database.json
+2. run git clone `git@github.com:leorondeau/are-you-going-api.git`
+3. run `json-server -p 8088 -w database.json`
 
 
 
