@@ -9,7 +9,7 @@ import { UsersEventProvider } from "./user/UsersEventsProvider"
 import { UserEventList } from './user/UserEventList'
 import { Profile } from './profile/Profile'
 import { UserProfile } from './user/UserProfile'
-import { WatchListContext, WatchProvider } from "./watch/WatchProvider"
+import { WatchProvider } from "./watch/WatchProvider"
 
 
 export const ApplicationViews = (props) => {

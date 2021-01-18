@@ -4,7 +4,8 @@ import { UserEventContext } from '../user/UsersEventsProvider'
 import { UserGoEvent } from './UserGoEvent'
 
 
-
+/* Invokes UserGoEvent and lists all events that that user is attending on their personal profile
+that can be seen by anyone visiting their page */
 
 export const UserGoEventList = (props) => {
 
@@ -39,8 +40,8 @@ export const UserGoEventList = (props) => {
     return (
         <>
             <div className="events">
-                <article className="user__eventList">
-                    <h6 className="user__go__header">Attend</h6>
+                <article className="user-eventList">
+                    <h6 className="user-go-header">Attend</h6>
                     <div>
 
                         {

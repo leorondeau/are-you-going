@@ -2,6 +2,9 @@ import React, { useState } from "react"
 
 export const UserEventContext = React.createContext()
 
+
+/*  GET, POST, DELETE methods for all data assoicated with Users Events. */
+
 export const UsersEventProvider = (props) => {
     // console.log("useState" , useState)
     const [usersEvents , setUsersEvents] = useState([])

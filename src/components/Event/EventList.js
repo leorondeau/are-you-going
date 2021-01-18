@@ -32,7 +32,7 @@ export const EventList = (props) => {
     return (
         <>
             <div className="events">
-                <article className="eventList">
+                <article className="event-list">
                     {
                         
                         events.map(e => {

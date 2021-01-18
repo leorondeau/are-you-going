@@ -4,7 +4,7 @@ import { UserEventContext } from '../user/UsersEventsProvider'
 import { ActiveGoEvent } from './ActiveGoEvent'
 
 
-
+/* Invokes ActiveGoEvent and renders events as a list in the active user profile */
 
 export const ActiveGoEventList = (props) => {
 
@@ -39,7 +39,7 @@ export const ActiveGoEventList = (props) => {
     return (
         <>
             <div className="events">
-                <article className="eventList">
+                <article className="event-list">
                     <h6 className="active-eventList">Attending</h6>
                     {
                         eventName.map(en => <ActiveGoEvent key={en.id} event={en} />)

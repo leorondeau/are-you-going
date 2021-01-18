@@ -11,7 +11,7 @@
   border: 1px solid goldenrod;
 } */
 
-.user__event__name {
+.user-event-name {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
@@ -23,7 +23,7 @@
 
 }
 
-.user__eventList {
+.user-event-list {
 
   /* border: 1px solid #18cae6; */
   background-color: black;
@@ -31,7 +31,7 @@
   
 }
 
-.user__go__header {
+.user-go-header {
   margin: 0.55rem
 }
 
@@ -44,7 +44,7 @@
   background-color: black;
 }
 
-.userList-item {
+.user-list-item {
   background-color: black;
   /* margin: 0; */
 }

@@ -93,23 +93,23 @@ export const Event = ({ event, user }) => {
 
     return (
         <Card className={partyStatus}>
-            <Link className="event__name" to={`/events/${event.id}`}>
-                <Card.Header className="event__name" as="h5">
+            <Link className="event-name" to={`/events/${event.id}`}>
+                <Card.Header className="event-name" as="h5">
                     {event.name}
                 </Card.Header>
                 <Card.Body className="event">
-                    <Card.Title className="event__location">{event.location}</Card.Title>
-                    <Card.Text className="event__date">{newDate.toLocaleString('en-US')}</Card.Text>
-                    <Card.Text className="event__creator">by: {user.name}</Card.Text>
+                    <Card.Title className="event-location">{event.location}</Card.Title>
+                    <Card.Text className="event-date">{newDate.toLocaleString('en-US')}</Card.Text>
+                    <Card.Text className="event-creator">by: {user.name}</Card.Text>
 
                 </Card.Body>
             </Link>
-            <div className="event__userInfo">
+            <div className="event-userInfo">
                 <Button type="button" className="event-button" key={tableKey} block onClick={
                     () => {
                         if (selectedUserEvent.userId && activeUserId === selectedUserEvent.userId) {
                             deleteUsersEvent(selectedUserEvent.id)
-                            // setButtonStatus("Remove")
+                            
                             
                         }
                         else {
@@ -117,7 +117,7 @@ export const Event = ({ event, user }) => {
                                 eventId: event.id,
                                 userId: activeUserId
                             })
-                            // setButtonStatus("Add")
+                            
                         }
                         
                         setTableKey(tableKey + 1);

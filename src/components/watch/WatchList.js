@@ -4,6 +4,7 @@ import { Watched } from './Watched'
 import { UserContext } from '../user/UserProvider'
 import Dropdown from 'react-bootstrap/Dropdown'
 
+/* Lists the user names of the watched users in the active users profile under the Scene dropdown */
 
 export const WatchList = (props) => {
     const { watch, getWatch } = useContext(WatchListContext)
@@ -13,7 +14,7 @@ export const WatchList = (props) => {
 
     const [watched, setWatched] = useState([])
     const [usersName, setUsersName] = useState([])
-    // const [tableKey, setTableKey] = useState(1);
+    
 
     useEffect(() => {
 

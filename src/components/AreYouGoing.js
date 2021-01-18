@@ -11,7 +11,7 @@ import { ApplicationViews } from "./ApplicationViews"
 export const AreYouGoing = () => (
     <>
         <Route render={() => {
-            // The user id is saved under the key app_user_id in local Storage. Change below if needed!
+            // The user id is saved under the key ayg__id in local Storage.
             if (localStorage.getItem("ayg__id")) {
                 return (
                     <>

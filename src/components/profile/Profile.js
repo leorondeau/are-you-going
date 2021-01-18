@@ -5,6 +5,8 @@ import { ActiveOwnList } from './ActiveOwnList'
 import { WatchList } from '../watch/WatchList'
 import './Profile.css'
 
+/* Called in Application views and renders all elements for the active user on their profile page */
+
 export const Profile = (props) => {
     return (
         <>

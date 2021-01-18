@@ -2,31 +2,22 @@
     background-color: black;
 }
 
-/* .radio__group {
-  margin: .55rem;
-  
-} */
-
-.radio__cool {
+.radio-cool {
     color: #08ff15;  
     padding: .55rem;
 }
 
-.radio__avoid {
+.radio-avoid {
     color: #fa0404;
     padding: .55rem;
 }
 
-.radio__neutral {
+.radio-neutral {
     color: #18cae6;
     padding: .55rem;
 }
 
-/* .avoid__input {
-    padding: 1rem;
-} */
-
-.radio__header {
+.radio-header {
     margin: .55rem;
     
 }

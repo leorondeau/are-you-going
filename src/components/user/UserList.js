@@ -1,7 +1,7 @@
 import React, { useEffect, useContext, useState } from 'react'
 import { UserContext } from './UserProvider'
 
-
+/* Lists the name of the user at the top of their respective profile page */
 
 export const UserList = (props) => {
     const { users, getUsers } = useContext(UserContext)
@@ -27,7 +27,7 @@ export const UserList = (props) => {
     return (
         <>
             <div className="profile">
-                <section className="profileList user-go-list">
+                <section className="profile-list user-go-list">
                     
                     <h4>{profileUser.name}</h4>
                     
