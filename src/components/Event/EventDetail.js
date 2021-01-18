@@ -21,7 +21,7 @@ export const EventDetail = (props) => {
 
     const [selectedEvent, setSelectedEvent] = useState({})
     const [eventOwner, setEventOwner] = useState({})
-    // console.log("props", props)
+    
     const eventDetailId = parseInt(props.match.params.eventId)
 
 
@@ -43,7 +43,7 @@ export const EventDetail = (props) => {
     Dependency array 
     */
 
-    // const fixedDate = selectedEvent.startDate
+    
     /* 
     If this conditional true (active user has selected) then EventDetail will render
     the edit button that runs updateEvent when clicked.
@@ -53,7 +53,7 @@ export const EventDetail = (props) => {
     const date = selectedEvent.startDate
     const newDate = new Date(date)
     newDate.toLocaleString('en-US')
-    //    console.log("object " , newDate.toLocaleString('en-US'))
+    
     if (activeUserId === selectedEvent.userId) {
 
         return (
@@ -61,13 +61,13 @@ export const EventDetail = (props) => {
             <>
 
                 <Card className="card">
-                    <Card.Header className="event__name" as="h5">{selectedEvent.name}</Card.Header>
+                    <Card.Header className="event-name" as="h5">{selectedEvent.name}</Card.Header>
                     <Card.Body className="event">
-                        <Card.Title className="event__location">{selectedEvent.location}</Card.Title>
-                        <Card.Text className="event__date">{newDate.toLocaleString('en-US')}</Card.Text>
-                        <Card.Text className="event__details">{selectedEvent.details}</Card.Text>
-                        <Link className="event__creator__name" to={`/profile/user/${eventOwner.id}`}>
-                        <Card.Text className="event__creator"> by: {eventOwner.name}</Card.Text>
+                        <Card.Title className="event-location">{selectedEvent.location}</Card.Title>
+                        <Card.Text className="event-date">{newDate.toLocaleString('en-US')}</Card.Text>
+                        <Card.Text className="event-details">{selectedEvent.details}</Card.Text>
+                        <Link className="event-creator-name" to={`/profile/user/${eventOwner.id}`}>
+                        <Card.Text className="event-creator"> by: {eventOwner.name}</Card.Text>
                         </Link>
                     </Card.Body>
                     <Button className="event-button" onClick={
@@ -86,13 +86,13 @@ export const EventDetail = (props) => {
             <>
 
                 <Card className="card">
-                    <Card.Header className="event__name" as="h5">{selectedEvent.name}</Card.Header>
+                    <Card.Header className="event-name" as="h5">{selectedEvent.name}</Card.Header>
                     <Card.Body className="event">
-                        <Card.Title className="event__location">{selectedEvent.location}</Card.Title>
-                        <Card.Text className="event__date">{newDate.toLocaleString('en-US')}</Card.Text>
-                        <Card.Text className="event__details">{selectedEvent.details}</Card.Text>
-                        <Link className="event__creator__name" to={`/profile/user/${eventOwner.id}`}>
-                        <Card.Text className="event__creator"> by: {eventOwner.name}</Card.Text>
+                        <Card.Title className="event-location">{selectedEvent.location}</Card.Title>
+                        <Card.Text className="event-date">{newDate.toLocaleString('en-US')}</Card.Text>
+                        <Card.Text className="event-details">{selectedEvent.details}</Card.Text>
+                        <Link className="event-creator-name" to={`/profile/user/${eventOwner.id}`}>
+                        <Card.Text className="event-creator"> by: {eventOwner.name}</Card.Text>
                         </Link>
                     </Card.Body>
 

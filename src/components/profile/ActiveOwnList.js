@@ -3,7 +3,7 @@ import { EventContext } from '../event/EventProvider'
 import { UserEventContext } from '../user/UsersEventsProvider'
 import { ActiveOwnEvent } from './ActiveOwnEvent'
 
-
+/* Invokes ActiveOwnEvent card and lists all events in active user profile that active user created */
 
 export const ActiveOwnList = () => {
 
@@ -39,7 +39,7 @@ export const ActiveOwnList = () => {
     return (
         <>
             <div className="events">
-                <article className="eventList">
+                <article className="event-list">
                     <h6 className="active-eventList">Created</h6>
                     {
                         event.map(oe => (<ActiveOwnEvent key={oe.id} event={oe} />))

@@ -11,27 +11,30 @@ export const UserEventList = (props) => {
     const { users, getUsers } = useContext(UserContext)
     const { events, getEvents, } = useContext(EventContext)
 
-
+    // const {usersGoingArray , setUsersGoing } = useState([])
     /* 
-    This lists the Events guest list. Should be nameed EventsUserList?
+    This lists the Events guest list in dropdown of details page. Invokes User function. 
     */
     const eventDetailId = parseInt(props.match.params.eventId)
     const activeUserId = parseInt(localStorage.getItem("ayg__id"))
-
     useEffect(() => {
         getUsers()
-            .then(getEvents)
-            .then(getUsersEvents)
-
+        .then(getEvents)
+        .then(getUsersEvents)
+        
     }, [])
-
+    
     useEffect(() => {
-
-    }, [])
-
+        
+        
+    }, [events, usersEvents])
+    
+    
     const thisEvent = usersEvents.filter(ue => ue.eventId === eventDetailId)
 
     const usersGoing = thisEvent.map(te => users.find(u => te.userId === u.id))
+    console.log("usersGoing", usersGoing)
+    // setUsersGoing(usersGoing)
 
 
 
@@ -46,7 +49,7 @@ export const UserEventList = (props) => {
         return (
             <>
                 <div className="users">
-                    <section className="eventList">
+                    <section className="event-list">
                         <h3>There's frickin' pandemic!</h3>
 
                     </section>
@@ -58,11 +61,11 @@ export const UserEventList = (props) => {
 
         return (
             <>
-                <Dropdown className="usersList-dropdown">
-                    <Dropdown.Toggle className="eventList dropdown-button user-go-button">Going</Dropdown.Toggle>
+                <Dropdown className="users-list-dropdown">
+                    <Dropdown.Toggle className="event-list dropdown-button user-go-button">Going</Dropdown.Toggle>
                                 
                         <Dropdown.Menu>
-                            <Dropdown.Item className="userList-item">
+                            <Dropdown.Item className="user-list-item">
                                 {
                                     usersGoing.map(ug => (<User key={ug.id} user={ug} />))
                                 }

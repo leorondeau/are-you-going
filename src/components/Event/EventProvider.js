@@ -2,6 +2,8 @@ import React, { useState } from "react"
 
 export const EventContext = React.createContext()
 
+/*  GET, POST, DELETE, UPDATE methods for all data assoicated with Event. */
+
 export const EventProvider = (props) => {
     const [events, setEvents] = useState([])
     const [searchTerms, setSearchTerms] = useState("")

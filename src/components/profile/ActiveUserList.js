@@ -3,7 +3,7 @@ import { User } from '../user/User'
 import { UserContext } from '../user/UserProvider'
 
 
-
+/* Lists active users name at the top of their profile page */
 
 export const ActiveUserList = (props) => {
     const { users, getUsers } = useContext(UserContext)
@@ -26,12 +26,12 @@ export const ActiveUserList = (props) => {
         
     }, [users])
 
-    // console.log("profileUser" , profileUser)
+    
     console.log("props" , props)
     return (
         <>
             <div className="profile">
-                <section className="profileList">
+                <section className="profile-list">
 
                     <h4>{profileUser.name}</h4>
 

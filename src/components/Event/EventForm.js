@@ -5,13 +5,13 @@ import FormGroup from 'react-bootstrap/FormGroup'
 import Button from 'react-bootstrap/Button'
 import { UserContext } from '../user/UserProvider'
 
-
+/* Renders on /events where acitve user can enter in a new event or edit a saved event */
 
 export const EventForm = (props) => {
-    // Use the required context providers for data
+    
     const { users, getUsers } = useContext(UserContext)
     const { addEvent, events, updateEvent, getEvents } = useContext(EventContext)
-    // const [value, onChange] = useState(new Date())
+    
 
 
     const [event, setEvent] = useState({ name: "", location: "", details: "", startDate: "" })
@@ -63,12 +63,7 @@ export const EventForm = (props) => {
         // const newDate = Date.parse(event.startDate)
         // Date.parse converts to milliseconds
         const startDate = event.startDate
-        // console.log(event.startDate)
-        // inputDate 
-        
-        // console.log("newdate" , newDate)
-        // console.log("newdatetest" , newDate)
-
+    
         if (location === "") {
             window.alert("Please select a location")
         } else {
@@ -98,50 +93,41 @@ export const EventForm = (props) => {
     return (
         <Form className="" bsPrefix="form-body">
             {/* If editmode true Update Event else Submit Event */}
-            {/* <h3 className="eventForm__title eventForm">{editMode ? "Update Event" : "Submit Event"}</h3> */}
-            <Form.Group className="eventFormGroup">
-                {/* <div className="form-group"> */}
-                    <Form.Label className="eventForm" htmlFor="name">Event Name</Form.Label>
-                    <Form.Control className="eventForm" type="text" name="name" required autoFocus className="form-control" 
+            
+            <Form.Group className="event-form-group">
+                
+                    <Form.Label className="event-form" htmlFor="name">Event Name</Form.Label>
+                    <Form.Control className="event-form" type="text" name="name" required autoFocus className="form-control" 
                         proptype="varchar"
                         placeholder=""
                         value={event.name}
                         onChange={handleControlledInputChange}
                     />
-                    {/* {console.log("eventName", event.name)} */}
-                {/* </div> */}
+                    
+                
             </Form.Group>
-            <Form.Group className="eventFormGroup">
-                {/* <div className="form-group"> */}
+            <Form.Group className="event-form-group">                
                     <Form.Label className="eventForm" htmlFor="location">Location</Form.Label>
                     <Form.Control type="text" name="location" required autoFocus className="form-control" 
                         proptype="varchar"
                         placeholder=""
                         value={event.location}
                         onChange={handleControlledInputChange}
-                    />
-                {/* </div> */}
+                    />                
             </Form.Group>
-            <Form.Group className="eventFormGroup">
-                {/* <div className="form-group"> */}
+            <Form.Group className="event-form-group">                
                     <Form.Label className="eventForm" htmlFor="details">Details</Form.Label>
                     <Form.Control type="text" name="details" required autoFocus className="form-control" 
                         proptype="varchar"
                         placeholder=""
                         value={event.details}
                         onChange={handleControlledInputChange}
-                    />
-                {/* </div> */}
-            </Form.Group>
-            {/* Date.parse(date.current.value) Turn into a date object */}
-            <Form.Group className="eventFormGroup dateForm">
-                {/* <div className="form-group"> */}
+                    />                
+            </Form.Group>            
+            <Form.Group className="event-form-group date-form">                
                     <Form.Control type="datetime-local" name="startDate" proptype="date" 
                         onChange={handleControlledInputChange} value={event.startDate}>
-
-                    </Form.Control>
-
-                {/* </div> */}
+                    </Form.Control>                
             </Form.Group>
             <Button  type="submit" bsPrefix="form-button" 
                 onClick={evt => {

@@ -5,7 +5,7 @@
   width: 100%;
 }
 
-.profileList {
+.profile-list {
   flex-basis: 81%;
   margin: 0;
   padding: 0;
@@ -15,7 +15,7 @@
   color:#18CAE6
 }
 
-.profileEvents {
+.profile-events {
   display: flex;
 }
 
@@ -34,7 +34,7 @@
   color: #18CAE6;
 }
 
-.active-eventList {
+.active-event-list {
   color: #18CAE6;
   padding: .55rem;
 }

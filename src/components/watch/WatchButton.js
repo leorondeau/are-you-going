@@ -3,6 +3,8 @@ import { WatchListContext } from './WatchProvider'
 import "./Watch.css"
 
 
+/* Radio buttons that are rendered on users profile for cool, avoid or neutral */
+
 export const WatchButton = (props) => {
     const { watch, addWatched, deleteWatched, getWatch, updateWatched } = useContext(WatchListContext)
 
@@ -18,19 +20,15 @@ export const WatchButton = (props) => {
         getWatch()
 
     }, [])
-    // console.log("watch", watch)
+    
 
     useEffect(() => {
         const watchListEvents = watch.filter(w => w.userId === activeUserId) || []
         setSelectedWatched(watchListEvents)
-        // console.log("watchListEvents", watchListEvents)
+
         const watchedUser = watchListEvents.find(wle => wle.watchedUserId === profileUserId) || {}
         setWatchedObj(watchedUser)
     }, [watch])
-
-    // console.log("selectedWatch", selectedWatched)
-    // console.log("watchedObj" , watchedObj)
-    // console.log("props" , props)
 
 
     useEffect(() => {
@@ -49,11 +47,9 @@ export const WatchButton = (props) => {
     /* e properties are inherited from onChange prop in button */
 
     const watchStatus = (e) => {
-        // console.log("e in watchStatus" , e)
-        // cool avoid neutral
+
         const userWatchStatus = e.target.value
 
-        // if(activeUserId === watchedObj.userId && profileUserId === watchedObj.watchedUserId) { deleteWatched(watchedObj.id) }
         if (e.target.value === "cool") {
             if (watchedObj !== {} && watchedObj.watch === false) {
                 updateWatched(
@@ -95,7 +91,7 @@ export const WatchButton = (props) => {
                 )
             }
         }
-
+        
         if (e.target.value === "neutral") {
             deleteWatched(watchedObj.id)
         }
@@ -103,9 +99,9 @@ export const WatchButton = (props) => {
 
     return (
         <>
-            <h5 className="radio__header">Status</h5>
-            <div className="radio__group">
-                <label className="radio__cool">
+            <h5 className="radio-header">Status</h5>
+            <div className="radio-group">
+                <label className="radio-cool">
                     <input type="radio"
                         name="watch"
                         value="cool"
@@ -114,8 +110,8 @@ export const WatchButton = (props) => {
                     </input>
                 cool
             </label>
-                <label className="radio__avoid">
-                    <input className="avoid__input" type="radio"
+                <label className="radio-avoid">
+                    <input className="avoid-input" type="radio"
                         name="watch"
                         value="avoid"
                         checked={selectedOption === "avoid"}
@@ -123,8 +119,7 @@ export const WatchButton = (props) => {
                     </input>
                 avoid
             </label>
-                <label className="radio__neutral">
-
+                <label className="radio-neutral">
                     <input type="radio"
                         name="watch"
                         value="neutral"

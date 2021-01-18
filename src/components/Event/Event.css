@@ -1,11 +1,11 @@
-.event__name {
+.event-name {
   color: #18cae6;
   padding-bottom: 0;
 }
 
 .avoid-event-name {
   color: #ff0505;
-  /* margin-bottom: 0; */
+  
 }
 
 .card {
@@ -67,7 +67,7 @@
   color: #18cae6;
 }
 
-.eventForm {
+.event-form {
   margin: 0 0 0.3rem 0.5rem;
   color: #18cae6;
 }
@@ -85,15 +85,15 @@
   margin: 0.55rem;
 }
 
-.eventFormGroup {
+.event-form-group {
   margin: 0 0.5rem 0.5rem 0.5rem;
 }
 
-.dateForm {
+.date-form {
   margin: 1rem 6rem 0.5rem 0.5rem;
 }
 
-.event__creator__name {
+.event-creator-name {
   color: #18cae6;  
 }
 

@@ -1,6 +1,8 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 
+/* User name invoked in UserEventList for users that are atttending an event. Links to individual
+users profile or active user if their own name is clicked */
 
 export const User = ({ user }) => {
     
@@ -14,7 +16,7 @@ if (otherUser === activeUserId) {
     
         <>
         <section className="user">
-            <h6 className="user__name">
+            <h6 className="user-name">
                 
                 <Link to={`/profile/${activeUserId}`}> {user.name}</Link>
     
@@ -32,7 +34,7 @@ if (otherUser === activeUserId) {
     
     <>
     <section className="user">
-        <h6 className="user__name">
+        <h6 className="user-name">
             
             <Link to={`/profile/user/${user.id}`}> {user.name}</Link>
 

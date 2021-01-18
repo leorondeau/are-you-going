@@ -2,14 +2,17 @@ import React, { useState } from "react"
 
 export const WatchListContext = React.createContext()
 
+
+/*  GET, POST, DELETE methods for all data assoicated for Watched Users. */
+
 export const WatchProvider = (props) => {
-    // console.log("useState" , useState)
+    
     const [watch , setWatch] = useState([])
 
     const getWatch = () => {
         return fetch("http://localhost:8088/watchlist")
         .then(res => res.json())
-        // .then(res => console.log("res" ,res.json())) 
+        
         .then(setWatch)
     }
     
