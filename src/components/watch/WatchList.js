@@ -14,7 +14,7 @@ export const WatchList = (props) => {
 
     const [watched, setWatched] = useState([])
     const [usersName, setUsersName] = useState([])
-    
+
 
     useEffect(() => {
 
@@ -35,29 +35,43 @@ export const WatchList = (props) => {
 
     }, [watch, users])
 
-    // if (usersName.length  === 0) {
-    //     "Add someone to your scene"
-    // } else {
-
-        
-        
+    if (usersName.length === 0) {
         return (
-            
-            <>
-            <div className="drop-watch-menu" >
-                <Dropdown>
-                    <Dropdown.Toggle className="dropdown-button">Scene</Dropdown.Toggle>
-                    <Dropdown.Menu>
-                        <Dropdown.Item className="active-menu">
-                            {
-                                usersName.map(un => <Watched key={un.id} user={un}  />)
-                                
-                            }
-                        </Dropdown.Item>
-                    </Dropdown.Menu>
-                </Dropdown>
-            </div>
-        </>
-    )
-}
 
+            <>
+                <div className="drop-watch-menu" >
+                    <Dropdown>
+                        <Dropdown.Toggle className="dropdown-button">Scene</Dropdown.Toggle>
+                        <Dropdown.Menu>
+                            <Dropdown.Item className="active-filler">
+                                <p>{"Add users on their profile"}</p>
+                            </Dropdown.Item>
+                        </Dropdown.Menu>
+                    </Dropdown>
+                </div>
+            </>
+        )
+    } else {
+
+        return (
+
+            <>
+                <div className="drop-watch-menu" >
+                    <Dropdown>
+                        <Dropdown.Toggle className="dropdown-button">Scene</Dropdown.Toggle>
+                        <Dropdown.Menu>
+                            <Dropdown.Item className="active-menu">
+                                {
+                                    usersName.map(un => <Watched key={un.id} user={un} />)
+
+                                }
+                            </Dropdown.Item>
+                        </Dropdown.Menu>
+                    </Dropdown>
+                </div>
+            </>
+        )
+    }
+
+
+}
