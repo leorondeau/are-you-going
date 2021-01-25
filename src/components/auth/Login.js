@@ -47,7 +47,7 @@ export const Login = props => {
             <section>
                 <form className="form--login" onSubmit={handleLogin}>
                     <h1 className="login-title">Are you going?</h1>
-                    <h3>Please sign in</h3>
+                    
                     <fieldset>
                         <label htmlFor="inputEmail" className="input-info"> Email address </label>
                         <input ref={email} type="email"
