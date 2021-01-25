@@ -35,15 +35,18 @@ export const WatchList = (props) => {
 
     }, [watch, users])
 
+    // if (usersName.length  === 0) {
+    //     "Add someone to your scene"
+    // } else {
 
-    
-
-    return (
-
-        <>
+        
+        
+        return (
+            
+            <>
             <div className="drop-watch-menu" >
                 <Dropdown>
-                    <Dropdown.Toggle className="dropdown-button">Cohort</Dropdown.Toggle>
+                    <Dropdown.Toggle className="dropdown-button">Scene</Dropdown.Toggle>
                     <Dropdown.Menu>
                         <Dropdown.Item className="active-menu">
                             {
@@ -56,5 +59,5 @@ export const WatchList = (props) => {
             </div>
         </>
     )
-
 }
+
