@@ -1,0 +1,24 @@
+.login-title {
+  color: #18cae6;
+  font-family: "Orbitron", sans-serif;
+  opacity: 0.8;
+}
+
+.container--login {
+  padding: 0.8rem;
+}
+
+h3 {
+  color: rgb(87, 84, 84);
+}
+
+.input-info {
+  color: rgb(90, 90, 90);
+}
+
+.sign-button {
+  border: black;
+  background-color: black;
+  margin-bottom: 0.25rem;
+  color: #18cae6;
+}

@@ -8,7 +8,7 @@
 .profile-list {
   flex-basis: 81%;
   margin: 0;
-  padding: 0;
+  padding-left: .45em;
   border-radius: 5px;
   width: 100%;
   justify-content: space-evenly;
@@ -39,6 +39,13 @@
   padding: .55rem;
 }
 
+.active-eventList {
+  color:#18CAE6;
+  padding: .55rem;
+  font-family: 'Orbitron', sans-serif;
+  opacity: .9;
+  
+}
 
 
 

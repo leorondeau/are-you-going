@@ -1,6 +1,7 @@
 import React, { useRef } from "react"
 import { Link } from "react-router-dom";
 import "./Login.css"
+import Button from 'react-bootstrap/Button'
 
 
 export const Login = props => {
@@ -45,10 +46,10 @@ export const Login = props => {
             </dialog>
             <section>
                 <form className="form--login" onSubmit={handleLogin}>
-                    <h1>Are you going?</h1>
-                    <h2>Please sign in</h2>
+                    <h1 className="login-title">Are you going?</h1>
+                    
                     <fieldset>
-                        <label htmlFor="inputEmail"> Email address </label>
+                        <label htmlFor="inputEmail" className="input-info"> Email address </label>
                         <input ref={email} type="email"
                             id="email"
                             className="form-control"
@@ -56,7 +57,7 @@ export const Login = props => {
                             required autoFocus />
                     </fieldset>
                     <fieldset>
-                        <label htmlFor="inputPassword"> Password </label>
+                        <label htmlFor="inputPassword" className="input-info"> Password </label>
                         <input ref={password} type="password"
                             id="password"
                             className="form-control"
@@ -64,9 +65,9 @@ export const Login = props => {
                             required />
                     </fieldset>
                     <fieldset>
-                        <button type="submit">
+                        <Button className="sign-button" type="submit">
                             Sign in
-                        </button>
+                        </Button>
                     </fieldset>
                 </form>
             </section>

@@ -2,6 +2,13 @@
     background-color: black;
 }
 
+.active-filler {
+    background-color: black;
+    color:#18cae6;
+    opacity: .80;
+}
+
+
 .radio-cool {
     color: #08ff15;  
     padding: .55rem;

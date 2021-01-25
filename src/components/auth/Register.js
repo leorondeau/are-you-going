@@ -1,5 +1,6 @@
 import React, { useRef } from "react"
 import "./Login.css"
+import Button from 'react-bootstrap/Button'
 
 export const Register = (props) => {
     const userName = useRef()
@@ -54,7 +55,7 @@ export const Register = (props) => {
     }
 
     return (
-        <main style={{ textAlign: "center" }}>
+        <main style={{ textAlign: "center" }} className="container--login">
 
             <dialog className="dialog dialog--password" ref={passwordDialog}>
                 <div>Passwords do not match</div>
@@ -67,9 +68,9 @@ export const Register = (props) => {
             </dialog>
         
             <form className="form--login" onSubmit={handleRegister}>
-                <h1 className="h3 mb-3 font-weight-normal">Please Register for Application Name</h1>
-                <fieldset>
-                    <label htmlFor="userName"> User Name </label>
+                <h1 className="h3 mb-3 font-weight-normal login-title">Are you going?</h1>
+                <fieldset className="input-info">
+                    <label htmlFor="userName" >  </label>
                     <input ref={userName} type="text" name="userName" className="form-control" placeholder="user name" required autoFocus />
                 </fieldset>
                 <fieldset>
@@ -85,7 +86,7 @@ export const Register = (props) => {
                     <input ref={verifyPassword} type="password" name="verifyPassword" className="form-control" placeholder="Verify password" required />
                 </fieldset>
                 <fieldset>
-                    <button type="submit"> Sign in </button>
+                    <Button type="submit" className="sign-button"> Sign in </Button>
                 </fieldset>
             </form>
         </main>
