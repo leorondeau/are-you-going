@@ -50,7 +50,7 @@ export const UserEventList = (props) => {
             <>
                 <div className="users">
                     <section className="event-list">
-                        <h3>There's frickin' pandemic!</h3>
+                        <h3>Start this party!</h3>
 
                     </section>
                 </div>
@@ -62,7 +62,7 @@ export const UserEventList = (props) => {
         return (
             <>
                 <Dropdown className="users-list-dropdown">
-                    <Dropdown.Toggle className="event-list dropdown-button user-go-button">Going</Dropdown.Toggle>
+                    <Dropdown.Toggle className="event-list user-go-button">Going</Dropdown.Toggle>
                                 
                         <Dropdown.Menu>
                             <Dropdown.Item className="user-list-item">
