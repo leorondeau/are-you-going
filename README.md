@@ -3,7 +3,7 @@ AYG Are you going? was developed to display events chronologically in a simple f
 What sets AYG apart from other events apps is it's Watch feature which allows users to tag other users with cool, avoid and a default neutral setting. When any of those buttons are clicked the active user will be notified through a designated color on the landing page as well as their own profile if those users will be attending that event. This keeps them from having to search guest lists for their friends or people they don't enjoy. There is no interaction between users or knowledge of the tags. The app is intended for people to socialize in person and does not incentivize building followers or likes. 
 
 Technologies Used
-• React
+<p>• React<p>
 • HTML, CSS5
 • Bootstrap, Bootstrap-react
 
