@@ -22,8 +22,7 @@ Available Scripts
 
 `npm start`
 
-npm start
-<br>Runs the app in the development mode. Open http://localhost:3000 to view AYG in your browser.
+<br>This runs the app in the development mode. Open http://localhost:3000 to view AYG in your browser.
 
 Database
 <br>You must run JSON server in another instance of your terminal so you will have access to the data that AYG is capturing. 
