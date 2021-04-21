@@ -107,7 +107,7 @@ export const EventForm = (props) => {
                 
             </Form.Group>
             <Form.Group className="event-form-group">                
-                    <Form.Label className="eventForm" htmlFor="location">Location</Form.Label>
+                    <Form.Label className="event-form" htmlFor="location">Location</Form.Label>
                     <Form.Control type="text" name="location" required autoFocus className="form-control" 
                         proptype="varchar"
                         placeholder=""
@@ -116,7 +116,7 @@ export const EventForm = (props) => {
                     />                
             </Form.Group>
             <Form.Group className="event-form-group">                
-                    <Form.Label className="eventForm" htmlFor="details">Details</Form.Label>
+                    <Form.Label className="event-form" htmlFor="details">Details</Form.Label>
                     <Form.Control type="text" name="details" required autoFocus className="form-control" 
                         proptype="varchar"
                         placeholder=""

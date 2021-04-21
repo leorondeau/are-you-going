@@ -26,8 +26,8 @@ export const ActiveOwnEvent = ({ event }) => {
 
     useEffect(() => {
 
-        // const usersEventId = usersEvents.find(ue => ue.eventId === event.id) || {} 
-        //     setUserEventId(usersEventId)
+        const usersEventId = usersEvents.find(ue => ue.eventId === event.id) || {} 
+            setUserEventId(usersEventId)
         // console.log("userEventId" , usersEventId.id)
 
     }, [events, usersEvents])
@@ -49,8 +49,10 @@ export const ActiveOwnEvent = ({ event }) => {
 
                 <Button type="button" className="event-button" block type="button" onClick={
                     () => {
-                        // deleteUsersEvent(userEventId)
+                        
                         deleteOwnerEvent(event)
+                        .then(() => getEvents)
+                        .then(getUsersEvents)
                     }
                 }>Remove</Button>
             </Card>
