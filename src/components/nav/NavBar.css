@@ -6,18 +6,19 @@
     background-color: #e61818 ;
 
 }
-
+/* 
 .navbar-group {
     display: flex;
     flex-wrap: wrap;
     flex-direction: row;
-    justify-content: space-evenly;
-}
+    justify-content: space-between;
+} */
 
 .navbar {
     
     background-color: black;
-    color: #18CAE6
+    color: #18CAE6;
+    justify-content: space-around;
 }
 
 .nav-links {
@@ -27,11 +28,17 @@
 }
 
 .nav-toggle {
+    font-family: 'Orbitron', sans-serif; 
     border: 5px solid #e61818;
-    background-color: black;
+    background-color: #e61818;
     border-radius: 20px;
     margin-top: 0px;
-    padding: 9px 18px 9px 18px;
+    padding: px;
+    color: #18CAE6; 
+}
+
+.mr-auto {
+    justify-content: space-between;
 }
 
 /* .nav-titles {
