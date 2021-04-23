@@ -18,9 +18,9 @@ export const ActiveOwnEvent = ({ event }) => {
     const date = event.startDate
 
     useEffect(()=> {
-        
-        getUsersEvents()
-        .then(getEvents)
+  
+        getEvents()
+        .then(() => getUsersEvents)
 
     }, [])
 
@@ -28,10 +28,10 @@ export const ActiveOwnEvent = ({ event }) => {
 
         const usersEventId = usersEvents.find(ue => ue.eventId === event.id) || {} 
             setUserEventId(usersEventId)
-        // console.log("userEventId" , usersEventId.id)
+        
 
     }, [events, usersEvents])
-
+  
     const newDate = new Date(date)
 
     return (
@@ -50,10 +50,12 @@ export const ActiveOwnEvent = ({ event }) => {
                 <Button type="button" className="event-button" block type="button" onClick={
                     () => {
                         
+                        if(window.confirm("Delete this event?")) {
                         deleteOwnerEvent(event)
-                        .then(() => getEvents)
-                        .then(getUsersEvents)
-                    }
+                        .then(deleteUsersEvent(userEventId.id))
+                        .then(getEvents)
+                        
+                    }}
                 }>Remove</Button>
             </Card>
 
