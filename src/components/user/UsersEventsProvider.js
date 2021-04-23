@@ -6,13 +6,12 @@ export const UserEventContext = React.createContext()
 /*  GET, POST, DELETE methods for all data assoicated with Users Events. */
 
 export const UsersEventProvider = (props) => {
-    // console.log("useState" , useState)
+    
     const [usersEvents , setUsersEvents] = useState([])
 
     const getUsersEvents = () => {
         return fetch("http://localhost:8088/usersEvents")
         .then(res => res.json())
-        // .then(res => console.log("res" ,res.json())) 
         .then(setUsersEvents)
     }
     
