@@ -10,14 +10,14 @@ export const ActiveGoEventList = (props) => {
 
     const activeUserId = parseInt(localStorage.getItem("ayg__id"))
     
-    // Object destructuring
+    
 
     const { events, getEvents } = useContext(EventContext)
     const { usersEvents, getUsersEvents } = useContext(UserEventContext)
 
     const [selectedEvent, setSelectedEvent] = useState([])
     const [eventName, setEventName] = useState([])
-
+    
     useEffect(() => {
 
         getEvents()
@@ -34,7 +34,7 @@ export const ActiveGoEventList = (props) => {
             return events.find(eve => aue.eventId === eve.id)}) || {}
         setEventName(eventNames)
 
-    }, [events , usersEvents ])
+    }, [usersEvents ])
 
     return (
         <>
