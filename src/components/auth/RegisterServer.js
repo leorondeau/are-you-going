@@ -1,12 +1,13 @@
 import React from "react"
 import { Link } from "react-router-dom"
 import "./Login.css"
+import Button from 'react-bootstrap/Button'
 
 export const Register = (props) => {
     const firstName = React.createRef()
     const lastName = React.createRef()
+    const username = React.createRef()
     const email = React.createRef()
-    const bio = React.createRef()
     const password = React.createRef()
     const verifyPassword = React.createRef()
     const passwordDialog = React.createRef()
@@ -16,10 +17,9 @@ export const Register = (props) => {
 
         if (password.current.value === verifyPassword.current.value) {
             const newUser = {
-                "username": email.current.value,
+                "username": username.current.value,
                 "first_name": firstName.current.value,
                 "last_name": lastName.current.value,
-                "bio": bio.current.value,
                 "email": email.current.value,
                 "password": password.current.value
             }
@@ -55,6 +55,10 @@ export const Register = (props) => {
             <form className="form--login" onSubmit={handleRegister}>
                 <h1 className="h3 mb-3 font-weight-normal">Register an account</h1>
                 <fieldset>
+                    <label htmlFor="username"> Username</label>
+                    <input ref={username} type="textt" name="username" className="form-control" placeholder="username" required />
+                </fieldset>
+                <fieldset>
                     <label htmlFor="firstName"> First Name </label>
                     <input ref={firstName} type="text" name="firstName" className="form-control" placeholder="First name" required autoFocus />
                 </fieldset>
@@ -74,11 +78,12 @@ export const Register = (props) => {
                     <label htmlFor="verifyPassword"> Verify Password </label>
                     <input ref={verifyPassword} type="password" name="verifyPassword" className="form-control" placeholder="Verify password" required />
                 </fieldset>
+  
 
                 <fieldset style={{
                     textAlign: "center"
                 }}>
-                    <button className="btn btn-1 btn-sep icon-send" type="submit">Register</button>
+                    <Button className="btn btn-1 btn-sep icon-send" type="submit">Register</Button>
                 </fieldset>
             </form>
             <section className="link--register">
