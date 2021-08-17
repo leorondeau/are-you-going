@@ -9,8 +9,12 @@ export const EventProvider = (props) => {
     const [searchTerms, setSearchTerms] = useState("")
 
     const getEvents = () => {
-        
-        return fetch("http://localhost:8088/events")
+
+        return fetch("http://localhost:8000/events", {
+            headers: {
+                "Authorization": `Token ${localStorage.getItem("ayg_token")}`
+            }
+        })
             .then(res => res.json())
             .then(res => res.sort((a, b) => Date.parse(a.startDate) - Date.parse(b.startDate))
             )
@@ -23,13 +27,13 @@ export const EventProvider = (props) => {
     // If uncertain embed will give empty array if no fk
     // One to many relationship, embed
     const getEventById = (id) => {
-        return fetch(`http://localhost:8088/events/${id}?_expand=user`)
+        return fetch(`http://localhost:8000/events/${id}?_expand=user`)
             .then(res => res.json())
     }
 
 
     const addEvent = event => {
-        return fetch("http://localhost:8088/events", {
+        return fetch("http://localhost:8000/events", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json"
@@ -39,7 +43,7 @@ export const EventProvider = (props) => {
             .then(getEvents)
     }
     const deleteOwnerEvent = event => {
-        return fetch(`http://localhost:8088/events/${event.id}`, {
+        return fetch(`http://localhost:8000/events/${event.id}`, {
             method: "DELETE"
         })
             .then(getEvents)
@@ -48,7 +52,7 @@ export const EventProvider = (props) => {
 
     // Whenever altering an existing entity the fetch url must have the id
     const updateEvent = event => {
-        return fetch(`http://localhost:8088/events/${event.id}`, {
+        return fetch(`http://localhost:8000/events/${event.id}`, {
             method: "PUT",
             headers: {
                 "Content-Type": "application/json"

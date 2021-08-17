@@ -7,7 +7,8 @@ import "./NavBar.css"
 /* Navbar styled useing bootstrap-react. Imports may be necessary to run */
 
 export const NavBar = () => {
-    const userId = parseInt(localStorage.getItem("ayg__id"))
+    const userId = parseInt(localStorage.getItem("ayg__token"))
+    console.log('userId', userId)
     return (
         <>
                 <h6>

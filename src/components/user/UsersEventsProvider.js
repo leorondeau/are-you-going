@@ -10,14 +10,14 @@ export const UsersEventProvider = (props) => {
     const [usersEvents , setUsersEvents] = useState([])
 
     const getUsersEvents = () => {
-        return fetch("http://localhost:8088/usersEvents")
+        return fetch("http://localhost:8000/usersEvents")
         .then(res => res.json())
         .then(setUsersEvents)
     }
     
     
     const addUsersEvents = usersEvent => {
-        return fetch("http://localhost:8088/usersEvents", {
+        return fetch("http://localhost:8000/usersEvents", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json"
@@ -28,7 +28,7 @@ export const UsersEventProvider = (props) => {
     }
 
     const deleteUsersEvent = id => {
-        return fetch(`http://localhost:8088/usersEvents/${id}`, {
+        return fetch(`http://localhost:8000/usersEvents/${id}`, {
             method: "DELETE",
         })
         .then(getUsersEvents)
