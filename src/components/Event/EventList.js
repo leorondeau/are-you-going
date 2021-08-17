@@ -28,7 +28,7 @@ export const EventList = (props) => {
     useEffect(() => {
 
     }, [users ,events])
-
+console.log('users', users)
     return (
         <>
             <div className="events">
