@@ -10,7 +10,7 @@ export const WatchProvider = (props) => {
     const [watch , setWatch] = useState([])
 
     const getWatch = () => {
-        return fetch("http://localhost:8088/watchlist")
+        return fetch("http://localhost:8000/watchlist")
         .then(res => res.json())
         
         .then(setWatch)
@@ -18,7 +18,7 @@ export const WatchProvider = (props) => {
     
 
     const addWatched = watch => {
-        return fetch("http://localhost:8088/watchlist", {
+        return fetch("http://localhost:8000/watchlist", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json"
@@ -29,7 +29,7 @@ export const WatchProvider = (props) => {
     }
 
     const updateWatched = watch => {
-        return fetch(`http://localhost:8088/watchlist/${watch.id}`, {
+        return fetch(`http://localhost:8000/watchlist/${watch.id}`, {
             method: "PUT",
             headers: {
                 "Content-Type": "application/json"
@@ -39,7 +39,7 @@ export const WatchProvider = (props) => {
             .then(getWatch)
     }
     const deleteWatched = id => {
-        return fetch(`http://localhost:8088/watchlist/${id}`, {
+        return fetch(`http://localhost:8000/watchlist/${id}`, {
             method: "DELETE",
         })
         .then(getWatch)
