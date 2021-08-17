@@ -5,49 +5,46 @@ import Button from 'react-bootstrap/Button'
 
 
 export const Login = props => {
-    const email = useRef()
-    const password = useRef()
-    const existDialog = useRef()
-    const passwordDialog = useRef()
-
-    const existingUserCheck = () => {
-        // If your json-server URL is different, please change it below!
-        return fetch(`http://localhost:8088/users?email=${email.current.value}`)
-            .then(_ => _.json())
-            .then(user => user.length ? user[0] : false)
-    }
+    const email = React.createRef()
+    const password = React.createRef()
+    const invalidDialog = React.createRef()
 
     const handleLogin = (e) => {
         e.preventDefault()
 
-        existingUserCheck()
-            .then(exists => {
-                if (exists && exists.password === password.current.value) {
-                    // The user id is saved under the key app_user_id in local Storage. Change below if needed!
-                    localStorage.setItem("ayg__id", exists.id)
+        return fetch("http://127.0.0.1:8000/login", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+                "Accept": "application/json"
+            },
+            body: JSON.stringify({
+                username: email.current.value,
+                password: password.current.value
+            })
+        })
+            .then(res => res.json())
+            .then(res => {
+                if ("valid" in res && res.valid && "token" in res) {
+                    localStorage.setItem("ayg_token", res.token)
                     props.history.push("/")
-                } else if (exists && exists.password !== password.current.value) {
-                    passwordDialog.current.showModal()
-                } else if (!exists) {
-                    existDialog.current.showModal()
+                }
+                else {
+                    invalidDialog.current.showModal()
                 }
             })
     }
 
     return (
         <main className="container--login">
-            <dialog className="dialog dialog--auth" ref={existDialog}>
-                <div>User does not exist</div>
-                <button className="button--close" onClick={e => existDialog.current.close()}>Close</button>
-            </dialog>
-            <dialog className="dialog dialog--password" ref={passwordDialog}>
-                <div>Password does not match</div>
-                <button className="button--close" onClick={e => passwordDialog.current.close()}>Close</button>
+            <dialog className="dialog dialog--auth" ref={invalidDialog}>
+                <div>Email or password was not valid.</div>
+                <button className="button--close" onClick={e => invalidDialog.current.close()}>Close</button>
             </dialog>
             <section>
                 <form className="form--login" onSubmit={handleLogin}>
                     <h1 className="login-title">Are you going?</h1>
-                    
+
                     <fieldset>
                         <label htmlFor="inputEmail" className="input-info"> Email address </label>
                         <input ref={email} type="email"
