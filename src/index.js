@@ -1,7 +1,7 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import { BrowserRouter as Router } from "react-router-dom"
-import { AreYouGoing } from "./components/AreYouGoing"
+import { AreYouGoing } from "./components/AreYouGoing.js"
 import "./index.css";
 
 // import reportWebVitals from './reportWebVitals';
