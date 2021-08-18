@@ -21,9 +21,10 @@ export const ApplicationViews = (props) => {
                         <WatchProvider>
 
 
-                            <Route exact path="/" render={
-                                props => <EventList {...props} />
-                            } />
+                            <Route exact path="/" render={(props) => {
+                                return <EventList {...props} />
+                            }}>
+                            </Route>
                             <Route exact path="/events" render={
                                 props => <EventForm {...props} />
                             } />

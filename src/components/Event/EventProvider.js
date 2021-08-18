@@ -27,7 +27,11 @@ export const EventProvider = (props) => {
     // If uncertain embed will give empty array if no fk
     // One to many relationship, embed
     const getEventById = (id) => {
-        return fetch(`http://localhost:8000/events/${id}?_expand=user`)
+        return fetch(`http://localhost:8000/events/${id}?_expand=user`, {
+            headers: {
+                "Authorization": `Token ${localStorage.getItem("ayg_token")}`
+            }
+        })
             .then(res => res.json())
     }
 
@@ -36,6 +40,7 @@ export const EventProvider = (props) => {
         return fetch("http://localhost:8000/events", {
             method: "POST",
             headers: {
+                "Authorization": `Token ${localStorage.getItem("ayg_token")}`,
                 "Content-Type": "application/json"
             },
             body: JSON.stringify(event)
@@ -44,7 +49,11 @@ export const EventProvider = (props) => {
     }
     const deleteOwnerEvent = event => {
         return fetch(`http://localhost:8000/events/${event.id}`, {
-            method: "DELETE"
+            method: "DELETE",
+            headers: {
+                "Authorization": `Token ${localStorage.getItem("ayg_token")}`,
+                "Content-Type": "application/json"
+            }
         })
             .then(getEvents)
     }
@@ -55,6 +64,7 @@ export const EventProvider = (props) => {
         return fetch(`http://localhost:8000/events/${event.id}`, {
             method: "PUT",
             headers: {
+                "Authorization": `Token ${localStorage.getItem("ayg_token")}`,
                 "Content-Type": "application/json"
             },
             body: JSON.stringify(event)

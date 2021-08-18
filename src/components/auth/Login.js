@@ -20,7 +20,7 @@ export const Login = props => {
             },
             body: JSON.stringify({
                 username: email.current.value,
-                password: password.current.value
+                password: password.current.value    
             })
         })
             .then(res => res.json())
